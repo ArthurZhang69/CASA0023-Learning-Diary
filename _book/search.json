@@ -1,0 +1,92 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CASA0023 Learnning Diary",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "Week1.html",
+    "href": "Week1.html",
+    "title": "1  Week 1 – Introduction to Earth Observation and the EO Dashboard",
+    "section": "",
+    "text": "2 Week 1 – Introduction to Earth Observation",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span>"
+    ]
+  },
+  {
+    "objectID": "Week1.html#summary",
+    "href": "Week1.html#summary",
+    "title": "1  Week 1 – Introduction to Earth Observation and the EO Dashboard",
+    "section": "2.1 Summary",
+    "text": "2.1 Summary\nThis week introduced the conceptual foundations of Earth Observation (EO) and the overall aims of the module. A central focus was the EO Dashboard, which aggregates satellite-derived indicators from missions such as Sentinel and Landsat to visualise environmental change across space and time. What struck me most was how complex spectral data are translated into accessible, policy-facing narratives. Instead of interacting directly with raw raster datasets, users engage with processed indicators such as NO₂ concentration, land surface temperature, and vegetation indices.\nA key technical takeaway was the importance of spatial and temporal resolution trade-offs. Sentinel-2 provides 10 m spatial resolution with frequent revisit times, making it suitable for intra-urban analysis. Landsat, while coarser at 30 m resolution, offers a long historical archive (since the 1980s), which supports longitudinal environmental monitoring (Wulder et al., 2019). These trade-offs highlight that dataset choice fundamentally shapes analytical outcomes.\nThe week also emphasised reproducibility and workflow management using GitHub and Quarto. EO analysis is not just about imagery interpretation; it involves data management, version control, and transparent documentation.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span>"
+    ]
+  },
+  {
+    "objectID": "Week1.html#applications",
+    "href": "Week1.html#applications",
+    "title": "1  Week 1 – Introduction to Earth Observation and the EO Dashboard",
+    "section": "2.2 Applications",
+    "text": "2.2 Applications\nEO dashboards demonstrate how satellite data are increasingly embedded in environmental governance. For example, Sentinel-5P satellite data were widely used to assess NO₂ reductions during COVID-19 lockdowns, revealing measurable atmospheric change linked to mobility restrictions (Bauwens et al., 2020; Venter et al., 2020). Similarly, land surface temperature derived from thermal sensors has informed urban heat island research and climate adaptation planning (Voogt & Oke, 2003; Li et al., 2019).\nThese applications illustrate how EO data can support Sustainable Development Goals (SDGs), particularly those relating to climate action, sustainable cities, and environmental health. However, dashboards necessarily abstract complex processing steps such as atmospheric correction, radiometric calibration, and cloud masking (Jones & Vaughan, 2010). While this abstraction enhances accessibility, it may obscure methodological uncertainty.\nThe distinction between Sentinel and Landsat also reflects broader research design considerations. High-resolution data enable neighbourhood-scale environmental analysis, while long-term archives support trend detection and policy evaluation. Many contemporary studies integrate both datasets to leverage spatial detail and temporal depth, illustrating the multi-source nature of modern EO research.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span>"
+    ]
+  },
+  {
+    "objectID": "Week1.html#reflection",
+    "href": "Week1.html#reflection",
+    "title": "1  Week 1 – Introduction to Earth Observation and the EO Dashboard",
+    "section": "2.3 Reflection",
+    "text": "2.3 Reflection\nThis week positioned EO not simply as satellite imagery, but as an infrastructural system linking science, technology, and governance. The EO Dashboard presents environmental change as measurable and visual, yet the selection of indicators and spatial scales shapes how problems are framed. What is monitored becomes what is prioritised.\nFrom a spatial analysis perspective, I am particularly interested in how EO indicators might be integrated with socio-economic data to examine environmental inequality. For instance, combining NDVI-derived vegetation measures with deprivation indices could reveal patterns of uneven access to green space. However, integrating raster EO data with census geographies introduces methodological challenges such as scale mismatch and the modifiable areal unit problem (MAUP).\nOverall, Week 1 has highlighted that EO is not just technical measurement but a form of spatial evidence production. Moving forward, I aim to better understand how spectral data are transformed into policy-relevant indicators, and how that transformation can be critically evaluated.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span>"
+    ]
+  },
+  {
+    "objectID": "Week1.html#references",
+    "href": "Week1.html#references",
+    "title": "1  Week 1 – Introduction to Earth Observation and the EO Dashboard",
+    "section": "2.4 References",
+    "text": "2.4 References\nBauwens, M., Compernolle, S., Stavrakou, T., Müller, J.-F., van Gent, J., Eskes, H., et al. (2020). Impact of COVID-19 lockdown on NO₂ pollution assessed using TROPOMI and surface observations.\nJones, H. G., & Vaughan, R. A. (2010). Remote Sensing of Vegetation: Principles, Techniques, and Applications. Oxford University Press.\nLi, D., Bou-Zeid, E., & Oppenheimer, M. (2019). The effectiveness of cool and green roofs as urban heat island mitigation strategies.\nVenter, Z. S., Aunan, K., Chowdhury, S., & Lelieveld, J. (2020). COVID-19 lockdowns cause global air pollution declines.\nVoogt, J. A., & Oke, T. R. (2003). Thermal remote sensing of urban climates.\nWulder, M. A., et al. (2019). Current status of Landsat program science and applications.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "2  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "3  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "References"
+    ]
+  }
+]
