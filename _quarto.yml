@@ -1,19 +1,16 @@
 project:
   type: book
-
 book:
   title: "CASA0023 Learnning Diary"
-  author: "Norah Jones"
+  author: "Arthur Zhang"
   date: "2026/2/19"
   chapters:
     - index.qmd
     - Week1.qmd
-    - intro.qmd
     - summary.qmd
+    - week3_corrections.qmd
     - references.qmd
-
 bibliography: references.bib
-
 format:
   html:
     theme:
@@ -21,6 +18,4 @@ format:
       - brand
   pdf:
     documentclass: scrreprt
-
 editor: visual
-

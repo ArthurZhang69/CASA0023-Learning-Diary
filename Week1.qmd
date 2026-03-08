@@ -9,11 +9,17 @@ format: html
 
 This week introduced the conceptual foundations of Earth Observation (EO) and the overall aims of the module. A central focus was the EO Dashboard, which aggregates satellite-derived indicators from missions such as Sentinel and Landsat to visualise environmental change across space and time. What struck me most was how complex spectral data are translated into accessible, policy-facing narratives. Instead of interacting directly with raw raster datasets, users engage with processed indicators such as NO₂ concentration, land surface temperature, and vegetation indices.
 
+![](images/clipboard-286994931.png)
+
 A key technical takeaway was the importance of spatial and temporal resolution trade-offs. Sentinel-2 provides 10 m spatial resolution with frequent revisit times, making it suitable for intra-urban analysis. Landsat, while coarser at 30 m resolution, offers a long historical archive (since the 1980s), which supports longitudinal environmental monitoring (Wulder et al., 2019). These trade-offs highlight that dataset choice fundamentally shapes analytical outcomes.
 
-The week also emphasised reproducibility and workflow management using GitHub and Quarto. EO analysis is not just about imagery interpretation; it involves data management, version control, and transparent documentation.
+Prior to computation, all bands were resampled to a common spatial resolution to ensure pixel-level alignment. This step is essential, as bands with different spatial resolutions (10 m vs 20 m) cannot be directly combined without introducing spatial inconsistency. The Brightness image highlighted highly reflective urban surfaces and industrial areas, while water bodies appeared dark. Greenness strongly enhanced vegetated areas, and Wetness clearly separated water and moist surfaces from built-up areas.
+
+![](images/clipboard-3385457097.png)
 
 ------------------------------------------------------------------------
+
+## ![](images/clipboard-1105311166.png)![](images/clipboard-2536540042.png)![](images/clipboard-403720106.png)
 
 ## Applications
 

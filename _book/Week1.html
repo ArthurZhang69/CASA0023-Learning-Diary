@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./summary.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -122,14 +122,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./week3_corrections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -151,9 +151,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#week-1-introduction-to-earth-observation" id="toc-week-1-introduction-to-earth-observation" class="nav-link active" data-scroll-target="#week-1-introduction-to-earth-observation"><span class="header-section-number">2</span> Week 1 – Introduction to Earth Observation</a>
   <ul class="collapse">
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">2.1</span> Summary</a></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">2.2</span> Applications</a></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">2.3</span> Reflection</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.4</span> References</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">2.2</span> <img src="images/clipboard-1105311166.png" class="img-fluid"><img src="images/clipboard-2536540042.png" class="img-fluid"><img src="images/clipboard-403720106.png" class="img-fluid"></a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">2.3</span> Applications</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">2.4</span> Reflection</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.5</span> References</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -185,26 +186,31 @@ ul.task-list li input[type="checkbox"] {
 <section id="summary" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.1</span> Summary</h2>
 <p>This week introduced the conceptual foundations of Earth Observation (EO) and the overall aims of the module. A central focus was the EO Dashboard, which aggregates satellite-derived indicators from missions such as Sentinel and Landsat to visualise environmental change across space and time. What struck me most was how complex spectral data are translated into accessible, policy-facing narratives. Instead of interacting directly with raw raster datasets, users engage with processed indicators such as NO₂ concentration, land surface temperature, and vegetation indices.</p>
+<p><img src="images/clipboard-286994931.png" class="img-fluid"></p>
 <p>A key technical takeaway was the importance of spatial and temporal resolution trade-offs. Sentinel-2 provides 10 m spatial resolution with frequent revisit times, making it suitable for intra-urban analysis. Landsat, while coarser at 30 m resolution, offers a long historical archive (since the 1980s), which supports longitudinal environmental monitoring (Wulder et al., 2019). These trade-offs highlight that dataset choice fundamentally shapes analytical outcomes.</p>
-<p>The week also emphasised reproducibility and workflow management using GitHub and Quarto. EO analysis is not just about imagery interpretation; it involves data management, version control, and transparent documentation.</p>
+<p>Prior to computation, all bands were resampled to a common spatial resolution to ensure pixel-level alignment. This step is essential, as bands with different spatial resolutions (10 m vs 20 m) cannot be directly combined without introducing spatial inconsistency. The Brightness image highlighted highly reflective urban surfaces and industrial areas, while water bodies appeared dark. Greenness strongly enhanced vegetated areas, and Wetness clearly separated water and moist surfaces from built-up areas.</p>
+<p><img src="images/clipboard-3385457097.png" class="img-fluid"></p>
 <hr>
 </section>
-<section id="applications" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="applications"><span class="header-section-number">2.2</span> Applications</h2>
+<section id="section" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="section"><span class="header-section-number">2.2</span> <img src="images/clipboard-1105311166.png" class="img-fluid"><img src="images/clipboard-2536540042.png" class="img-fluid"><img src="images/clipboard-403720106.png" class="img-fluid"></h2>
+</section>
+<section id="applications" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="applications"><span class="header-section-number">2.3</span> Applications</h2>
 <p>EO dashboards demonstrate how satellite data are increasingly embedded in environmental governance. For example, Sentinel-5P satellite data were widely used to assess NO₂ reductions during COVID-19 lockdowns, revealing measurable atmospheric change linked to mobility restrictions (Bauwens et al., 2020; Venter et al., 2020). Similarly, land surface temperature derived from thermal sensors has informed urban heat island research and climate adaptation planning (Voogt &amp; Oke, 2003; Li et al., 2019).</p>
 <p>These applications illustrate how EO data can support Sustainable Development Goals (SDGs), particularly those relating to climate action, sustainable cities, and environmental health. However, dashboards necessarily abstract complex processing steps such as atmospheric correction, radiometric calibration, and cloud masking (Jones &amp; Vaughan, 2010). While this abstraction enhances accessibility, it may obscure methodological uncertainty.</p>
 <p>The distinction between Sentinel and Landsat also reflects broader research design considerations. High-resolution data enable neighbourhood-scale environmental analysis, while long-term archives support trend detection and policy evaluation. Many contemporary studies integrate both datasets to leverage spatial detail and temporal depth, illustrating the multi-source nature of modern EO research.</p>
 <hr>
 </section>
-<section id="reflection" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="reflection"><span class="header-section-number">2.3</span> Reflection</h2>
+<section id="reflection" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="reflection"><span class="header-section-number">2.4</span> Reflection</h2>
 <p>This week positioned EO not simply as satellite imagery, but as an infrastructural system linking science, technology, and governance. The EO Dashboard presents environmental change as measurable and visual, yet the selection of indicators and spatial scales shapes how problems are framed. What is monitored becomes what is prioritised.</p>
 <p>From a spatial analysis perspective, I am particularly interested in how EO indicators might be integrated with socio-economic data to examine environmental inequality. For instance, combining NDVI-derived vegetation measures with deprivation indices could reveal patterns of uneven access to green space. However, integrating raster EO data with census geographies introduces methodological challenges such as scale mismatch and the modifiable areal unit problem (MAUP).</p>
 <p>Overall, Week 1 has highlighted that EO is not just technical measurement but a form of spatial evidence production. Moving forward, I aim to better understand how spectral data are transformed into policy-relevant indicators, and how that transformation can be critically evaluated.</p>
 <hr>
 </section>
-<section id="references" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="references"><span class="header-section-number">2.4</span> References</h2>
+<section id="references" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="references"><span class="header-section-number">2.5</span> References</h2>
 <p>Bauwens, M., Compernolle, S., Stavrakou, T., Müller, J.-F., van Gent, J., Eskes, H., et al.&nbsp;(2020). Impact of COVID-19 lockdown on NO₂ pollution assessed using TROPOMI and surface observations.</p>
 <p>Jones, H. G., &amp; Vaughan, R. A. (2010). <em>Remote Sensing of Vegetation: Principles, Techniques, and Applications</em>. Oxford University Press.</p>
 <p>Li, D., Bou-Zeid, E., &amp; Oppenheimer, M. (2019). The effectiveness of cool and green roofs as urban heat island mitigation strategies.</p>
@@ -624,8 +630,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

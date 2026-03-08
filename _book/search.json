@@ -24,7 +24,7 @@
     "href": "Week1.html#summary",
     "title": "1  Week 1 – Introduction to Earth Observation and the EO Dashboard",
     "section": "2.1 Summary",
-    "text": "2.1 Summary\nThis week introduced the conceptual foundations of Earth Observation (EO) and the overall aims of the module. A central focus was the EO Dashboard, which aggregates satellite-derived indicators from missions such as Sentinel and Landsat to visualise environmental change across space and time. What struck me most was how complex spectral data are translated into accessible, policy-facing narratives. Instead of interacting directly with raw raster datasets, users engage with processed indicators such as NO₂ concentration, land surface temperature, and vegetation indices.\nA key technical takeaway was the importance of spatial and temporal resolution trade-offs. Sentinel-2 provides 10 m spatial resolution with frequent revisit times, making it suitable for intra-urban analysis. Landsat, while coarser at 30 m resolution, offers a long historical archive (since the 1980s), which supports longitudinal environmental monitoring (Wulder et al., 2019). These trade-offs highlight that dataset choice fundamentally shapes analytical outcomes.\nThe week also emphasised reproducibility and workflow management using GitHub and Quarto. EO analysis is not just about imagery interpretation; it involves data management, version control, and transparent documentation.",
+    "text": "2.1 Summary\nThis week introduced the conceptual foundations of Earth Observation (EO) and the overall aims of the module. A central focus was the EO Dashboard, which aggregates satellite-derived indicators from missions such as Sentinel and Landsat to visualise environmental change across space and time. What struck me most was how complex spectral data are translated into accessible, policy-facing narratives. Instead of interacting directly with raw raster datasets, users engage with processed indicators such as NO₂ concentration, land surface temperature, and vegetation indices.\n\nA key technical takeaway was the importance of spatial and temporal resolution trade-offs. Sentinel-2 provides 10 m spatial resolution with frequent revisit times, making it suitable for intra-urban analysis. Landsat, while coarser at 30 m resolution, offers a long historical archive (since the 1980s), which supports longitudinal environmental monitoring (Wulder et al., 2019). These trade-offs highlight that dataset choice fundamentally shapes analytical outcomes.\nPrior to computation, all bands were resampled to a common spatial resolution to ensure pixel-level alignment. This step is essential, as bands with different spatial resolutions (10 m vs 20 m) cannot be directly combined without introducing spatial inconsistency. The Brightness image highlighted highly reflective urban surfaces and industrial areas, while water bodies appeared dark. Greenness strongly enhanced vegetated areas, and Wetness clearly separated water and moist surfaces from built-up areas.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span>"
     ]
@@ -33,8 +33,8 @@
     "objectID": "Week1.html#applications",
     "href": "Week1.html#applications",
     "title": "1  Week 1 – Introduction to Earth Observation and the EO Dashboard",
-    "section": "2.2 Applications",
-    "text": "2.2 Applications\nEO dashboards demonstrate how satellite data are increasingly embedded in environmental governance. For example, Sentinel-5P satellite data were widely used to assess NO₂ reductions during COVID-19 lockdowns, revealing measurable atmospheric change linked to mobility restrictions (Bauwens et al., 2020; Venter et al., 2020). Similarly, land surface temperature derived from thermal sensors has informed urban heat island research and climate adaptation planning (Voogt & Oke, 2003; Li et al., 2019).\nThese applications illustrate how EO data can support Sustainable Development Goals (SDGs), particularly those relating to climate action, sustainable cities, and environmental health. However, dashboards necessarily abstract complex processing steps such as atmospheric correction, radiometric calibration, and cloud masking (Jones & Vaughan, 2010). While this abstraction enhances accessibility, it may obscure methodological uncertainty.\nThe distinction between Sentinel and Landsat also reflects broader research design considerations. High-resolution data enable neighbourhood-scale environmental analysis, while long-term archives support trend detection and policy evaluation. Many contemporary studies integrate both datasets to leverage spatial detail and temporal depth, illustrating the multi-source nature of modern EO research.",
+    "section": "2.3 Applications",
+    "text": "2.3 Applications\nEO dashboards demonstrate how satellite data are increasingly embedded in environmental governance. For example, Sentinel-5P satellite data were widely used to assess NO₂ reductions during COVID-19 lockdowns, revealing measurable atmospheric change linked to mobility restrictions (Bauwens et al., 2020; Venter et al., 2020). Similarly, land surface temperature derived from thermal sensors has informed urban heat island research and climate adaptation planning (Voogt & Oke, 2003; Li et al., 2019).\nThese applications illustrate how EO data can support Sustainable Development Goals (SDGs), particularly those relating to climate action, sustainable cities, and environmental health. However, dashboards necessarily abstract complex processing steps such as atmospheric correction, radiometric calibration, and cloud masking (Jones & Vaughan, 2010). While this abstraction enhances accessibility, it may obscure methodological uncertainty.\nThe distinction between Sentinel and Landsat also reflects broader research design considerations. High-resolution data enable neighbourhood-scale environmental analysis, while long-term archives support trend detection and policy evaluation. Many contemporary studies integrate both datasets to leverage spatial detail and temporal depth, illustrating the multi-source nature of modern EO research.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span>"
     ]
@@ -43,8 +43,8 @@
     "objectID": "Week1.html#reflection",
     "href": "Week1.html#reflection",
     "title": "1  Week 1 – Introduction to Earth Observation and the EO Dashboard",
-    "section": "2.3 Reflection",
-    "text": "2.3 Reflection\nThis week positioned EO not simply as satellite imagery, but as an infrastructural system linking science, technology, and governance. The EO Dashboard presents environmental change as measurable and visual, yet the selection of indicators and spatial scales shapes how problems are framed. What is monitored becomes what is prioritised.\nFrom a spatial analysis perspective, I am particularly interested in how EO indicators might be integrated with socio-economic data to examine environmental inequality. For instance, combining NDVI-derived vegetation measures with deprivation indices could reveal patterns of uneven access to green space. However, integrating raster EO data with census geographies introduces methodological challenges such as scale mismatch and the modifiable areal unit problem (MAUP).\nOverall, Week 1 has highlighted that EO is not just technical measurement but a form of spatial evidence production. Moving forward, I aim to better understand how spectral data are transformed into policy-relevant indicators, and how that transformation can be critically evaluated.",
+    "section": "2.4 Reflection",
+    "text": "2.4 Reflection\nThis week positioned EO not simply as satellite imagery, but as an infrastructural system linking science, technology, and governance. The EO Dashboard presents environmental change as measurable and visual, yet the selection of indicators and spatial scales shapes how problems are framed. What is monitored becomes what is prioritised.\nFrom a spatial analysis perspective, I am particularly interested in how EO indicators might be integrated with socio-economic data to examine environmental inequality. For instance, combining NDVI-derived vegetation measures with deprivation indices could reveal patterns of uneven access to green space. However, integrating raster EO data with census geographies introduces methodological challenges such as scale mismatch and the modifiable areal unit problem (MAUP).\nOverall, Week 1 has highlighted that EO is not just technical measurement but a form of spatial evidence production. Moving forward, I aim to better understand how spectral data are transformed into policy-relevant indicators, and how that transformation can be critically evaluated.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span>"
     ]
@@ -53,8 +53,8 @@
     "objectID": "Week1.html#references",
     "href": "Week1.html#references",
     "title": "1  Week 1 – Introduction to Earth Observation and the EO Dashboard",
-    "section": "2.4 References",
-    "text": "2.4 References\nBauwens, M., Compernolle, S., Stavrakou, T., Müller, J.-F., van Gent, J., Eskes, H., et al. (2020). Impact of COVID-19 lockdown on NO₂ pollution assessed using TROPOMI and surface observations.\nJones, H. G., & Vaughan, R. A. (2010). Remote Sensing of Vegetation: Principles, Techniques, and Applications. Oxford University Press.\nLi, D., Bou-Zeid, E., & Oppenheimer, M. (2019). The effectiveness of cool and green roofs as urban heat island mitigation strategies.\nVenter, Z. S., Aunan, K., Chowdhury, S., & Lelieveld, J. (2020). COVID-19 lockdowns cause global air pollution declines.\nVoogt, J. A., & Oke, T. R. (2003). Thermal remote sensing of urban climates.\nWulder, M. A., et al. (2019). Current status of Landsat program science and applications.",
+    "section": "2.5 References",
+    "text": "2.5 References\nBauwens, M., Compernolle, S., Stavrakou, T., Müller, J.-F., van Gent, J., Eskes, H., et al. (2020). Impact of COVID-19 lockdown on NO₂ pollution assessed using TROPOMI and surface observations.\nJones, H. G., & Vaughan, R. A. (2010). Remote Sensing of Vegetation: Principles, Techniques, and Applications. Oxford University Press.\nLi, D., Bou-Zeid, E., & Oppenheimer, M. (2019). The effectiveness of cool and green roofs as urban heat island mitigation strategies.\nVenter, Z. S., Aunan, K., Chowdhury, S., & Lelieveld, J. (2020). COVID-19 lockdowns cause global air pollution declines.\nVoogt, J. A., & Oke, T. R. (2003). Thermal remote sensing of urban climates.\nWulder, M. A., et al. (2019). Current status of Landsat program science and applications.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span>"
     ]
@@ -72,11 +72,11 @@
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "3  Summary",
+    "title": "2  Summary",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
     ]
   },
   {
@@ -87,6 +87,56 @@
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "Week1.html#section",
+    "href": "Week1.html#section",
+    "title": "1  Week 1 – Introduction to Earth Observation and the EO Dashboard",
+    "section": "2.2 ",
+    "text": "2.2",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span>"
+    ]
+  },
+  {
+    "objectID": "week3_corrections.html",
+    "href": "week3_corrections.html",
+    "title": "Week 3: Remote Sensing Data and Corrections",
+    "section": "",
+    "text": "Summary\nThe lecture opened with a useful framing: nearly all Earth observation data now comes as Analysis Ready Data (ARD), meaning the corrections covered this week have largely been automated. The reason to understand them anyway is that loading a Landsat image in Google Earth Engine still requires choosing between Level-1 DN, Level-2 surface reflectance, and Level-3 science products — and that choice has real consequences for what the values in your raster actually mean. The lecturer’s point that some researchers make this choice without understanding it was a useful reminder that familiarity with a tool is not the same as understanding the data it produces.\nThe corrections follow a fixed order: geometric, then atmospheric, then orthorectification. Geometric correction aligns an image to a known coordinate reference system by identifying Ground Control Points at stable features — roads, boundaries, buildings — fitting a regression between their positions in the distorted image and a reference dataset, and warping the image accordingly. The reason backward mapping (predicting image coordinates from reference coordinates, rather than the reverse) is preferred over forward mapping is worth noting: forward mapping can produce predicted positions that fall between grid cells, creating output pixels with no assignable value. Backward mapping guarantees a value for every output pixel. After warping, resampling — nearest neighbour, bilinear, or cubic — snaps the transformed grid back to integer positions.\nAtmospheric correction addresses the contamination introduced by path radiance (EMR scattered into the sensor before touching the surface) and the adjacency effect (radiance bleeding from neighbouring pixels). Dark Object Subtraction (DOS) is the simplest relative approach: identify the darkest pixel in each band, assume it represents a surface with near-zero true reflectance, and subtract its value from all other pixels. The underlying logic — that any signal from a truly black surface must be atmospheric — is reasonable but approximate, which is why the method is considered a lower bound rather than a rigorous correction. Pseudo-Invariant Features (PIFs) offer a more principled relative method, using regression across stable surfaces to normalise multiple images to a single reference date band by band.\nWhat connects all of this is the progression from Digital Number to spectral radiance to surface reflectance. DN is a dimensionless, sensor-specific integer with no physical meaning beyond efficient storage. Radiance, obtained via \\(L\\lambda = Bias + Gain \\times DN\\) using lab-calibrated coefficients, gives the quantity in meaningful units. Surface reflectance then removes the effects of both illumination conditions and the atmosphere, leaving a value that is a property of the surface itself — and therefore comparable across acquisitions. TOA reflectance occupies an intermediate position: illumination effects removed, but atmosphere still present. It appears in some papers on the grounds that the scenes were clear enough that residual atmospheric effects were negligible, which is a judgement call that should at minimum be stated explicitly.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 3: Remote Sensing Data and Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "week3_corrections.html#applications",
+    "href": "week3_corrections.html#applications",
+    "title": "Week 3: Remote Sensing Data and Corrections",
+    "section": "Applications",
+    "text": "Applications\nThe practical used Landsat 8 and 9 imagery over Cape Town, which requires at least two tiles to cover the metropolitan area. The tiles were loaded and mosaicked using terra::mosaic():\nlibrary(terra)\nlibrary(fs)\n\nlistlandsat_8 &lt;- dir_info(here::here(\"prac_3\", \"Landsat\", \"Lsat8\")) %&gt;%\n  dplyr::filter(str_detect(path, \"[B123456790].TIF\")) %&gt;%\n  dplyr::select(path) %&gt;% pull() %&gt;% as.character() %&gt;%\n  terra::rast()\n\nlistlandsat_9 &lt;- dir_info(here::here(\"prac_3\", \"Landsat\", \"Lsat9\")) %&gt;%\n  dplyr::filter(str_detect(path, \"[1B23456790].TIF\")) %&gt;%\n  dplyr::select(path) %&gt;% pull() %&gt;% as.character() %&gt;%\n  terra::rast()\n\nm1 &lt;- terra::mosaic(listlandsat_8, listlandsat_9, fun=\"mean\")\nTaking the mean in the overlap zone is a practical compromise, but it papers over a real issue: even as ARD products, tiles acquired on different dates carry different atmospheric states, and their surface reflectance values may not be perfectly consistent over the same surface features. The mean averages the inconsistency rather than resolving it. The better approach — building a seasonal median composite in GEE — will be covered later in the module, and the contrast in processing time will apparently be stark.\nNDVI was then computed and thresholded to isolate vegetated areas:\nm1_NDVI &lt;- (m1_clip$..._SR_B5 - m1_clip$..._SR_B4) /\n           (m1_clip$..._SR_B5 + m1_clip$..._SR_B4)\n\nveg &lt;- m1_NDVI %&gt;%\n  terra::classify(., cbind(-Inf, 0.2, NA))\nThe 0.2 threshold is widely used but context-dependent. For Cape Town’s fynbos — a low-growing shrubland that is the city’s dominant natural vegetation type — values between 0.1 and 0.2 are common, particularly in drier months. A blanket 0.2 cut-off would exclude a significant portion of ecologically meaningful vegetation, which matters if the downstream application is green space access or heat stress mapping.\nThe texture analysis used GLCMTextures on Band 4 with a 7×7 window, computing GLCM homogeneity. One step that is easy to overlook is rescaling the data before running the texture function — Landsat Level-2 products store reflectance as scaled integers, and the texture metrics would be meaningless if computed on the raw integer values:\nlibrary(GLCMTextures)\n\nscale &lt;- (m1_clip * 0.0000275) + -0.2\n\ntextures1 &lt;- glcm_textures(\n  scale$..._SR_B4,\n  w = c(7, 7),\n  n_levels = 4,\n  quant_method = \"range\",\n  shift = list(c(1,0), c(1,1), c(0,1), c(-1,1)),\n  metrics = \"glcm_homogeneity\")\nHomogeneity is high where neighbouring pixels are similar (water, uniform rooftops, formal housing) and low where they vary (construction, informal settlements, mixed vegetation). This is the kind of information that spectral band values alone cannot capture — two areas with identical mean NIR reflectance may look completely different in texture if one is a uniform park canopy and the other is a fragmented mix of trees and rooftops. (lu2012?) demonstrated this in Brazilian Amazon land cover classification, where adding texture features substantially improved discrimination between forest types with near-identical spectral signatures. The texture band was then stacked with the spectral data and reduced via PCA, with centering and scaling applied beforehand to prevent variables with larger numerical ranges from dominating the components:\nraster_and_texture &lt;- c(m1_clip, textures1)\n\npca &lt;- prcomp(as.data.frame(raster_and_texture, na.rm=TRUE),\n              center=TRUE, scale=TRUE)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 3: Remote Sensing Data and Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "week3_corrections.html#reflection",
+    "href": "week3_corrections.html#reflection",
+    "title": "Week 3: Remote Sensing Data and Corrections",
+    "section": "Reflection",
+    "text": "Reflection\nThe most useful shift this week was in how I think about what “using satellite data” actually means. Before, I would have treated loading a Landsat image as a neutral act — the data is the data. Now I think there is a real difference between a researcher who can explain what collection, level, and processing model their data went through and one who cannot. That difference probably doesn’t matter for a single-date, single-sensor classification, but it matters a lot for anything involving long time series or cross-sensor comparison — which is most of the research questions this module is pointing towards.\nOn texture: the variance output from GLCM is essentially a spatial derivative — it responds to edges and transitions rather than mean values. For urban analysis, this means building outlines, road margins, and land cover boundaries all become detectable even when the spectral values on either side are similar. I found this genuinely useful to think through, and it suggests that for fine-grained urban classification, texture in SWIR or NIR is probably not optional.\nOne question I haven’t resolved: the practical used a 7×7 window on 30m Landsat, which covers a 210m ground footprint per texture pixel. At that scale, individual buildings and street trees are subsumed within a single kernel. For 10m Sentinel-2 the same window would cover 70m, which is much closer to the scale of the features I would actually want to detect. I am not clear whether there is a principled method for choosing window size relative to resolution and target feature scale, or whether it is largely empirical — and this seems like something that would meaningfully affect results in dense urban environments.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 3: Remote Sensing Data and Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "week3_corrections.html#references",
+    "href": "week3_corrections.html#references",
+    "title": "Week 3: Remote Sensing Data and Corrections",
+    "section": "References",
+    "text": "References",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 3: Remote Sensing Data and Corrections</span>"
     ]
   }
 ]
