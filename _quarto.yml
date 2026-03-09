@@ -10,6 +10,7 @@ book:
     - Week1.qmd
     - Week2.qmd
     - week3_corrections.qmd
+    - week4_policy.qmd
     - references.qmd
 bibliography: references.bib
 format:

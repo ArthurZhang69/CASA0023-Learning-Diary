@@ -12,7 +12,6 @@ format:
     theme: cosmo
     code-fold: true
     code-summary: "Show code"
-bibliography: references.bib
 ---
 
 ## Summary
@@ -63,7 +62,3 @@ For my own future work in urban analytics, I can see two clear uses. First, **gr
 
 ------------------------------------------------------------------------
 
-## References
-
-::: {#refs}
-:::

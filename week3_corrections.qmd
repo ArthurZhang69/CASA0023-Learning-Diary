@@ -9,7 +9,6 @@ format:
     number-sections: false
     theme: cosmo
     code-fold: true
-bibliography: references.bib
 ---
 
 ## Summary
@@ -96,7 +95,3 @@ One question I haven't resolved: the practical used a 7×7 window on 30m Landsat
 
 ------------------------------------------------------------------------
 
-## References
-
-::: {#refs}
-:::

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Shiyao Zhang">
-<meta name="dcterms.date" content="2026-01-27">
+<meta name="dcterms.date" content="2026-02-10">
 
-<title>Week 3: Remote Sensing Data and Corrections – CASA0023 Learnning Diary</title>
+<title>Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan – CASA0023 Learnning Diary</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -87,8 +52,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./week4_policy.html" rel="next">
-<link href="./Week2.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./week3_corrections.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -128,35 +93,6 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -169,7 +105,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week3_corrections.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week4_policy.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -214,13 +150,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week3_corrections.html" class="sidebar-item-text sidebar-link active">
+  <a href="./week3_corrections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week4_policy.html" class="sidebar-item-text sidebar-link">
+  <a href="./week4_policy.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan</span></span></a>
   </div>
 </li>
@@ -241,7 +177,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
   </ul>
 </nav>
@@ -251,7 +187,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></h1>
+<h1 class="title"><span class="chapter-title">Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan</span></h1>
 </div>
 
 
@@ -268,7 +204,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 27, 2026</p>
+      <p class="date">February 10, 2026</p>
     </div>
   </div>
   
@@ -282,67 +218,38 @@ window.Quarto = {
 
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>The lecture opened with a useful framing: nearly all Earth observation data now comes as Analysis Ready Data (ARD), meaning the corrections covered this week have largely been automated. The reason to understand them anyway is that loading a Landsat image in Google Earth Engine still requires choosing between Level-1 DN, Level-2 surface reflectance, and Level-3 science products — and that choice has real consequences for what the values in your raster actually mean. The lecturer’s point that some researchers make this choice without understanding it was a useful reminder that familiarity with a tool is not the same as understanding the data it produces.</p>
-<p>The corrections follow a fixed order: geometric, then atmospheric, then orthorectification. Geometric correction aligns an image to a known coordinate reference system by identifying Ground Control Points at stable features — roads, boundaries, buildings — fitting a regression between their positions in the distorted image and a reference dataset, and warping the image accordingly. The reason backward mapping (predicting image coordinates from reference coordinates, rather than the reverse) is preferred over forward mapping is worth noting: forward mapping can produce predicted positions that fall between grid cells, creating output pixels with no assignable value. Backward mapping guarantees a value for every output pixel. After warping, resampling — nearest neighbour, bilinear, or cubic — snaps the transformed grid back to integer positions.</p>
-<p>Atmospheric correction addresses the contamination introduced by path radiance (EMR scattered into the sensor before touching the surface) and the adjacency effect (radiance bleeding from neighbouring pixels). Dark Object Subtraction (DOS) is the simplest relative approach: identify the darkest pixel in each band, assume it represents a surface with near-zero true reflectance, and subtract its value from all other pixels. The underlying logic — that any signal from a truly black surface must be atmospheric — is reasonable but approximate, which is why the method is considered a lower bound rather than a rigorous correction. Pseudo-Invariant Features (PIFs) offer a more principled relative method, using regression across stable surfaces to normalise multiple images to a single reference date band by band.</p>
-<p>What connects all of this is the progression from <strong>Digital Number</strong> to <strong>spectral radiance</strong> to <strong>surface reflectance</strong>. DN is a dimensionless, sensor-specific integer with no physical meaning beyond efficient storage. Radiance, obtained via <span class="math inline">\(L\lambda = Bias + Gain \times DN\)</span> using lab-calibrated coefficients, gives the quantity in meaningful units. Surface reflectance then removes the effects of both illumination conditions and the atmosphere, leaving a value that is a property of the surface itself — and therefore comparable across acquisitions. TOA reflectance occupies an intermediate position: illumination effects removed, but atmosphere still present. It appears in some papers on the grounds that the scenes were clear enough that residual atmospheric effects were negligible, which is a judgement call that should at minimum be stated explicitly.</p>
+<p>Ahmedabad, Gujarat’s commercial capital with a population of roughly 8 million, experienced one of India’s deadliest heat events in May 2010 — an estimated 1,344 excess deaths over a two-week period as temperatures pushed past 46°C <span class="citation" data-cites="nrdc2016">(<a href="references.html#ref-nrdc2016" role="doc-biblioref">Natural Resources Defense Council and Indian Institute of Public Health, Gandhinagar 2016</a>)</span>. The city responded with the <strong>Ahmedabad Heat Action Plan (HAP)</strong>, first published in 2013 and significantly revised in 2016, making it South Asia’s first formal municipal heat-health framework. The plan operates through four pillars: public awareness and community outreach, training healthcare workers to recognise heat illness, establishing a heat alert system using India Meteorological Department forecasts, and coordinating cooling centres and night shelters. These are genuine public health interventions and the plan has been cited as a global model for its speed and breadth.</p>
+<p>The problem, and the reason it is interesting as a case study for this module, is that the 2016 plan contains almost no spatial analysis. It identifies heat as a citywide hazard but does not identify <em>where within the city</em> the burden is concentrated, which neighbourhoods have the least access to green space or shade, or which populations are most exposed. The plan’s interventions are broadcast-oriented — phone alerts, hospital training, public information — rather than spatially targeted. There is a brief mention of long-term data collection as a future objective, but no Earth observation dataset is named or used.</p>
+<p>This is exactly the pattern the lecture described: policy frameworks exist at every level (the New Urban Agenda commits member states to reducing urban heat effects; SDG 11 targets safe, inclusive, green public spaces; the Sendai Framework covers disaster risk reduction), and municipal plans like Ahmedabad’s are nominally aligned with all of them. But the chain of alignment runs from global rhetoric to local action without a reproducible, spatially-explicit evidence base linking the two. The COP26 <em>Beat the Heat</em> handbook <span class="citation" data-cites="unep2021">(<a href="references.html#ref-unep2021" role="doc-biblioref">United Nations Environment Programme 2021</a>)</span> was the first major international document to explicitly call for Earth observation integration into heat planning — which is a striking admission that until 2021, even the guidance documents were not making this connection.</p>
 <hr>
 </section>
-<section id="applications" class="level2">
-<h2 class="anchored" data-anchor-id="applications">Applications</h2>
-<p>The practical used Landsat 8 and 9 imagery over Cape Town, which requires at least two tiles to cover the metropolitan area. The tiles were loaded and mosaicked using <code>terra::mosaic()</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>listlandsat_8 <span class="ot">&lt;-</span> <span class="fu">dir_info</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"prac_3"</span>, <span class="st">"Landsat"</span>, <span class="st">"Lsat8"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">str_detect</span>(path, <span class="st">"[B123456790].TIF"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(path) <span class="sc">%&gt;%</span> <span class="fu">pull</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">rast</span>()</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>listlandsat_9 <span class="ot">&lt;-</span> <span class="fu">dir_info</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"prac_3"</span>, <span class="st">"Landsat"</span>, <span class="st">"Lsat9"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">str_detect</span>(path, <span class="st">"[1B23456790].TIF"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(path) <span class="sc">%&gt;%</span> <span class="fu">pull</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">rast</span>()</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">mosaic</span>(listlandsat_8, listlandsat_9, <span class="at">fun=</span><span class="st">"mean"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Taking the mean in the overlap zone is a practical compromise, but it papers over a real issue: even as ARD products, tiles acquired on different dates carry different atmospheric states, and their surface reflectance values may not be perfectly consistent over the same surface features. The mean averages the inconsistency rather than resolving it. The better approach — building a seasonal median composite in GEE — will be covered later in the module, and the contrast in processing time will apparently be stark.</p>
-<p>NDVI was then computed and thresholded to isolate vegetated areas:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>m1_NDVI <span class="ot">&lt;-</span> (m1_clip<span class="sc">$</span>..._SR_B5 <span class="sc">-</span> m1_clip<span class="sc">$</span>..._SR_B4) <span class="sc">/</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           (m1_clip<span class="sc">$</span>..._SR_B5 <span class="sc">+</span> m1_clip<span class="sc">$</span>..._SR_B4)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>veg <span class="ot">&lt;-</span> m1_NDVI <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">classify</span>(., <span class="fu">cbind</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">0.2</span>, <span class="cn">NA</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The 0.2 threshold is widely used but context-dependent. For Cape Town’s fynbos — a low-growing shrubland that is the city’s dominant natural vegetation type — values between 0.1 and 0.2 are common, particularly in drier months. A blanket 0.2 cut-off would exclude a significant portion of ecologically meaningful vegetation, which matters if the downstream application is green space access or heat stress mapping.</p>
-<p>The texture analysis used <code>GLCMTextures</code> on Band 4 with a 7×7 window, computing GLCM homogeneity. One step that is easy to overlook is rescaling the data before running the texture function — Landsat Level-2 products store reflectance as scaled integers, and the texture metrics would be meaningless if computed on the raw integer values:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GLCMTextures)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>scale <span class="ot">&lt;-</span> (m1_clip <span class="sc">*</span> <span class="fl">0.0000275</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>textures1 <span class="ot">&lt;-</span> <span class="fu">glcm_textures</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  scale<span class="sc">$</span>..._SR_B4,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">w =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">7</span>),</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_levels =</span> <span class="dv">4</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">quant_method =</span> <span class="st">"range"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">shift =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)),</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="st">"glcm_homogeneity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Homogeneity is high where neighbouring pixels are similar (water, uniform rooftops, formal housing) and low where they vary (construction, informal settlements, mixed vegetation). This is the kind of information that spectral band values alone cannot capture — two areas with identical mean NIR reflectance may look completely different in texture if one is a uniform park canopy and the other is a fragmented mix of trees and rooftops. <span class="citation" data-cites="lu2012">Lu et al. (<a href="references.html#ref-lu2012" role="doc-biblioref">2012</a>)</span> demonstrated this in Brazilian Amazon land cover classification, where adding texture features substantially improved discrimination between forest types with near-identical spectral signatures. The texture band was then stacked with the spectral data and reduced via PCA, with centering and scaling applied beforehand to prevent variables with larger numerical ranges from dominating the components:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>raster_and_texture <span class="ot">&lt;-</span> <span class="fu">c</span>(m1_clip, textures1)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(<span class="fu">as.data.frame</span>(raster_and_texture, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">center=</span><span class="cn">TRUE</span>, <span class="at">scale=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="application" class="level2">
+<h2 class="anchored" data-anchor-id="application">Application</h2>
+<p>The gap in the Ahmedabad HAP is identifiable and addressable with readily available Earth observation data. The specific policy goal — reducing heat-related mortality — requires knowing where the thermal burden is highest, which groups are most exposed, and whether interventions are having measurable effect over time. Three EO datasets are directly relevant.</p>
+<p><strong>Landsat 8/9 Land Surface Temperature (LST)</strong> at 30 m resolution is the most established approach. The USGS Collection 2 Level-2 ST product provides atmospherically corrected surface temperature values directly, removing the resampling decisions that weakened the Fremantle Urban Forest Plan discussed in the lecture. Rather than using a single summer image — which risks capturing an atypical day — a seasonal composite over Ahmedabad’s April–June pre-monsoon window across multiple years (2015–2024) would produce a robust, time-comparable heat baseline. Areas of persistent high LST across years identify structural hotspots driven by impervious surfaces and vegetation deficit, not just weather variability.</p>
+<p><strong>Sentinel-2 NDVI</strong> provides the complementary vegetation layer at 10 m resolution. Green cover and LST are strongly negatively correlated in dense urban environments — the lecture cited estimates of up to 10°C temperature difference between vegetated and unvegetated adjacent neighbourhoods. Mapping NDVI deficits against ward-level boundaries in Ahmedabad would directly identify where tree-planting or green infrastructure investment would have the most thermal effect. This is operationally straightforward in Google Earth Engine and reproducible, in contrast to the one-off consultant-produced analyses that cities typically commission.</p>
+<p><strong>The equity question</strong> is where this becomes policy-relevant rather than just technically interesting. <span class="citation" data-cites="li2022">Li et al. (<a href="references.html#ref-li2022" role="doc-biblioref">2022</a>)</span>, examining 11 Texas cities, found a consistent spatial pattern: lower-income, historically disinvested neighbourhoods showed significantly higher LST values even after controlling for building density, because they had less canopy cover, more asphalt, and older building stock. There is no reason to assume Ahmedabad is different. Overlaying LST and NDVI composites with ward-level socioeconomic indicators — available from Indian census data — would allow the HAP to shift from a citywide alert system to a spatially-targeted intervention programme: prioritising cooling centres in high-LST, low-income wards; targeting tree-planting in NDVI-deficient areas with high population density; directing outreach workers to the highest-vulnerability blocks first.</p>
+<p>One important caveat that the lecture raised: land surface temperature is what satellites measure, but ambient air temperature at head height is what humans actually experience. The connection between the two is real but not direct — reflective pavements can dramatically reduce LST while barely changing the air temperature a pedestrian feels. Any EO-based analysis feeding into the HAP should acknowledge this limitation and ideally be cross-validated against ground-level sensor networks or humidity-adjusted heat index data from weather stations, rather than presenting LST maps as straightforward evidence of human thermal comfort.</p>
 <hr>
 </section>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>The most useful shift this week was in how I think about what “using satellite data” actually means. Before, I would have treated loading a Landsat image as a neutral act — the data is the data. Now I think there is a real difference between a researcher who can explain what collection, level, and processing model their data went through and one who cannot. That difference probably doesn’t matter for a single-date, single-sensor classification, but it matters a lot for anything involving long time series or cross-sensor comparison — which is most of the research questions this module is pointing towards.</p>
-<p>On texture: the variance output from GLCM is essentially a spatial derivative — it responds to edges and transitions rather than mean values. For urban analysis, this means building outlines, road margins, and land cover boundaries all become detectable even when the spectral values on either side are similar. I found this genuinely useful to think through, and it suggests that for fine-grained urban classification, texture in SWIR or NIR is probably not optional.</p>
-<p>One question I haven’t resolved: the practical used a 7×7 window on 30m Landsat, which covers a 210m ground footprint per texture pixel. At that scale, individual buildings and street trees are subsumed within a single kernel. For 10m Sentinel-2 the same window would cover 70m, which is much closer to the scale of the features I would actually want to detect. I am not clear whether there is a principled method for choosing window size relative to resolution and target feature scale, or whether it is largely empirical — and this seems like something that would meaningfully affect results in dense urban environments.</p>
+<p>What this exercise made clear to me is that the policy gap is not primarily a data gap. Landsat LST data for Ahmedabad is freely available, has been so since the 1970s, and requires no specialist hardware to access via GEE. The Ahmedabad HAP has been in operation for over a decade. The fact that these have not been connected is an institutional and capacity problem, not a technical one — which matches exactly what the lecturer described about Cape Town, where different government departments had data they were legally prevented from sharing with each other under normal timescales.</p>
+<p>The lecture’s framing of the <strong>inequality–equity–justice</strong> spectrum is useful here. The current HAP operates at the level of <em>equality</em>: everyone in the city gets the same phone alert. An EO-informed approach would enable <em>equity</em>: directing more resources to the wards that are structurally hotter and socially more vulnerable. Genuine <em>justice</em> would mean addressing the underlying reasons those areas have less canopy cover and more asphalt — which is a land-use and investment history question that EO data can map but cannot solve.</p>
+<p>I found myself genuinely uncertain about the direction of causality in the LST-deprivation correlation. Do poorer areas have higher LST because disinvestment means less tree planting? Or do higher LST areas become cheaper because they are less desirable to live in? Probably both mechanisms operate simultaneously, and the policy implication differs: one calls for targeted greening investment, the other calls for broader housing and land-use reform. An LST map alone cannot distinguish between them.</p>
+<p>There is also a question I did not find a clear answer to: how would you actually get this EO analysis used? The lecturer’s honest account of trying to engage Fremantle’s planning department — being met with interest but no action, because they had already paid for an existing plan — suggests that the challenge is less about producing the evidence and more about timing. Getting satellite-derived heat maps into the room before a city publishes its action plan, not afterwards, is where the leverage is.</p>
 <hr>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-lu2012" class="csl-entry" role="listitem">
-Lu, D., M. Batistella, G. Li, E. Moran, S. Hetrick, C. C. Freitas, L. V. Dutra, and S. J. S. Sant’Anna. 2012. <span>“Land Use/Cover Classification in the <span>Brazilian</span> <span>Amazon</span> Using Satellite Images.”</span> <em>Pesquisa Agropecuária Brasileira</em> 47 (9): 1345–59. <a href="https://doi.org/10.1590/S0100-204X2012000900025">https://doi.org/10.1590/S0100-204X2012000900025</a>.
+<div id="ref-li2022" class="csl-entry" role="listitem">
+Li, Dongying, Galen D. Newman, Bev Wilson, Yue Zhang, and Robert D. Brown. 2022. <span>“Modeling the Relationships Between Historical Redlining, Urban Heat, and Heat-Related Emergency Department Visits: <span>An</span> Examination of 11 <span>Texas</span> Cities.”</span> <em>Environment and Planning B: Urban Analytics and City Science</em> 49 (3): 933–52. <a href="https://doi.org/10.1177/23998083211039854">https://doi.org/10.1177/23998083211039854</a>.
+</div>
+<div id="ref-nrdc2016" class="csl-entry" role="listitem">
+Natural Resources Defense Council, and Indian Institute of Public Health, Gandhinagar. 2016. <span>“Ahmedabad Heat Action Plan 2016: Guide to Extreme Heat Planning in <span>Ahmedabad</span>, <span>India</span>.”</span> NRDC. <a href="https://www.nrdc.org/sites/default/files/ahmedabad-heat-action-plan-2016.pdf">https://www.nrdc.org/sites/default/files/ahmedabad-heat-action-plan-2016.pdf</a>.
+</div>
+<div id="ref-unep2021" class="csl-entry" role="listitem">
+United Nations Environment Programme. 2021. <span>“Beating the Heat: <span>A</span> Sustainable Cooling Handbook for Cities.”</span> UNEP. <a href="https://www.unep.org/resources/report/beating-heat-sustainable-cooling-handbook-cities">https://www.unep.org/resources/report/beating-heat-sustainable-cooling-handbook-cities</a>.
 </div>
 </div>
 </section>
@@ -750,13 +657,13 @@ Lu, D., M. Batistella, G. Li, E. Moran, S. Hetrick, C. C. Freitas, L. V. Dutra, 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Week2.html" class="pagination-link" aria-label="Week 2: Sentinel-2">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Week 2: Sentinel-2</span></span>
+      <a href="./week3_corrections.html" class="pagination-link" aria-label="Week 3: Remote Sensing Data and Corrections">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week4_policy.html" class="pagination-link" aria-label="Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
