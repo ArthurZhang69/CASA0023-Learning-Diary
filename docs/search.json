@@ -44,7 +44,7 @@
     "href": "Week1.html#summary",
     "title": "Week 1: Introduction to Earth Observation and the EO Dashboard",
     "section": "",
-    "text": "Scatter plot and false-colour composite from the Week 1 practical — Sentinel-2 imagery of Cape Town.\n\n\n\n\n\n\n\nTasselled Cap transformation components — Brightness, Greenness, and Wetness — derived from Sentinel-2 imagery.\n\n\n\n\n\nBand spectral plots and histogram distributions from the Cape Town scene.\n\n\n\n\n\nAdditional spectral signature outputs from the Week 1 practical.\n\n\n\n\n\nQGIS layout showing band comparisons across the study area.",
+    "text": "Scatter plot and false-colour composite from the Week 1 practical — Sentinel-2 imagery of Beijing.\n\n\n\n\n\n\n\nTasselled Cap transformation components — Brightness, Greenness, and Wetness.\n\n\n\n\n\nBand spectral plots and histogram distributions from the Beijing scene.\n\n\n\n\n\nAdditional spectral signature outputs from the Week 1 practical.\n\n\n\n\n\nQGIS layout showing band comparisons across the study area.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Week 1: Introduction to Earth Observation and the EO Dashboard</span>"
     ]
