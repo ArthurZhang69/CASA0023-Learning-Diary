@@ -22,13 +22,13 @@ Atmospheric correction addresses the contamination introduced by path radiance (
 
 What connects all of this is the progression from **Digital Number** to **spectral radiance** to **surface reflectance**. DN is a dimensionless, sensor-specific integer with no physical meaning beyond efficient storage. Radiance, obtained via $L\lambda = Bias + Gain \times DN$ using lab-calibrated coefficients, gives the quantity in meaningful units. Surface reflectance then removes the effects of both illumination conditions and the atmosphere, leaving a value that is a property of the surface itself — and therefore comparable across acquisitions. TOA reflectance occupies an intermediate position: illumination effects removed, but atmosphere still present. It appears in some papers on the grounds that the scenes were clear enough that residual atmospheric effects were negligible, which is a judgement call that should at minimum be stated explicitly.
 
----
+------------------------------------------------------------------------
 
 ## Applications
 
 The practical used Landsat 8 and 9 imagery over Cape Town, which requires at least two tiles to cover the metropolitan area. The tiles were loaded and mosaicked using `terra::mosaic()`:
 
-```r
+``` r
 library(terra)
 library(fs)
 
@@ -49,7 +49,7 @@ Taking the mean in the overlap zone is a practical compromise, but it papers ove
 
 NDVI was then computed and thresholded to isolate vegetated areas:
 
-```r
+``` r
 m1_NDVI <- (m1_clip$..._SR_B5 - m1_clip$..._SR_B4) /
            (m1_clip$..._SR_B5 + m1_clip$..._SR_B4)
 
@@ -61,7 +61,7 @@ The 0.2 threshold is widely used but context-dependent. For Cape Town's fynbos �
 
 The texture analysis used `GLCMTextures` on Band 4 with a 7×7 window, computing GLCM homogeneity. One step that is easy to overlook is rescaling the data before running the texture function — Landsat Level-2 products store reflectance as scaled integers, and the texture metrics would be meaningless if computed on the raw integer values:
 
-```r
+``` r
 library(GLCMTextures)
 
 scale <- (m1_clip * 0.0000275) + -0.2
@@ -77,14 +77,14 @@ textures1 <- glcm_textures(
 
 Homogeneity is high where neighbouring pixels are similar (water, uniform rooftops, formal housing) and low where they vary (construction, informal settlements, mixed vegetation). This is the kind of information that spectral band values alone cannot capture — two areas with identical mean NIR reflectance may look completely different in texture if one is a uniform park canopy and the other is a fragmented mix of trees and rooftops. @lu2012 demonstrated this in Brazilian Amazon land cover classification, where adding texture features substantially improved discrimination between forest types with near-identical spectral signatures. The texture band was then stacked with the spectral data and reduced via PCA, with centering and scaling applied beforehand to prevent variables with larger numerical ranges from dominating the components:
 
-```r
+``` r
 raster_and_texture <- c(m1_clip, textures1)
 
 pca <- prcomp(as.data.frame(raster_and_texture, na.rm=TRUE),
               center=TRUE, scale=TRUE)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Reflection
 
@@ -94,7 +94,7 @@ On texture: the variance output from GLCM is essentially a spatial derivative �
 
 One question I haven't resolved: the practical used a 7×7 window on 30m Landsat, which covers a 210m ground footprint per texture pixel. At that scale, individual buildings and street trees are subsumed within a single kernel. For 10m Sentinel-2 the same window would cover 70m, which is much closer to the scale of the features I would actually want to detect. I am not clear whether there is a principled method for choosing window size relative to resolution and target feature scale, or whether it is largely empirical — and this seems like something that would meaningfully affect results in dense urban environments.
 
----
+------------------------------------------------------------------------
 
 ## References
 

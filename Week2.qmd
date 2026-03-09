@@ -3,6 +3,7 @@ title: "Week 2: Sentinel-2"
 subtitle: "Multispectral Imaging for Earth Observation"
 author: "Arthur Zhang"
 date: "2026-01-20"
+prefer-html: true
 format:
   html:
     toc: true

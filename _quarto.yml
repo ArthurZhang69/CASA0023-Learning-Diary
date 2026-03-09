@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
 book:
   title: "CASA0023 Learnning Diary"
   author: "Arthur Zhang"
@@ -16,6 +17,4 @@ format:
     theme:
       - cosmo
       - brand
-  pdf:
-    documentclass: scrreprt
 editor: visual

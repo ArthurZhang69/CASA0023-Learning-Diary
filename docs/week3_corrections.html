@@ -61,6 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -319,7 +320,7 @@ window.Quarto = {
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">quant_method =</span> <span class="st">"range"</span>,</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">shift =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)),</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="st">"glcm_homogeneity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Homogeneity is high where neighbouring pixels are similar (water, uniform rooftops, formal housing) and low where they vary (construction, informal settlements, mixed vegetation). This is the kind of information that spectral band values alone cannot capture — two areas with identical mean NIR reflectance may look completely different in texture if one is a uniform park canopy and the other is a fragmented mix of trees and rooftops. <span class="citation" data-cites="lu2012">(<a href="Week2.html#ref-lu2012" role="doc-biblioref"><strong>lu2012?</strong></a>)</span> demonstrated this in Brazilian Amazon land cover classification, where adding texture features substantially improved discrimination between forest types with near-identical spectral signatures. The texture band was then stacked with the spectral data and reduced via PCA, with centering and scaling applied beforehand to prevent variables with larger numerical ranges from dominating the components:</p>
+<p>Homogeneity is high where neighbouring pixels are similar (water, uniform rooftops, formal housing) and low where they vary (construction, informal settlements, mixed vegetation). This is the kind of information that spectral band values alone cannot capture — two areas with identical mean NIR reflectance may look completely different in texture if one is a uniform park canopy and the other is a fragmented mix of trees and rooftops. <span class="citation" data-cites="lu2012">Lu et al. (<a href="Week2.html#ref-lu2012" role="doc-biblioref">2012</a>)</span> demonstrated this in Brazilian Amazon land cover classification, where adding texture features substantially improved discrimination between forest types with near-identical spectral signatures. The texture band was then stacked with the spectral data and reduced via PCA, with centering and scaling applied beforehand to prevent variables with larger numerical ranges from dominating the components:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>raster_and_texture <span class="ot">&lt;-</span> <span class="fu">c</span>(m1_clip, textures1)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(<span class="fu">as.data.frame</span>(raster_and_texture, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
@@ -335,8 +336,10 @@ window.Quarto = {
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<div id="refs" role="list" style="display: none">
-
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-lu2012" class="csl-entry" role="listitem">
+Lu, Dengsheng, Guiying Li, Emilio Moran, Luciano Dutra, and Mateus Batistella. 2012. <span>“A Comparison of Multisource Imagery for Mapping Slash-and-Burn Agriculture in <span>Brazil</span>’s <span>Western Amazon</span>.”</span> <em>Pesquisa Agropecuária Brasileira</em> 47 (9): 1363–72.
+</div>
 </div>
 
 

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.8.26" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<meta name="author" content="Arthur Zhang" />
+<meta name="dcterms.date" content="2026-01-20" />
+
+<title>Week 2: Sentinel-2 – CASA0023 Learnning Diary</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<!-- htmldependencies:E3FAD763 -->
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn"
+      data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs"></h1>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" role="link"
+        aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+        onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="/">
+      CASA0023 Learnning Diary
+      </a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/Week2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class='chapter-number'>2</span>  <span class='chapter-title'>Week 2: Sentinel-2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/week3_corrections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class='chapter-number'>3</span>  <span class='chapter-title'>Week 3: Remote Sensing Data and Corrections</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" ></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <div id="quarto-toc-target"></div>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Week 2: Sentinel-2</span></h1>
+<p class="subtitle lead">Multispectral Imaging for Earth Observation</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Arthur Zhang </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 20, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary">Summary</a></li>
+  <li><a href="#xaringan-presentation" id="toc-xaringan-presentation">Xaringan Presentation</a></li>
+  <li><a href="#application" id="toc-application">Application</a></li>
+  <li><a href="#reflection" id="toc-reflection">Reflection</a></li>
+  <li><a href="#references" id="toc-references">References</a></li>
+  </ul>
+</nav>
+<section id="summary" class="level2">
+<h2>Summary</h2>
+<p>Sentinel-2 is a twin-satellite constellation (2A and 2B) operated by the European Space Agency (ESA) as part of the Copernicus Earth Observation Programme <span class="citation" data-cites="drusch2012">(<a href="#ref-drusch2012" role="doc-biblioref">Drusch et al. 2012</a>)</span>. Carrying the <strong>MultiSpectral Instrument (MSI)</strong>, each satellite captures imagery across 13 spectral bands ranging from 443 nm (coastal aerosol) to 2190 nm (shortwave infrared), with spatial resolutions of 10 m, 20 m, and 60 m depending on the band. Together, the two satellites achieve a <strong>5-day global revisit time</strong> at the equator from a sun-synchronous orbit at 786 km altitude.</p>
+<p>What distinguishes Sentinel-2 from many predecessors is its combination of <strong>moderate-to-high spatial resolution, broad spectral coverage, wide swath (290 km), and — crucially — a completely free and open data policy</strong>. This combination has made it the de facto standard source for global land surface monitoring since its first images were released in 2015.</p>
+<p>Three features stand out as genuinely novel: the inclusion of three <strong>red-edge bands</strong> (B5, B6, B7 at 705–783 nm) that straddle the chlorophyll absorption feature; a SWIR band pair (B11, B12) sensitive to moisture and mineral composition; and the operational-grade atmospheric correction pipeline that produces <strong>Level 2A surface reflectance</strong> products without requiring users to process raw data themselves <span class="citation" data-cites="esa2021handbook">(<a href="#ref-esa2021handbook" role="doc-biblioref">European Space Agency 2021</a>)</span>.</p>
+<p>Derived indices — NDVI, NDWI, NDBI, NBR, LAI — are routinely computed from the bands and underpin operational services from agricultural monitoring to disaster response. The data is accessible via the <a href="https://dataspace.copernicus.eu">Copernicus Data Space Ecosystem</a>, <a href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED">Google Earth Engine</a>, and AWS Open Data.</p>
+<hr />
+</section>
+<section id="xaringan-presentation" class="level2">
+<h2>Xaringan Presentation</h2>
+<p>The following presentation provides a structured overview of the Sentinel-2 sensor, examples of studies that have used its data, and a reflection on what this implies for urban and spatial analysis.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="shareagain" style="min-width:300px;margin:1em auto;" data-exeternal="1">
+<iframe src="https://ArthurZhang69.github.io/CASA0023-Learning-Diary/sentinel2_presentation.html" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
+</div>
+</div>
+<hr />
+</section>
+<section id="application" class="level2">
+<h2>Application</h2>
+<p>Studies leveraging Sentinel-2 span an extraordinary range of disciplines, reflecting the sensor’s broad spectral and spatial capabilities.</p>
+<p><strong>Urban informal settlement mapping</strong> has been substantially advanced by Sentinel-2. <span class="citation" data-cites="wurm2019">Wurm et al. (<a href="#ref-wurm2019" role="doc-biblioref">2019</a>)</span> demonstrated that 10 m MSI imagery, combined with texture features derived via GLCM and a Support Vector Machine classifier, could delineate informal settlement typologies across three African cities with overall accuracies exceeding 85%. Critically, the red-edge bands (B5–B7) were shown to discriminate corrugated metal roofing from formal structures — a capability absent from Landsat’s 30 m bands. This has direct policy implications: with Sentinel-2, city governments can monitor informal settlement dynamics in near-real time at essentially zero data acquisition cost.</p>
+<p><strong>Crop type mapping at national scale</strong> was demonstrated by <span class="citation" data-cites="inglada2017">Inglada et al. (<a href="#ref-inglada2017" role="doc-biblioref">2017</a>)</span>, who used dense Sentinel-2 time-series (monthly NDVI composites across a full growing season) and Random Forest classification to map nine crop types across France with over 90% accuracy. The 5-day revisit time proved essential: the temporal density of observations captured phenological trajectories that distinguish, for example, winter wheat from rapeseed at key growth stages. This work forms a methodological foundation for the EU Common Agricultural Policy (CAP) subsidy verification system and ESA’s operational World Cereal global crop map.</p>
+<p><strong>Disaster response flood mapping</strong> represents perhaps the most vivid demonstration of Sentinel-2’s operational value. Following Cyclone Idai’s landfall in Mozambique in March 2019, <span class="citation" data-cites="twele2020">Twele et al. (<a href="#ref-twele2020" role="doc-biblioref">2020</a>)</span> produced flood extent maps within 48 hours using NDWI change detection from Sentinel-2 SWIR bands. Combined with cloud-penetrating Sentinel-1 SAR imagery, this enabled building-level damage assessment that directly guided IFRC and UNOCHA field operations. The Copernicus Emergency Management Service (CEMS) — which uses Sentinel-2 as its primary optical source — has been activated over 300 times since 2012 for events including floods, wildfires, and industrial accidents <span class="citation" data-cites="cems2024">(<a href="#ref-cems2024" role="doc-biblioref">Copernicus Emergency Management Service 2024</a>)</span>.</p>
+<hr />
+</section>
+<section id="reflection" class="level2">
+<h2>Reflection</h2>
+<p>Working through the Sentinel-2 literature has reframed my understanding of what “open data” means in practice. The sensor’s combination of free access, 5-day revisit, 10 m resolution, and 13 spectral bands creates conditions that are qualitatively different from anything that existed a decade ago. The number of published Sentinel-2 studies has grown exponentially since 2017 — not because the scientific questions are new, but because the data barrier has been removed.</p>
+<p>One thing I had not fully appreciated before this was the significance of the <strong>red-edge spectral region</strong>. These three bands at 705–783 nm sit precisely where chlorophyll absorption transitions to the NIR plateau — a region that turns out to encode a huge amount of information about vegetation stress, crop type, and canopy structure. The difference between including and excluding red-edge bands in a classifier can easily be 10–15 percentage points of accuracy <span class="citation" data-cites="wurm2019 inglada2017">(<a href="#ref-wurm2019" role="doc-biblioref">Wurm et al. 2019</a>; <a href="#ref-inglada2017" role="doc-biblioref">Inglada et al. 2017</a>)</span>. I had previously treated “multispectral” as a binary category; I now see that <em>which</em> bands are included matters enormously.</p>
+<p>For my own future work in urban analytics, I can see two clear uses. First, <strong>green infrastructure monitoring</strong>: using NDVI time-series in Google Earth Engine to track urban tree canopy seasonality at neighbourhood scale — something that becomes meaningful for health and equity research. Second, <strong>environmental justice analysis</strong>: combining Sentinel-2-derived land surface temperature estimates with deprivation indices to understand who bears disproportionate heat burden. Both applications become substantially more tractable when the underlying imagery is open and globally consistent. That consistency is what makes findings reproducible and comparable across cities — a baseline requirement for rigorous urban science.</p>
+<hr />
+</section>
+<section id="references" class="level2">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-cems2024" class="csl-entry" role="listitem">
+Copernicus Emergency Management Service. 2024. <span>“<span>CEMS</span> Rapid Mapping Activations.”</span> European Commission. <a href="https://emergency.copernicus.eu">https://emergency.copernicus.eu</a>.
+</div>
+<div id="ref-drusch2012" class="csl-entry" role="listitem">
+Drusch, M., U. Del Bello, S. Carlier, O. Colin, V. Fernandez, F. Gascon, B. Hoersch, et al. 2012. <span>“Sentinel-2: <span>ESA</span>’s Optical High-Resolution Mission for <span>GMES</span> Operational Services.”</span> <em>Remote Sensing of Environment</em> 120: 25–36. <a href="https://doi.org/10.1016/j.rse.2011.11.026">https://doi.org/10.1016/j.rse.2011.11.026</a>.
+</div>
+<div id="ref-esa2021handbook" class="csl-entry" role="listitem">
+European Space Agency. 2021. <em>Sentinel-2 User Handbook</em>. ESA. <a href="https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi">https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi</a>.
+</div>
+<div id="ref-inglada2017" class="csl-entry" role="listitem">
+Inglada, J., A. Vincent, M. Arias, B. Tardy, D. Morin, and I. Rodes. 2017. <span>“Operational High Resolution Land Cover Map Production at the Country Scale Using Satellite Image Time Series.”</span> <em>Remote Sensing</em> 9 (1): 95. <a href="https://doi.org/10.3390/rs9010095">https://doi.org/10.3390/rs9010095</a>.
+</div>
+<div id="ref-twele2020" class="csl-entry" role="listitem">
+Twele, A., W. Cao, S. Plank, and S. Martinis. 2020. <span>“Sentinel-1 and Sentinel-2 Based Near Real-Time Flood Extent Mapping: A Case Study from the 2019 Cyclone Idai.”</span> <em>International Journal of Remote Sensing</em> 42: 1–24. <a href="https://doi.org/10.1080/01431161.2020.1784503">https://doi.org/10.1080/01431161.2020.1784503</a>.
+</div>
+<div id="ref-wurm2019" class="csl-entry" role="listitem">
+Wurm, M., T. Stark, X. X. Zhu, M. Weigand, and H. Taubenböck. 2019. <span>“Semantic Segmentation of Slums in Satellite Images Using Transfer Learning on Fully Convolutional Neural Networks.”</span> <em>ISPRS Journal of Photogrammetry and Remote Sensing</em> 150: 59–69. <a href="https://doi.org/10.1016/j.isprsjprs.2019.02.006">https://doi.org/10.1016/j.isprsjprs.2019.02.006</a>.
+</div>
+</div>
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">CASA0023 Learnning Diary</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">CASA0023 Learnning Diary</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uZXh0"><span class="chapter-number">3</span>  <span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1wcmV2"><span class="chapter-number">1</span>  <span class="chapter-title">Week 1 – Introduction to Earth Observation and the EO Dashboard</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9pbmRleC5odG1sUHJlZmFjZQ==">Preface</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9XZWVrMS5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz4xPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPldlZWstMS3igJMtSW50cm9kdWN0aW9uLXRvLUVhcnRoLU9ic2VydmF0aW9uLWFuZC10aGUtRU8tRGFzaGJvYXJkPC9zcGFuPg=="><span class="chapter-number">1</span>  <span class="chapter-title">Week 1 – Introduction to Earth Observation and the EO Dashboard</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9XZWVrMi5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz4yPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPldlZWstMjotU2VudGluZWwtMjwvc3Bhbj4="><span class="chapter-number">2</span>  <span class="chapter-title">Week 2: Sentinel-2</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi93ZWVrM19jb3JyZWN0aW9ucy5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz4zPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPldlZWstMzotUmVtb3RlLVNlbnNpbmctRGF0YS1hbmQtQ29ycmVjdGlvbnM8L3NwYW4+"><span class="chapter-number">3</span>  <span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9yZWZlcmVuY2VzLmh0bWxSZWZlcmVuY2Vz">References</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLTxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Mjwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5XZWVrLTI6LVNlbnRpbmVsLTI8L3NwYW4+"><span class="chapter-number">2</span>  <span class="chapter-title">Week 2: Sentinel-2</span></span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ=="><span class="chapter-title">Week 2: Sentinel-2</span> – CASA0023 Learnning Diary</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU="><span class="chapter-title">Week 2: Sentinel-2</span> – CASA0023 Learnning Diary</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl"><span class="chapter-title">Week 2: Sentinel-2</span> – CASA0023 Learnning Diary</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">CASA0023 Learnning Diary</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">Multispectral Imaging for Earth Observation</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">Multispectral Imaging for Earth Observation</span></p>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id = "quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a  href="/Week1.html" class="pagination-link" aria-label="Week 1 – Introduction to Earth Observation and the EO Dashboard">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class='chapter-number'>1</span>  <span class='chapter-title'>Week 1 – Introduction to Earth Observation and the EO Dashboard</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a  href="/week3_corrections.html" class="pagination-link" aria-label="Week 3: Remote Sensing Data and Corrections">
+        <span class="nav-page-text"><span class='chapter-number'>3</span>  <span class='chapter-title'>Week 3: Remote Sensing Data and Corrections</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+</body>
+
+</html>
