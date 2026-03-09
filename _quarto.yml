@@ -1,8 +1,9 @@
 project:
   type: book
   output-dir: docs
+
 book:
-  title: "CASA0023 Learnning Diary"
+  title: "CASA0023 Learning Diary"
   author: "Arthur Zhang"
   date: "2026/2/19"
   chapters:
@@ -12,10 +13,18 @@ book:
     - week3_corrections.qmd
     - week4_policy.qmd
     - references.qmd
+
 bibliography: references.bib
+
 format:
   html:
     theme:
       - cosmo
-      - brand
+      - custom.scss
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    smooth-scroll: true
+    code-fold: true
+
 editor: visual

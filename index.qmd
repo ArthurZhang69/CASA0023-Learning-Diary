@@ -1,9 +1,66 @@
-# Preface {.unnumbered}
+---
+title: "Preface"
+---
 
-This is a Quarto book.
-
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
-
-```{r}
-1 + 1
+```{=html}
+<div class="hero-banner">
+  <div class="hero-eyebrow">UCL CASA · 2025–26</div>
+  <h1>CASA0023<br>Learning Diary</h1>
+  <p class="hero-subtitle">Remotely Sensing Cities and Environments</p>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <span class="meta-label">Author</span>
+      <span class="meta-value">Arthur Zhang</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Module</span>
+      <span class="meta-value">CASA0023 — Term 2</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Format</span>
+      <span class="meta-value">Quarto Book</span>
+    </div>
+  </div>
+</div>
 ```
+
+This diary is a weekly record of what I found interesting, confusing, or worth pushing back on in CASA0023. Each entry follows the same structure — summary, application, reflection — but the goal isn't to produce a textbook summary. It's to track how my thinking about remote sensing and urban analytics actually develops across the term.
+
+```{=html}
+<div class="intro-note">
+  Each week's entry covers: a <strong>summary</strong> of the core concepts, an <strong>application</strong> examining how EO data links to a real policy or research context, and a <strong>reflection</strong> on what I'm still uncertain about.
+</div>
+```
+
+## Contents
+
+```{=html}
+<div class="week-grid">
+  <div class="week-card">
+    <div class="card-week">Week 1</div>
+    <div class="card-title">Introduction to Earth Observation and the EO Dashboard</div>
+    <span class="card-tag">Foundations</span>
+  </div>
+  <div class="week-card">
+    <div class="card-week">Week 2</div>
+    <div class="card-title">Sentinel-2: Spectral Capabilities and Urban Applications</div>
+    <span class="card-tag">Sensors</span>
+  </div>
+  <div class="week-card">
+    <div class="card-week">Week 3</div>
+    <div class="card-title">Remote Sensing Data and Corrections</div>
+    <span class="card-tag">Processing</span>
+  </div>
+  <div class="week-card">
+    <div class="card-week">Week 4</div>
+    <div class="card-title">Policy and EO — Ahmedabad Heat Action Plan</div>
+    <span class="card-tag">Policy</span>
+  </div>
+</div>
+```
+
+## About this diary
+
+The module runs across Term 2 and covers the full remote sensing pipeline — from sensor physics and data corrections through to classification, temperature analysis, and SAR. The diary entries are written shortly after each lecture and practical session, so they reflect what stood out at the time rather than a polished retrospective.
+
+Where I cite papers, I've tried to actually read at least the abstract and methods section rather than just name-dropping. Where I'm uncertain about something, I've said so rather than papering over it.

@@ -1,0 +1,327 @@
+/*-- scss:defaults --*/
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+// Palette
+$navy:      #0d1b2a;
+$navy-mid:  #1a2f45;
+$navy-light:#243b55;
+$gold:      #c9a84c;
+$gold-light:#e8c97a;
+$cream:     #f5f0e8;
+$cream-dark:#ece5d8;
+$text-main: #2c2c2c;
+$text-muted:#6b6b6b;
+$border:    #ddd5c8;
+
+// Quarto book variables
+$body-bg:           $cream;
+$body-color:        $text-main;
+$link-color:        #1a5276;
+$link-hover-color:  $gold;
+$font-family-sans-serif: 'Source Sans 3', Georgia, serif;
+$font-size-base:    1.05rem;
+$line-height-base:  1.8;
+$headings-font-family: 'DM Serif Display', Georgia, serif;
+$headings-color:    $navy;
+$headings-font-weight: 400;
+$code-font-size:    0.88em;
+$border-radius:     4px;
+
+// Sidebar
+$sidebar-bg:        $navy;
+$sidebar-fg:        rgba(255,255,255,0.82);
+$sidebar-hl:        $gold;
+
+/*-- scss:rules --*/
+
+/* ── Body & Base ── */
+body {
+  background-color: $cream;
+  color: $text-main;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+/* ── Sidebar ── */
+#quarto-sidebar {
+  background: linear-gradient(180deg, $navy 0%, $navy-mid 60%, $navy-light 100%);
+  border-right: 2px solid $gold;
+
+  .sidebar-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: #fff;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+    padding: 1.2rem 1rem 0.8rem;
+    border-bottom: 1px solid rgba($gold, 0.3);
+  }
+
+  .sidebar-item-text {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .sidebar-item.active > .sidebar-item-text,
+  .sidebar-item:hover  > .sidebar-item-text {
+    color: $gold-light;
+  }
+
+  .sidebar-search input {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    &::placeholder { color: rgba(255,255,255,0.4); }
+  }
+}
+
+/* ── TOC (right) ── */
+#quarto-margin-sidebar .toc-active > a {
+  color: $gold;
+  font-weight: 600;
+  border-left: 2px solid $gold;
+  padding-left: 0.5rem;
+}
+#quarto-margin-sidebar a {
+  color: $text-muted;
+  font-size: 0.85rem;
+  &:hover { color: $navy; }
+}
+
+/* ── Headings ── */
+h1, h2, h3, h4 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+}
+h1 { font-size: 2.4rem; letter-spacing: -0.01em; }
+h2 {
+  font-size: 1.55rem;
+  border-bottom: 1px solid $border;
+  padding-bottom: 0.35rem;
+  margin-top: 2.2rem;
+  color: $navy;
+}
+h3 { font-size: 1.2rem; color: darken($gold, 15%); }
+
+/* ── Links ── */
+a { text-decoration: none; transition: color 0.2s; }
+a:hover { color: $gold; text-decoration: underline; }
+
+/* ── Blockquote ── */
+blockquote {
+  border-left: 3px solid $gold;
+  background: rgba($gold, 0.06);
+  padding: 0.8rem 1.2rem;
+  margin: 1.5rem 0;
+  color: $text-muted;
+  font-style: italic;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ── Code ── */
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba($navy, 0.05);
+  border-radius: 3px;
+}
+pre {
+  border: 1px solid $border;
+  border-left: 3px solid $gold;
+  padding: 1rem 1.2rem;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1.5rem 0;
+  th {
+    background: $navy;
+    color: #fff;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+  }
+  td { padding: 0.5rem 0.9rem; border-bottom: 1px solid $border; }
+  tr:nth-child(even) td { background: rgba($navy, 0.03); }
+  tr:hover td { background: rgba($gold, 0.07); }
+}
+
+/* ── Callout-style strong paragraphs ── */
+p > strong:first-child {
+  color: $navy;
+}
+
+/* ── Page footer ── */
+.nav-footer {
+  border-top: 1px solid $border;
+  background: rgba($navy, 0.04);
+  font-size: 0.82rem;
+  color: $text-muted;
+  padding: 0.8rem 1rem;
+}
+.nav-page a { color: $navy; font-weight: 600; }
+.nav-page a:hover { color: $gold; }
+
+/* ── References ── */
+#refs { font-size: 0.92rem; }
+#refs > div {
+  border-left: 2px solid $border;
+  padding-left: 0.8rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s;
+  &:hover { border-left-color: $gold; }
+}
+
+/* ── Index / Hero page ── */
+.hero-banner {
+  background: linear-gradient(135deg, $navy 0%, $navy-light 50%, #1e3a5f 100%);
+  border-radius: 8px;
+  padding: 3.5rem 3rem 3rem;
+  margin: -1rem -1rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 80% 20%, rgba($gold, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(64,140,200,0.1) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  /* subtle grid lines — satellite image feel */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $gold-light;
+    margin-bottom: 0.8rem;
+    opacity: 0.9;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    color: #fff;
+    margin: 0 0 0.5rem;
+    line-height: 1.15;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-subtitle {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+
+    .meta-item {
+      .meta-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: $gold;
+        display: block;
+        margin-bottom: 0.15rem;
+      }
+      .meta-value {
+        font-size: 0.92rem;
+        color: rgba(255,255,255,0.85);
+      }
+    }
+  }
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.week-card {
+  background: #fff;
+  border: 1px solid $border;
+  border-radius: 6px;
+  padding: 1.2rem 1.3rem;
+  border-top: 3px solid $navy;
+  transition: transform 0.18s, box-shadow 0.18s, border-top-color 0.18s;
+  cursor: default;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba($navy, 0.1);
+    border-top-color: $gold;
+  }
+
+  .card-week {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $gold;
+    margin-bottom: 0.4rem;
+  }
+
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    color: $navy;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    background: rgba($navy, 0.07);
+    color: $text-muted;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+}
+
+.intro-note {
+  background: rgba($gold, 0.08);
+  border-left: 3px solid $gold;
+  padding: 1rem 1.4rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95rem;
+  color: $text-muted;
+  margin: 1.5rem 0;
+  font-style: italic;
+}
