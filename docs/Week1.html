@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 1 – Introduction to Earth Observation and the EO Dashboard – CASA0023 Learning Diary</title>
+<title>Week 1: Introduction to Earth Observation and the EO Dashboard – CASA0023 Learning Diary</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -72,6 +92,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -84,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week1.html"><span class="chapter-title">Week 1 – Introduction to Earth Observation and the EO Dashboard</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week1.html"><span class="chapter-title">Week 1: Introduction to Earth Observation and the EO Dashboard</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 1 – Introduction to Earth Observation and the EO Dashboard</span></a>
+  <a href="./Week1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 1: Introduction to Earth Observation and the EO Dashboard</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -150,14 +199,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#week-1-introduction-to-earth-observation" id="toc-week-1-introduction-to-earth-observation" class="nav-link active" data-scroll-target="#week-1-introduction-to-earth-observation">Week 1 – Introduction to Earth Observation</a>
-  <ul class="collapse">
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><img src="images/clipboard-1105311166.png" class="img-fluid"><img src="images/clipboard-2536540042.png" class="img-fluid"><img src="images/clipboard-403720106.png" class="img-fluid"></a></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -166,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Week 1 – Introduction to Earth Observation and the EO Dashboard</span></h1>
+<h1 class="title"><span class="chapter-title">Week 1: Introduction to Earth Observation and the EO Dashboard</span></h1>
 </div>
 
 
@@ -183,24 +227,47 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="week-1-introduction-to-earth-observation" class="level1">
-<h1>Week 1 – Introduction to Earth Observation</h1>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>This week introduced the conceptual foundations of Earth Observation (EO) and the overall aims of the module. A central focus was the EO Dashboard, which aggregates satellite-derived indicators from missions such as Sentinel and Landsat to visualise environmental change across space and time. What struck me most was how complex spectral data are translated into accessible, policy-facing narratives. Instead of interacting directly with raw raster datasets, users engage with processed indicators such as NO₂ concentration, land surface temperature, and vegetation indices.</p>
-<p><img src="images/clipboard-286994931.png" class="img-fluid"></p>
-<p>A key technical takeaway was the importance of spatial and temporal resolution trade-offs. Sentinel-2 provides 10 m spatial resolution with frequent revisit times, making it suitable for intra-urban analysis. Landsat, while coarser at 30 m resolution, offers a long historical archive (since the 1980s), which supports longitudinal environmental monitoring (Wulder et al., 2019). These trade-offs highlight that dataset choice fundamentally shapes analytical outcomes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-286994931.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter plot and false-colour composite from the Week 1 practical — Sentinel-2 imagery of Cape Town.</figcaption>
+</figure>
+</div>
+<p>A key technical takeaway was the importance of spatial and temporal resolution trade-offs. Sentinel-2 provides 10 m spatial resolution with frequent revisit times, making it suitable for intra-urban analysis. Landsat, while coarser at 30 m resolution, offers a long historical archive (since the 1980s), which supports longitudinal environmental monitoring <span class="citation" data-cites="wulder2019">(<a href="references.html#ref-wulder2019" role="doc-biblioref">Wulder et al. 2019</a>)</span>. These trade-offs highlight that dataset choice fundamentally shapes analytical outcomes.</p>
 <p>Prior to computation, all bands were resampled to a common spatial resolution to ensure pixel-level alignment. This step is essential, as bands with different spatial resolutions (10 m vs 20 m) cannot be directly combined without introducing spatial inconsistency. The Brightness image highlighted highly reflective urban surfaces and industrial areas, while water bodies appeared dark. Greenness strongly enhanced vegetated areas, and Wetness clearly separated water and moist surfaces from built-up areas.</p>
-<p><img src="images/clipboard-3385457097.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3385457097.png" class="img-fluid figure-img"></p>
+<figcaption>Tasselled Cap transformation components — Brightness, Greenness, and Wetness — derived from Sentinel-2 imagery.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1105311166.png" class="img-fluid figure-img"></p>
+<figcaption>Band spectral plots and histogram distributions from the Cape Town scene.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2536540042.png" class="img-fluid figure-img"></p>
+<figcaption>Additional spectral signature outputs from the Week 1 practical.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-403720106.png" class="img-fluid figure-img"></p>
+<figcaption>QGIS layout showing band comparisons across the study area.</figcaption>
+</figure>
+</div>
 <hr>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"><img src="images/clipboard-1105311166.png" class="img-fluid"><img src="images/clipboard-2536540042.png" class="img-fluid"><img src="images/clipboard-403720106.png" class="img-fluid"></h2>
-</section>
-<section id="applications" class="level2">
-<h2 class="anchored" data-anchor-id="applications">Applications</h2>
-<p>EO dashboards demonstrate how satellite data are increasingly embedded in environmental governance. For example, Sentinel-5P satellite data were widely used to assess NO₂ reductions during COVID-19 lockdowns, revealing measurable atmospheric change linked to mobility restrictions (Bauwens et al., 2020; Venter et al., 2020). Similarly, land surface temperature derived from thermal sensors has informed urban heat island research and climate adaptation planning (Voogt &amp; Oke, 2003; Li et al., 2019).</p>
-<p>These applications illustrate how EO data can support Sustainable Development Goals (SDGs), particularly those relating to climate action, sustainable cities, and environmental health. However, dashboards necessarily abstract complex processing steps such as atmospheric correction, radiometric calibration, and cloud masking (Jones &amp; Vaughan, 2010). While this abstraction enhances accessibility, it may obscure methodological uncertainty.</p>
+<section id="application" class="level2">
+<h2 class="anchored" data-anchor-id="application">Application</h2>
+<p>EO dashboards demonstrate how satellite data are increasingly embedded in environmental governance. For example, Sentinel-5P data were widely used to assess NO₂ reductions during COVID-19 lockdowns, revealing measurable atmospheric change linked to mobility restrictions <span class="citation" data-cites="bauwens2020 venter2020">(<a href="references.html#ref-bauwens2020" role="doc-biblioref">Bauwens et al. 2020</a>; <a href="references.html#ref-venter2020" role="doc-biblioref">Venter et al. 2020</a>)</span>. Similarly, land surface temperature derived from thermal sensors has informed urban heat island research and climate adaptation planning <span class="citation" data-cites="voogt2003 li2019">(<a href="references.html#ref-voogt2003" role="doc-biblioref">Voogt and Oke 2003</a>; <a href="references.html#ref-li2019" role="doc-biblioref">Li, Bou-Zeid, and Oppenheimer 2014</a>)</span>.</p>
+<p>These applications illustrate how EO data can support Sustainable Development Goals (SDGs), particularly those relating to climate action, sustainable cities, and environmental health. However, dashboards necessarily abstract complex processing steps such as atmospheric correction, radiometric calibration, and cloud masking <span class="citation" data-cites="jones2010">(<a href="references.html#ref-jones2010" role="doc-biblioref">Jones and Vaughan 2010</a>)</span>. While this abstraction enhances accessibility, it may obscure methodological uncertainty.</p>
 <p>The distinction between Sentinel and Landsat also reflects broader research design considerations. High-resolution data enable neighbourhood-scale environmental analysis, while long-term archives support trend detection and policy evaluation. Many contemporary studies integrate both datasets to leverage spatial detail and temporal depth, illustrating the multi-source nature of modern EO research.</p>
 <hr>
 </section>
@@ -209,19 +276,28 @@ ul.task-list li input[type="checkbox"] {
 <p>This week positioned EO not simply as satellite imagery, but as an infrastructural system linking science, technology, and governance. The EO Dashboard presents environmental change as measurable and visual, yet the selection of indicators and spatial scales shapes how problems are framed. What is monitored becomes what is prioritised.</p>
 <p>From a spatial analysis perspective, I am particularly interested in how EO indicators might be integrated with socio-economic data to examine environmental inequality. For instance, combining NDVI-derived vegetation measures with deprivation indices could reveal patterns of uneven access to green space. However, integrating raster EO data with census geographies introduces methodological challenges such as scale mismatch and the modifiable areal unit problem (MAUP).</p>
 <p>Overall, Week 1 has highlighted that EO is not just technical measurement but a form of spatial evidence production. Moving forward, I aim to better understand how spectral data are transformed into policy-relevant indicators, and how that transformation can be critically evaluated.</p>
-<hr>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>Bauwens, M., Compernolle, S., Stavrakou, T., Müller, J.-F., van Gent, J., Eskes, H., et al.&nbsp;(2020). Impact of COVID-19 lockdown on NO₂ pollution assessed using TROPOMI and surface observations.</p>
-<p>Jones, H. G., &amp; Vaughan, R. A. (2010). <em>Remote Sensing of Vegetation: Principles, Techniques, and Applications</em>. Oxford University Press.</p>
-<p>Li, D., Bou-Zeid, E., &amp; Oppenheimer, M. (2019). The effectiveness of cool and green roofs as urban heat island mitigation strategies.</p>
-<p>Venter, Z. S., Aunan, K., Chowdhury, S., &amp; Lelieveld, J. (2020). COVID-19 lockdowns cause global air pollution declines.</p>
-<p>Voogt, J. A., &amp; Oke, T. R. (2003). Thermal remote sensing of urban climates.</p>
-<p>Wulder, M. A., et al.&nbsp;(2019). Current status of Landsat program science and applications.</p>
 
 
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-bauwens2020" class="csl-entry" role="listitem">
+Bauwens, M., S. Compernolle, T. Stavrakou, J.-F. Müller, J. van Gent, H. Eskes, P. F. Levelt, et al. 2020. <span>“Impact of Coronavirus Outbreak on <span>NO</span><span class="math inline">\(_2\)</span> Pollution Assessed Using <span>TROPOMI</span> and <span>OMI</span> Observations.”</span> <em>Geophysical Research Letters</em> 47 (11). <a href="https://doi.org/10.1029/2020GL087978">https://doi.org/10.1029/2020GL087978</a>.
+</div>
+<div id="ref-jones2010" class="csl-entry" role="listitem">
+Jones, H. G., and R. A. Vaughan. 2010. <em>Remote Sensing of Vegetation: Principles, Techniques, and Applications</em>. Oxford University Press.
+</div>
+<div id="ref-li2019" class="csl-entry" role="listitem">
+Li, D., E. Bou-Zeid, and M. Oppenheimer. 2014. <span>“The Effectiveness of Cool and Green Roofs as Urban Heat Island Mitigation Strategies.”</span> <em>Environmental Research Letters</em> 9 (5): 055002. <a href="https://doi.org/10.1088/1748-9326/9/5/055002">https://doi.org/10.1088/1748-9326/9/5/055002</a>.
+</div>
+<div id="ref-venter2020" class="csl-entry" role="listitem">
+Venter, Z. S., K. Aunan, S. Chowdhury, and J. Lelieveld. 2020. <span>“<span>COVID-19</span> Lockdowns Cause Global Air Pollution Declines.”</span> <em>Proceedings of the National Academy of Sciences</em> 117 (32): 18984–90. <a href="https://doi.org/10.1073/pnas.2006853117">https://doi.org/10.1073/pnas.2006853117</a>.
+</div>
+<div id="ref-voogt2003" class="csl-entry" role="listitem">
+Voogt, J. A., and T. R. Oke. 2003. <span>“Thermal Remote Sensing of Urban Climates.”</span> <em>Remote Sensing of Environment</em> 86 (3): 370–84. <a href="https://doi.org/10.1016/S0034-4257(03)00079-8">https://doi.org/10.1016/S0034-4257(03)00079-8</a>.
+</div>
+<div id="ref-wulder2019" class="csl-entry" role="listitem">
+Wulder, M. A., T. R. Loveland, D. P. Roy, C. J. Crawford, J. G. Masek, C. E. Woodcock, R. G. Allen, et al. 2019. <span>“Current Status of <span>Landsat</span> Program, Science, and Applications.”</span> <em>Remote Sensing of Environment</em> 225: 127–47. <a href="https://doi.org/10.1016/j.rse.2019.02.015">https://doi.org/10.1016/j.rse.2019.02.015</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
