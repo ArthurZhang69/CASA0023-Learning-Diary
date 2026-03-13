@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 1: Introduction to Earth Observation and the EO Dashboard – CASA0023 Learning Diary</title>
+<title>Week 6: Google Earth Engine I – CASA0023 Learning Diary</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,8 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Week2.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./week4_policy.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -92,35 +72,6 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -133,7 +84,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Week1.html"><span class="chapter-title">Week 1: Introduction to Earth Observation and the EO Dashboard</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week6.html"><span class="chapter-title">Week 6: Google Earth Engine I</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +116,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 1: Introduction to Earth Observation and the EO Dashboard</span></a>
+  <a href="./Week1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 1: Introduction to Earth Observation and the EO Dashboard</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,7 +136,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 6: Google Earth Engine I</span></a>
+  <a href="./week6.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 6: Google Earth Engine I</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -205,7 +156,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
   </ul>
 </nav>
@@ -215,7 +166,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Week 1: Introduction to Earth Observation and the EO Dashboard</span></h1>
+<h1 class="title"><span class="chapter-title">Week 6: Google Earth Engine I</span></h1>
 </div>
 
 
@@ -234,75 +185,57 @@ window.Quarto = {
 
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>This week introduced the conceptual foundations of Earth Observation (EO) and the overall aims of the module. A central focus was the EO Dashboard, which aggregates satellite-derived indicators from missions such as Sentinel and Landsat to visualise environmental change across space and time. What struck me most was how complex spectral data are translated into accessible, policy-facing narratives. Instead of interacting directly with raw raster datasets, users engage with processed indicators such as NO₂ concentration, land surface temperature, and vegetation indices.</p>
+<p>This week marked a significant shift from working locally in R to using <strong>Google Earth Engine (GEE)</strong> — a cloud-based platform that processes geospatial data on remote servers rather than your own machine. The core idea is that instead of downloading satellite imagery and running analysis locally, you write JavaScript code that gets sent to Google’s servers, executed there, and the results streamed back. This makes planetary-scale analysis feasible in seconds.</p>
+<p>The key conceptual shift is understanding <strong>client vs.&nbsp;server-side</strong> processing. Any object prefixed with <code>ee</code> (e.g.&nbsp;<code>ee.ImageCollection</code>) is a “proxy object” — it exists on the server and has no data in your local environment. This is why you can’t use regular <code>for</code> loops in GEE; the loop can’t iterate over something it hasn’t evaluated. Instead, you use <code>.map()</code> to apply a function across all images simultaneously on distributed machines — the same idea as <code>purrr::map()</code> in R but running at scale.</p>
+<p>GEE’s data model maps neatly onto familiar concepts: <strong>Image</strong> = raster, <strong>Feature</strong> = vector with attributes, and <strong>ImageCollection/FeatureCollection</strong> = stacks of either. Scale (pixel resolution) is set by the output, not input — GEE picks the right image pyramid level automatically, which removes a lot of projection headaches common in R or QGIS.</p>
+<p>In the practical I worked with Ahmedabad, India for our presentation topic. After filtering Landsat 8 imagery (2021–2022, cloud cover &lt; 0.1%) down to 15 scenes, I applied surface reflectance scaling factors via a mapped function, computed a mean composite, and clipped to the AMC (Ahmedabad Municipal Corporation) ward boundary — uploaded as a shapefile Asset after converting from KML. I initially used a GADM Level 3 district boundary which cannot match all area with the examples I researched online for our presentation study：</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-286994931.png" class="img-fluid figure-img"></p>
-<figcaption>Scatter plot and false-colour composite from the Week 1 practical — Sentinel-2 imagery of Beijing.</figcaption>
+<p><img src="images/clipboard-529536771.png" class="img-fluid figure-img"></p>
+<figcaption>The initial GADM does not quiet match our presentation area</figcaption>
 </figure>
 </div>
-<p>A key technical takeaway was the importance of spatial and temporal resolution trade-offs. Sentinel-2 provides 10 m spatial resolution with frequent revisit times, making it suitable for intra-urban analysis. Landsat, while coarser at 30 m resolution, offers a long historical archive (since the 1980s), which supports longitudinal environmental monitoring <span class="citation" data-cites="wulder2019">(<a href="references.html#ref-wulder2019" role="doc-biblioref">Wulder et al. 2019</a>)</span>. These trade-offs highlight that dataset choice fundamentally shapes analytical outcomes.</p>
-<p>Prior to computation, all bands were resampled to a common spatial resolution to ensure pixel-level alignment. This step is essential, as bands with different spatial resolutions (10 m vs 20 m) cannot be directly combined without introducing spatial inconsistency. The Brightness image highlighted highly reflective urban surfaces and industrial areas, while water bodies appeared dark. Greenness strongly enhanced vegetated areas, and Wetness clearly separated water and moist surfaces from built-up areas.</p>
+<p>switching to the official AMC wards and merging them with <code>.union()</code> produced a much more meaningful urban extent .</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-3385457097.png" class="img-fluid figure-img"></p>
-<figcaption>Tasselled Cap transformation components — Brightness, Greenness, and Wetness.</figcaption>
+<p><img src="images/clipboard-2191086530.png" class="img-fluid figure-img" width="686"></p>
+<figcaption>Switching to AMC as study area seems more suitable</figcaption>
 </figure>
 </div>
+<p>From there I computed GLCM texture (contrast and dissimilarity across all 7 bands) and ran PCA on the resulting 21-band stack. PC1 explained 72.4% of variance, PC2 a further 14.2%, meaning just two components captured 86.6% of all information — a substantial dimensionality reduction from 21 bands.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-1105311166.png" class="img-fluid figure-img"></p>
-<figcaption>Band spectral plots and histogram distributions from the Beijing scene.</figcaption>
+<p><img src="images/clipboard-1460918796.png" class="img-fluid figure-img"></p>
+<figcaption>PCA Layer and result in GEE interface</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-2536540042.png" class="img-fluid figure-img"></p>
-<figcaption>Additional spectral signature outputs from the Week 1 practical.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-403720106.png" class="img-fluid figure-img"></p>
-<figcaption>QGIS layout showing band comparisons across the study area.</figcaption>
-</figure>
-</div>
+<p>The mean composite clipped to the AMC boundary revealed the Sabarmati River running north–south through the city, with denser urban fabric to the east and more mixed land cover to the west.</p>
 <hr>
 </section>
-<section id="application" class="level2">
-<h2 class="anchored" data-anchor-id="application">Application</h2>
-<p>EO dashboards demonstrate how satellite data are increasingly embedded in environmental governance. For example, Sentinel-5P data were widely used to assess NO₂ reductions during COVID-19 lockdowns, revealing measurable atmospheric change linked to mobility restrictions <span class="citation" data-cites="bauwens2020 venter2020">(<a href="references.html#ref-bauwens2020" role="doc-biblioref">Bauwens et al. 2020</a>; <a href="references.html#ref-venter2020" role="doc-biblioref">Venter et al. 2020</a>)</span>. Similarly, land surface temperature derived from thermal sensors has informed urban heat island research and climate adaptation planning <span class="citation" data-cites="voogt2003 li2019">(<a href="references.html#ref-voogt2003" role="doc-biblioref">Voogt and Oke 2003</a>; <a href="references.html#ref-li2019" role="doc-biblioref">Li, Bou-Zeid, and Oppenheimer 2014</a>)</span>.</p>
-<p>These applications illustrate how EO data can support Sustainable Development Goals (SDGs), particularly those relating to climate action, sustainable cities, and environmental health. However, dashboards necessarily abstract complex processing steps such as atmospheric correction, radiometric calibration, and cloud masking <span class="citation" data-cites="jones2010">(<a href="references.html#ref-jones2010" role="doc-biblioref">Jones and Vaughan 2010</a>)</span>. While this abstraction enhances accessibility, it may obscure methodological uncertainty.</p>
-<p>The distinction between Sentinel and Landsat also reflects broader research design considerations. High-resolution data enable neighbourhood-scale environmental analysis, while long-term archives support trend detection and policy evaluation. Many contemporary studies integrate both datasets to leverage spatial detail and temporal depth, illustrating the multi-source nature of modern EO research.</p>
+<section id="applications" class="level2">
+<h2 class="anchored" data-anchor-id="applications">Applications</h2>
+<p>GEE has become the dominant platform for large-scale urban remote sensing studies, largely because of its ability to process multi-decade image archives without local infrastructure. Mutanga &amp; Kumar (2019) highlight this in their review, noting that GEE has democratised access to satellite analysis for researchers in data-poor regions who previously couldn’t afford the storage or compute costs. For urban applications specifically, this matters — cities in the Global South often face the greatest environmental pressures but have the fewest analytical resources.</p>
+<p>One area where GEE-based workflows have been particularly impactful is urban heat island (UHI) research, directly relevant to Ahmedabad. Guha et al.&nbsp;(2018) used Landsat-derived land surface temperature and NDVI in Ahmedabad to show a strong negative correlation between vegetation cover and surface temperature — exactly the kind of analysis that can be operationalised at scale in GEE. The NDVI output from this week’s practical produced results consistent with their findings: the river corridor and peripheral green spaces showed notably higher NDVI values than the dense urban core. More recently, reporting from <em>The Indian Express</em> noted that Ahmedabad’s surface temperatures have dropped 2–3°C since 2020, attributed to increased green cover — a change that would be straightforward to quantify using GEE’s temporal capabilities and the NDVI methods practised this week.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2623754392.png" class="img-fluid figure-img"></p>
+<figcaption>NDVI map of Ahmedabad AMC. Green = vegetation, blue = water/impervious surfaces</figcaption>
+</figure>
+</div>
+<p>The use of GLCM texture alongside spectral bands — as done in this practical — reflects a broader trend in urban classification literature. Zhang et al.&nbsp;(2017) demonstrated that adding GLCM features to Landsat data significantly improved urban land use classification accuracy compared to spectral bands alone, particularly for distinguishing industrial from residential areas. The PCA step makes this practically feasible: without dimensionality reduction, feeding 21 correlated bands into a classifier would introduce noise and computational overhead. PCA removes the redundancy, retaining the meaningful variance in just a few components. The PC2 layer proved particularly informative, capturing the contrast between the river/vegetation and the built-up environment.</p>
 <hr>
 </section>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>This week positioned EO not simply as satellite imagery, but as an infrastructural system linking science, technology, and governance. The EO Dashboard presents environmental change as measurable and visual, yet the selection of indicators and spatial scales shapes how problems are framed. What is monitored becomes what is prioritised.</p>
-<p>From a spatial analysis perspective, I am particularly interested in how EO indicators might be integrated with socio-economic data to examine environmental inequality. For instance, combining NDVI-derived vegetation measures with deprivation indices could reveal patterns of uneven access to green space. However, integrating raster EO data with census geographies introduces methodological challenges such as scale mismatch and the modifiable areal unit problem (MAUP).</p>
-<p>Overall, Week 1 has highlighted that EO is not just technical measurement but a form of spatial evidence production. Moving forward, I aim to better understand how spectral data are transformed into policy-relevant indicators, and how that transformation can be critically evaluated.</p>
+<p>What struck me most this week was how much the <strong>choice of study area boundary</strong> affects the analysis — something easy to overlook. The GADM district boundary made Ahmedabad look predominantly rural and agricultural, while the AMC ward boundary revealed the dense, compact urban form that actually characterises the city. This is not just a cosmetic issue; if I were computing mean NDVI or surface temperature for “Ahmedabad,” the two boundaries would give substantially different results and potentially opposite conclusions about urban greenness. It’s a reminder that spatial units are analytical decisions, not neutral containers, and that decisions made early in a workflow (like boundary choice) propagate through everything downstream. Going forward, I want to be more deliberate about documenting and justifying these choices rather than defaulting to whatever administrative boundary is most convenient to download.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://images.indianexpress.com/2025/04/Ahmedabad-Heat-Map.jpg" class="img-fluid figure-img"></p>
+<figcaption>Satellite maps show Ahmedabad has got cooler by 2-3 degrees since 2020. Is increase in green cover a reason? | Ahmedabad News - The Indian Express</figcaption>
+</figure>
+</div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-bauwens2020" class="csl-entry" role="listitem">
-Bauwens, M., S. Compernolle, T. Stavrakou, J.-F. Müller, J. van Gent, H. Eskes, P. F. Levelt, et al. 2020. <span>“Impact of Coronavirus Outbreak on <span>NO</span><span class="math inline">\(_2\)</span> Pollution Assessed Using <span>TROPOMI</span> and <span>OMI</span> Observations.”</span> <em>Geophysical Research Letters</em> 47 (11). <a href="https://doi.org/10.1029/2020GL087978">https://doi.org/10.1029/2020GL087978</a>.
-</div>
-<div id="ref-jones2010" class="csl-entry" role="listitem">
-Jones, H. G., and R. A. Vaughan. 2010. <em>Remote Sensing of Vegetation: Principles, Techniques, and Applications</em>. Oxford University Press.
-</div>
-<div id="ref-li2019" class="csl-entry" role="listitem">
-Li, D., E. Bou-Zeid, and M. Oppenheimer. 2014. <span>“The Effectiveness of Cool and Green Roofs as Urban Heat Island Mitigation Strategies.”</span> <em>Environmental Research Letters</em> 9 (5): 055002. <a href="https://doi.org/10.1088/1748-9326/9/5/055002">https://doi.org/10.1088/1748-9326/9/5/055002</a>.
-</div>
-<div id="ref-venter2020" class="csl-entry" role="listitem">
-Venter, Z. S., K. Aunan, S. Chowdhury, and J. Lelieveld. 2020. <span>“<span>COVID-19</span> Lockdowns Cause Global Air Pollution Declines.”</span> <em>Proceedings of the National Academy of Sciences</em> 117 (32): 18984–90. <a href="https://doi.org/10.1073/pnas.2006853117">https://doi.org/10.1073/pnas.2006853117</a>.
-</div>
-<div id="ref-voogt2003" class="csl-entry" role="listitem">
-Voogt, J. A., and T. R. Oke. 2003. <span>“Thermal Remote Sensing of Urban Climates.”</span> <em>Remote Sensing of Environment</em> 86 (3): 370–84. <a href="https://doi.org/10.1016/S0034-4257(03)00079-8">https://doi.org/10.1016/S0034-4257(03)00079-8</a>.
-</div>
-<div id="ref-wulder2019" class="csl-entry" role="listitem">
-Wulder, M. A., T. R. Loveland, D. P. Roy, C. J. Crawford, J. G. Masek, C. E. Woodcock, R. G. Allen, et al. 2019. <span>“Current Status of <span>Landsat</span> Program, Science, and Applications.”</span> <em>Remote Sensing of Environment</em> 225: 127–47. <a href="https://doi.org/10.1016/j.rse.2019.02.015">https://doi.org/10.1016/j.rse.2019.02.015</a>.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -708,13 +641,13 @@ Wulder, M. A., T. R. Loveland, D. P. Roy, C. J. Crawford, J. G. Masek, C. E. Woo
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Preface</span></span>
+      <a href="./week4_policy.html" class="pagination-link" aria-label="Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Week2.html" class="pagination-link" aria-label="Week 2: Sentinel-2">
-        <span class="nav-page-text"><span class="chapter-title">Week 2: Sentinel-2</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
