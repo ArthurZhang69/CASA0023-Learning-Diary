@@ -208,6 +208,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Week 2: Sentinel-2 Introduction &amp; Xaringan Presentation</span></h1>
+<p class="subtitle lead">Multispectral Imaging for Earth Observation</p>
 </div>
 
 
@@ -235,25 +236,22 @@ div.csl-indent {
 <section id="xaringan-presentation" class="level2">
 <h2 class="anchored" data-anchor-id="xaringan-presentation">Xaringan Presentation</h2>
 <p>The following presentation provides a structured overview of the Sentinel-2 sensor, examples of studies that have used its data, and a reflection on what this implies for urban and spatial analysis.</p>
-<div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
+<div id="xaringan-container" style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
   <iframe id="xaringan-iframe" src="https://ArthurZhang69.github.io/CASA0023-Learning-Diary/sentinel2_presentation.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen="">
   </iframe>
 </div>
 
 <script>
 (function() {
-  var iframe = document.getElementById("xaringan-iframe");
-  iframe.addEventListener("mouseenter", function() {
-    var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.body.style.paddingRight = scrollbarWidth + "px";
-    document.documentElement.style.overflowY = "hidden";
-    document.body.style.overflowY = "hidden";
-  });
-  iframe.addEventListener("mouseleave", function() {
-    document.documentElement.style.overflowY = "";
-    document.body.style.overflowY = "";
-    document.body.style.paddingRight = "";
-  });
+  var container = document.getElementById("xaringan-container");
+  container.addEventListener("wheel", function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+  }, { passive: false });
+  container.addEventListener("touchmove", function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+  }, { passive: false });
 })();
 </script>
 <hr>
