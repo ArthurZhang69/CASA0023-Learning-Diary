@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 6: Classification I – CASA0023 Learning Diary</title>
+<title>Week 8: Temperature and Urban Heat Islands – CASA0023 Learning Diary</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,8 +50,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./week7.html" rel="next">
-<link href="./week5.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./week7.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -104,7 +104,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week6.html"><span class="chapter-title">Week 6: Classification I</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week8.html"><span class="chapter-title">Week 8: Temperature and Urban Heat Islands</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -161,7 +161,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week6.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 6: Classification I</span></a>
+  <a href="./week6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 6: Classification I</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -171,7 +171,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 8: Temperature and Urban Heat Islands</span></a>
+  <a href="./week8.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 8: Temperature and Urban Heat Islands</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -201,7 +201,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Week 6: Classification I</span></h1>
+<h1 class="title"><span class="chapter-title">Week 8: Temperature and Urban Heat Islands</span></h1>
 </div>
 
 
@@ -220,52 +220,72 @@ div.csl-indent {
 
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>This week introduced supervised image classification — the process of assigning every pixel in a satellite image to a predefined land cover category. The lecture framed classification as a form of <strong>inductive machine learning</strong>: given labelled training examples, the model learns spectral patterns and applies them to unseen pixels. Two core algorithms were covered in detail.</p>
-<p><strong>Classification and Regression Trees (CART)</strong> work by recursively partitioning the feature space using a series of binary decisions. For classification tasks, splits are chosen to minimise <strong>Gini impurity</strong> — a measure of how mixed the classes are in each resulting node. The key challenge with CART is overfitting: a tree grown without limits will perfectly memorise training data but generalise poorly. This is controlled through pruning, which removes leaves based on a tree score that penalises complexity (SSR + alpha × number of leaves), with the optimal alpha selected via cross-validation.</p>
-<p><strong>Random Forests (RF)</strong> address the instability of individual trees by growing many trees on bootstrap samples of the data, with each split considering only a random subset of variables. The final classification is determined by majority vote across all trees. The out-of-bag (OOB) error — computed on the ~30% of data not used in each tree’s bootstrap sample — provides an internal accuracy estimate without needing a separate test set. In this week’s practical I used a 100-tree RF on Sentinel-2 imagery of Ahmedabad, achieving an overall accuracy of <strong>88.7%</strong> on held-out validation data.</p>
-<p>For the practical, I loaded Sentinel-2 SR Harmonized imagery (2022, &lt;20% cloud cover per tile) with a QA60 bitmask cloud mask applied at the pixel level. After clipping to the AMC boundary, I manually digitised training polygons for six land cover classes: high-density urban, low-density urban, water, grass, bare earth, and forest.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-1446415147.png" class="img-fluid figure-img"></p>
-<figcaption>Drawing polygons for test configuration, I find that with more polygon draw the more precision the model could get!</figcaption>
+<p>This week’s content on Land Surface Temperature (LST) and the Urban Heat Island (UHI) effect was directly and immediately relevant to our group presentation project — <strong>EO-HEAT Ahmedabad</strong> — which proposes a £500,000 bid to the Ahmedabad Municipal Corporation (AMC) to deliver a spatially-explicit, ward-level heat vulnerability assessment. Much of what was introduced in the practical this week forms the technical backbone of our presentation’s project.</p>
+<p>The practical demonstrated two complementary approaches to measuring LST. <strong>Landsat 8 Band 10</strong> (thermal infrared, 30m) provides the fine spatial resolution needed to distinguish temperature variation between individual wards, while <strong>MODIS</strong> (Terra + Aqua, 1km, near-daily) enables the long-term trend analysis that forms the evidential basis for our project pitch. Critically, both data sources are free and available through GEE — directly addressing one of the key “value for money” arguments in our presentation: that the entire analytical pipeline can be built on open data at zero marginal data cost.</p>
+<p>I applied the full LST workflow to Ahmedabad using Landsat 8 scenes filtered to the Indian hot season (April–September, 2019–2022) with cloud cover below 1%. After applying the thermal scaling factor (×0.00341802 + 149.0) and converting from Kelvin to Celsius, the mean composite (<a href="#fig-lst" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>) revealed a striking urban heat island signature entirely consistent with the problem framing in our Slide 2. The dense built-up core reaches 45–50°C, while the Sabarmati River corridor is 10–15°C cooler — exactly the kind of intra-urban spatial variation that our presentation argues is invisible to the meteorological station network that the current HAP relies on.</p>
+<div id="fig-lst" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/clipboard-124381120.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1: Landsat 8 mean LST (April–September, 2019–2022) showing pronounced UHI in Ahmedabad’s built-up core and cooling along the Sabarmati River corridor.
+</figcaption>
 </figure>
 </div>
-<p>A pixel-level 70/30 train-test split was applied — randomly sampling 1,000 points per class and assigning a random column — to avoid the problem of splitting too few polygons. The resulting classified map shows the city is dominated by urban feature, with the Sabarmati River clearly delineated and patches of vegetation concentrated at the periphery.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-1061390347.png" class="img-fluid figure-img"></p>
-<figcaption>Visualization of Supervised Classification where blue represents water,red represents urban area and green represents vegetation,gray represents bare earth</figcaption>
+<p>The MODIS time series across 2019–2022 showed consistent pre-monsoon LST peaks of 50–55°C — data that maps directly onto our presentation’s Slide 2 claim of a “46.8°C peak temperature” during the 2010 heat wave and supports the argument that such extremes are a recurring, not exceptional, feature of Ahmedabad’s climate.</p>
+<div id="fig-timeseries" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-timeseries-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/clipboard-3944389524.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-timeseries-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.2: MODIS Terra + Aqua merged LST time series for Ahmedabad AMC, 2019–2022. Pre-monsoon peaks consistently exceed 50°C, with a sharp monsoon-season decline.
+</figcaption>
 </figure>
 </div>
-<p>The confusion matrix reveals that water achieved 100% consumer accuracy, forest 97.4%, and grass 95.6% — all spectrally distinct classes. The main source of confusion was between high- and low-density urban (classes 1 and 2), which is expected given their similar spectral signatures in the visible and NIR bands.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-2999779208.png" class="img-fluid figure-img"></p>
-<figcaption>Classification Results &amp; Confusion Matrix</figcaption>
+<p>Finally, I computed a ward-level <strong>heat index</strong> using percentile-based risk classification (Index 1–5, mirroring the BBC heat hazard methodology), producing a choropleth map directly analogous to the <strong>Heat Vulnerability Index (HVI)</strong> output proposed in our project. The highest-risk wards (Index 4–5) are concentrated in the northern and eastern periphery — new development areas with lower tree cover — which aligns with the inequality framing of our presentation plan.</p>
+<div id="fig-heatindex" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-heatindex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/clipboard-1056075578.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heatindex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.3: Ward-level heat index overlaid on Landsat LST. Deep red wards represent the hottest decile of the city — a spatial pattern invisible from meteorological stations alone.
+</figcaption>
 </figure>
 </div>
 <hr>
 </section>
 <section id="applications" class="level2">
 <h2 class="anchored" data-anchor-id="applications">Applications</h2>
-<p>Land cover classification from satellite imagery underpins a wide range of urban research and policy applications. One of the most direct uses relevant to Ahmedabad is urban expansion monitoring. <span class="citation" data-cites="maclachlan2017">MacLachlan et al. (<a href="references.html#ref-maclachlan2017" role="doc-biblioref">2017</a>)</span> used Landsat-derived classifications to quantify urban growth in Perth’s metropolitan region between 1990 and 2015, demonstrating how multi-temporal classification can track sprawl patterns at the city scale. A comparable analysis for Ahmedabad — one of India’s fastest-growing cities — would be highly policy-relevant given its rapid peri-urban expansion since the 2000s.</p>
-<p>The lecture also highlighted how land cover classifications are used as inputs to secondary analyses rather than as end products in themselves. <span class="citation" data-cites="fuldalu2021">Fuldalu and Alta (<a href="references.html#ref-fuldalu2021" role="doc-biblioref">2021</a>)</span> combined classified land use data with Sentinel-derived air pollutant concentrations (PM₂.₅, NO₂, SO₂) to examine how urban form shapes air quality in Tehran, using the LULC layer as an independent variable in regression. This kind of downstream application — where classification feeds into environmental or health modelling — is arguably more valuable than the classified map alone. In the Ahmedabad context, combining a land cover classification with LST data (as covered in Week 8) would allow direct testing of the relationship between impervious surface extent and the urban heat island intensity documented by <span class="citation" data-cites="guha2018">Guha et al. (<a href="references.html#ref-guha2018" role="doc-biblioref">2018</a>)</span>. The RF classifier used this week produces exactly the kind of detailed urban/non-urban distinction needed for that analysis.</p>
+<p>Ahmedabad is the paradigmatic case study for heat policy in South Asia. The 2010 heat wave caused an estimated 1,344 excess deaths <span class="citation" data-cites="azhar2014">Azhar et al. (<a href="references.html#ref-azhar2014" role="doc-biblioref">2014</a>)</span>, directly triggering the development of South Asia’s first Heat Action Plan (HAP) in 2013, updated in 2019 <span class="citation" data-cites="nrdc2016">Natural Resources Defense Council and Indian Institute of Public Health, Gandhinagar (<a href="references.html#ref-nrdc2016" role="doc-biblioref">2016</a>)</span>. The HAP operates through four pillars — early warning, public awareness, medical preparedness, and reducing heat exposure — but as <span class="citation" data-cites="knowlton2014">Knowlton et al. (<a href="references.html#ref-knowlton2014" role="doc-biblioref">2014</a>)</span> document in their evaluation of the HAP’s development, its spatial targeting relies on city-wide meteorological thresholds rather than ward-level risk data. This is the precise gap our EO-HEAT project proposes to fill: the Landsat and MODIS LST workflow demonstrated this week provides the spatial resolution and temporal depth that would allow the HAP to move from city-wide activation triggers to targeted, ward-level interventions.</p>
+<p>This framing is supported by a growing literature on the relationship between urban form, LST, and health outcomes. <span class="citation" data-cites="voogt2003">Voogt and Oke (<a href="references.html#ref-voogt2003" role="doc-biblioref">2003</a>)</span> established the theoretical basis for using thermal remote sensing to characterise urban climates, showing that LST correlates strongly with air temperature patterns at the neighbourhood scale — the scale at which health risks are actually experienced. <span class="citation" data-cites="li2022">Li et al. (<a href="references.html#ref-li2022" role="doc-biblioref">2022</a>)</span> extended this by demonstrating in 11 US cities that historically disinvested neighbourhoods experience disproportionately high LST, mediated by lower tree canopy and higher impervious surface fractions. While the political economy of Ahmedabad differs from US cities, the spatial inequality mechanism is analogous: informal settlements and lower-income peripheral wards have lower NDVI and higher LST, as visible in this week’s heat index map. This connection between EO-derived LST and social vulnerability is precisely what our project integration framework models, combining LST with NDVI and census demographics to produce a composite HVI. The <span class="citation" data-cites="unep2021">United Nations Environment Programme (<a href="references.html#ref-unep2021" role="doc-biblioref">2021</a>)</span> sustainable cooling handbook for cities further reinforces the policy relevance, noting that LST-based risk mapping is now considered best practice for urban heat action planning globally — giving our methodology direct policy legitimacy in the presentation.</p>
 <hr>
 </section>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>The most practically important thing I learnt this week was how sensitive classification accuracy is to the quality and spatial distribution of training data. My first attempt — with only 2 polygons each for grass and bare earth — produced 0% consumer accuracy for both classes, despite an apparently reasonable overall accuracy of 89.5%. The model had simply learnt to ignore those classes entirely. Adding more spatially distributed polygons brought both classes above 88%. This is a well-known problem in supervised classification: overall accuracy is an optimistic metric when class sizes are imbalanced, and it can mask complete failure on minority classes. In real-world applications — say, monitoring urban green space for a city like Ahmedabad — missing the “grass” class entirely would make the output useless for policy, regardless of what the headline accuracy figure says. It reinforced for me that accuracy assessment needs to be reported at the per-class level, not just as a single number.</p>
+<p>This week felt genuinely productive in a way that went beyond the technical. Actually running the LST workflow on Ahmedabad — rather than just reading about it — gave me a much more concrete sense of what our presentation’s WP1 outputs will look like, and more importantly, what their limitations are. The MODIS layer was clearly too coarse for ward-level analysis (1km pixels spanning multiple wards), which reinforces our presentation’s methodological choice to use Landsat as the primary LST product and MODIS only for long-term trend analysis. The heat index map also raised a question I hadn’t considered before: the ward boundaries used in this exercise are the AMC administrative wards, but population density within each ward varies enormously — a ward with Index 5 LST but very low population is quite different from one with Index 5 and high population density. That interaction between physical heat hazard and demographic exposure is exactly what our project is supposed to capture, and seeing the limitations of a pure LST-based approach in practice has made me more confident that our multi-layer HVI methodology is the right design choice.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-fuldalu2021" class="csl-entry" role="listitem">
-Fuldalu, A., and A. Alta. 2021. <span>“A Comprehensive Study of the Impact of Land Use/Land Cover Changes on Air Quality and Urban Heat Island in a Semi-Arid Region Using <span>Sentinel</span> Satellite Data.”</span> <em>Agriculture &amp; Food Security</em> 10: 1–15. <a href="https://doi.org/10.1016/j.agsy.2021.103068">https://doi.org/10.1016/j.agsy.2021.103068</a>.
+<div id="ref-azhar2014" class="csl-entry" role="listitem">
+Azhar, Gulrez Shah, Dileep Mavalankar, Amruta Nori-Sarma, Ajit Rajiva, Priya Dutta, Anjali Jaiswal, Perry Sheffield, Kim Knowlton, and Jeremy J. Hess. 2014. <span>“Heat-Related Mortality in <span>India</span>: Excess All-Cause Mortality Associated with the 2010 <span>Ahmedabad</span> Heat Wave.”</span> <em>PLOS ONE</em> 9 (3): e91831. <a href="https://doi.org/10.1371/journal.pone.0091831">https://doi.org/10.1371/journal.pone.0091831</a>.
 </div>
-<div id="ref-guha2018" class="csl-entry" role="listitem">
-Guha, Subhanil, Himanshu Govil, Anindita Dey, and Neetu Gill. 2018. <span>“Analytical Study of Land Surface Temperature with <span>NDVI</span> and <span>NDBI</span> Using <span>Landsat</span> 8 <span>OLI</span> and <span>TIRS</span> Data in <span>Florence</span> and <span>Naples</span> City, <span>Italy</span>.”</span> <em>European Journal of Remote Sensing</em> 51 (1): 667–78. <a href="https://doi.org/10.1080/22797254.2018.1474494">https://doi.org/10.1080/22797254.2018.1474494</a>.
+<div id="ref-knowlton2014" class="csl-entry" role="listitem">
+Knowlton, Kim, Suhas P. Kulkarni, Gulrez Shah Azhar, Dileep Mavalankar, Anjali Jaiswal, Molly Connolly, Amruta Nori-Sarma, et al. 2014. <span>“Development and Implementation of <span>South Asia</span>’s First Heat-Health Action Plan in <span>Ahmedabad</span> (<span>Gujarat</span>, <span>India</span>).”</span> <em>International Journal of Environmental Research and Public Health</em> 11 (4): 3473–92. <a href="https://doi.org/10.3390/ijerph110403473">https://doi.org/10.3390/ijerph110403473</a>.
 </div>
-<div id="ref-maclachlan2017" class="csl-entry" role="listitem">
-MacLachlan, Andrew, Gareth Roberts, Eloise Biggs, and Bryan Boruff. 2017. <span>“Urbanisation-Induced Land Cover Temperature Dynamics for Sustainable Future Urban Heat Island Mitigation in <span>Perth</span>, <span>Western Australia</span>.”</span> <em>Land</em> 6 (1): 9. <a href="https://doi.org/10.3390/land6010009">https://doi.org/10.3390/land6010009</a>.
+<div id="ref-li2022" class="csl-entry" role="listitem">
+Li, Dongying, Galen D. Newman, Bev Wilson, Yue Zhang, and Robert D. Brown. 2022. <span>“Modeling the Relationships Between Historical Redlining, Urban Heat, and Heat-Related Emergency Department Visits: <span>An</span> Examination of 11 <span>Texas</span> Cities.”</span> <em>Environment and Planning B: Urban Analytics and City Science</em> 49 (3): 933–52. <a href="https://doi.org/10.1177/23998083211039854">https://doi.org/10.1177/23998083211039854</a>.
+</div>
+<div id="ref-nrdc2016" class="csl-entry" role="listitem">
+Natural Resources Defense Council, and Indian Institute of Public Health, Gandhinagar. 2016. <span>“Ahmedabad Heat Action Plan 2016: Guide to Extreme Heat Planning in <span>Ahmedabad</span>, <span>India</span>.”</span> NRDC. <a href="https://www.nrdc.org/sites/default/files/ahmedabad-heat-action-plan-2016.pdf">https://www.nrdc.org/sites/default/files/ahmedabad-heat-action-plan-2016.pdf</a>.
+</div>
+<div id="ref-unep2021" class="csl-entry" role="listitem">
+United Nations Environment Programme. 2021. <span>“Beating the Heat: <span>A</span> Sustainable Cooling Handbook for Cities.”</span> UNEP. <a href="https://www.unep.org/resources/report/beating-heat-sustainable-cooling-handbook-cities">https://www.unep.org/resources/report/beating-heat-sustainable-cooling-handbook-cities</a>.
+</div>
+<div id="ref-voogt2003" class="csl-entry" role="listitem">
+Voogt, J. A., and T. R. Oke. 2003. <span>“Thermal Remote Sensing of Urban Climates.”</span> <em>Remote Sensing of Environment</em> 86 (3): 370–84. <a href="https://doi.org/10.1016/S0034-4257(03)00079-8">https://doi.org/10.1016/S0034-4257(03)00079-8</a>.
 </div>
 </div>
 </section>
@@ -673,13 +693,13 @@ MacLachlan, Andrew, Gareth Roberts, Eloise Biggs, and Bryan Boruff. 2017. <span>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./week5.html" class="pagination-link" aria-label="Week 5: Google Earth Engine I">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 5: Google Earth Engine I</span></span>
+      <a href="./week7.html" class="pagination-link" aria-label="Week 7: Classification II — Sub-pixel, OBIA and Accuracy">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 7: Classification II — Sub-pixel, OBIA and Accuracy</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week7.html" class="pagination-link" aria-label="Week 7: Classification II — Sub-pixel, OBIA and Accuracy">
-        <span class="nav-page-text"><span class="chapter-title">Week 7: Classification II — Sub-pixel, OBIA and Accuracy</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
