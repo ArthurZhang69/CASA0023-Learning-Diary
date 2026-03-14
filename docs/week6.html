@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Shiyao Zhang">
-<meta name="dcterms.date" content="2026-01-27">
 
-<title>Week 3: Remote Sensing Data and Corrections – CASA0023 Learning Diary</title>
+<title>Week 6: Classification I – CASA0023 Learning Diary</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -87,8 +50,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./week4_policy.html" rel="next">
-<link href="./Week2.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./week5.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -129,35 +92,6 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -170,7 +104,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week3_corrections.html"><span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week6.html"><span class="chapter-title">Week 6: Classification I</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -212,7 +146,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week3_corrections.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></a>
+  <a href="./week3_corrections.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -227,7 +161,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 6: Classification I</span></a>
+  <a href="./week6.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 6: Classification I</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -257,26 +191,14 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></h1>
+<h1 class="title"><span class="chapter-title">Week 6: Classification I</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Shiyao Zhang </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 27, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -288,67 +210,52 @@ window.Quarto = {
 
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>The lecture opened with a useful framing: nearly all Earth observation data now comes as Analysis Ready Data (ARD), meaning the corrections covered this week have largely been automated. The reason to understand them anyway is that loading a Landsat image in Google Earth Engine still requires choosing between Level-1 DN, Level-2 surface reflectance, and Level-3 science products — and that choice has real consequences for what the values in your raster actually mean. The lecturer’s point that some researchers make this choice without understanding it was a useful reminder that familiarity with a tool is not the same as understanding the data it produces.</p>
-<p>The corrections follow a fixed order: geometric, then atmospheric, then orthorectification. Geometric correction aligns an image to a known coordinate reference system by identifying Ground Control Points at stable features — roads, boundaries, buildings — fitting a regression between their positions in the distorted image and a reference dataset, and warping the image accordingly. The reason backward mapping (predicting image coordinates from reference coordinates, rather than the reverse) is preferred over forward mapping is worth noting: forward mapping can produce predicted positions that fall between grid cells, creating output pixels with no assignable value. Backward mapping guarantees a value for every output pixel. After warping, resampling — nearest neighbour, bilinear, or cubic — snaps the transformed grid back to integer positions.</p>
-<p>Atmospheric correction addresses the contamination introduced by path radiance (EMR scattered into the sensor before touching the surface) and the adjacency effect (radiance bleeding from neighbouring pixels). Dark Object Subtraction (DOS) is the simplest relative approach: identify the darkest pixel in each band, assume it represents a surface with near-zero true reflectance, and subtract its value from all other pixels. The underlying logic — that any signal from a truly black surface must be atmospheric — is reasonable but approximate, which is why the method is considered a lower bound rather than a rigorous correction. Pseudo-Invariant Features (PIFs) offer a more principled relative method, using regression across stable surfaces to normalise multiple images to a single reference date band by band.</p>
-<p>What connects all of this is the progression from <strong>Digital Number</strong> to <strong>spectral radiance</strong> to <strong>surface reflectance</strong>. DN is a dimensionless, sensor-specific integer with no physical meaning beyond efficient storage. Radiance, obtained via <span class="math inline">\(L\lambda = Bias + Gain \times DN\)</span> using lab-calibrated coefficients, gives the quantity in meaningful units. Surface reflectance then removes the effects of both illumination conditions and the atmosphere, leaving a value that is a property of the surface itself — and therefore comparable across acquisitions. TOA reflectance occupies an intermediate position: illumination effects removed, but atmosphere still present. It appears in some papers on the grounds that the scenes were clear enough that residual atmospheric effects were negligible, which is a judgement call that should at minimum be stated explicitly.</p>
+<p>This week introduced supervised image classification — the process of assigning every pixel in a satellite image to a predefined land cover category. The lecture framed classification as a form of <strong>inductive machine learning</strong>: given labelled training examples, the model learns spectral patterns and applies them to unseen pixels. Two core algorithms were covered in detail.</p>
+<p><strong>Classification and Regression Trees (CART)</strong> work by recursively partitioning the feature space using a series of binary decisions. For classification tasks, splits are chosen to minimise <strong>Gini impurity</strong> — a measure of how mixed the classes are in each resulting node. The key challenge with CART is overfitting: a tree grown without limits will perfectly memorise training data but generalise poorly. This is controlled through pruning, which removes leaves based on a tree score that penalises complexity (SSR + alpha × number of leaves), with the optimal alpha selected via cross-validation.</p>
+<p><strong>Random Forests (RF)</strong> address the instability of individual trees by growing many trees on bootstrap samples of the data, with each split considering only a random subset of variables. The final classification is determined by majority vote across all trees. The out-of-bag (OOB) error — computed on the ~30% of data not used in each tree’s bootstrap sample — provides an internal accuracy estimate without needing a separate test set. In this week’s practical I used a 100-tree RF on Sentinel-2 imagery of Ahmedabad, achieving an overall accuracy of <strong>88.7%</strong> on held-out validation data.</p>
+<p>For the practical, I loaded Sentinel-2 SR Harmonized imagery (2022, &lt;20% cloud cover per tile) with a QA60 bitmask cloud mask applied at the pixel level. After clipping to the AMC boundary, I manually digitised training polygons for six land cover classes: high-density urban, low-density urban, water, grass, bare earth, and forest.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1446415147.png" class="img-fluid figure-img"></p>
+<figcaption>Drawing polygons for test configuration, I find that with more polygon draw the more precision the model could get!</figcaption>
+</figure>
+</div>
+<p>A pixel-level 70/30 train-test split was applied — randomly sampling 1,000 points per class and assigning a random column — to avoid the problem of splitting too few polygons. The resulting classified map shows the city is dominated by urban feature, with the Sabarmati River clearly delineated and patches of vegetation concentrated at the periphery.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1061390347.png" class="img-fluid figure-img"></p>
+<figcaption>Visualization of Supervised Classification where blue represents water,red represents urban area and green represents vegetation,gray represents bare earth</figcaption>
+</figure>
+</div>
+<p>The confusion matrix reveals that water achieved 100% consumer accuracy, forest 97.4%, and grass 95.6% — all spectrally distinct classes. The main source of confusion was between high- and low-density urban (classes 1 and 2), which is expected given their similar spectral signatures in the visible and NIR bands.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2999779208.png" class="img-fluid figure-img"></p>
+<figcaption>Classification Results &amp; Confusion Matrix</figcaption>
+</figure>
+</div>
 <hr>
 </section>
 <section id="applications" class="level2">
 <h2 class="anchored" data-anchor-id="applications">Applications</h2>
-<p>The practical used Landsat 8 and 9 imagery over Cape Town, which requires at least two tiles to cover the metropolitan area. The tiles were loaded and mosaicked using <code>terra::mosaic()</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>listlandsat_8 <span class="ot">&lt;-</span> <span class="fu">dir_info</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"prac_3"</span>, <span class="st">"Landsat"</span>, <span class="st">"Lsat8"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">str_detect</span>(path, <span class="st">"[B123456790].TIF"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(path) <span class="sc">%&gt;%</span> <span class="fu">pull</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">rast</span>()</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>listlandsat_9 <span class="ot">&lt;-</span> <span class="fu">dir_info</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"prac_3"</span>, <span class="st">"Landsat"</span>, <span class="st">"Lsat9"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">str_detect</span>(path, <span class="st">"[1B23456790].TIF"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(path) <span class="sc">%&gt;%</span> <span class="fu">pull</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">rast</span>()</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">mosaic</span>(listlandsat_8, listlandsat_9, <span class="at">fun=</span><span class="st">"mean"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Taking the mean in the overlap zone is a practical compromise, but it papers over a real issue: even as ARD products, tiles acquired on different dates carry different atmospheric states, and their surface reflectance values may not be perfectly consistent over the same surface features. The mean averages the inconsistency rather than resolving it. The better approach — building a seasonal median composite in GEE — will be covered later in the module, and the contrast in processing time will apparently be stark.</p>
-<p>NDVI was then computed and thresholded to isolate vegetated areas:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>m1_NDVI <span class="ot">&lt;-</span> (m1_clip<span class="sc">$</span>..._SR_B5 <span class="sc">-</span> m1_clip<span class="sc">$</span>..._SR_B4) <span class="sc">/</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           (m1_clip<span class="sc">$</span>..._SR_B5 <span class="sc">+</span> m1_clip<span class="sc">$</span>..._SR_B4)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>veg <span class="ot">&lt;-</span> m1_NDVI <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">classify</span>(., <span class="fu">cbind</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">0.2</span>, <span class="cn">NA</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The 0.2 threshold is widely used but context-dependent. For Cape Town’s fynbos — a low-growing shrubland that is the city’s dominant natural vegetation type — values between 0.1 and 0.2 are common, particularly in drier months. A blanket 0.2 cut-off would exclude a significant portion of ecologically meaningful vegetation, which matters if the downstream application is green space access or heat stress mapping.</p>
-<p>The texture analysis used <code>GLCMTextures</code> on Band 4 with a 7×7 window, computing GLCM homogeneity. One step that is easy to overlook is rescaling the data before running the texture function — Landsat Level-2 products store reflectance as scaled integers, and the texture metrics would be meaningless if computed on the raw integer values:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GLCMTextures)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>scale <span class="ot">&lt;-</span> (m1_clip <span class="sc">*</span> <span class="fl">0.0000275</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>textures1 <span class="ot">&lt;-</span> <span class="fu">glcm_textures</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  scale<span class="sc">$</span>..._SR_B4,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">w =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">7</span>),</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_levels =</span> <span class="dv">4</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">quant_method =</span> <span class="st">"range"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">shift =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)),</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="st">"glcm_homogeneity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Homogeneity is high where neighbouring pixels are similar (water, uniform rooftops, formal housing) and low where they vary (construction, informal settlements, mixed vegetation). This is the kind of information that spectral band values alone cannot capture — two areas with identical mean NIR reflectance may look completely different in texture if one is a uniform park canopy and the other is a fragmented mix of trees and rooftops. <span class="citation" data-cites="lu2012">Lu et al. (<a href="references.html#ref-lu2012" role="doc-biblioref">2012</a>)</span> demonstrated this in Brazilian Amazon land cover classification, where adding texture features substantially improved discrimination between forest types with near-identical spectral signatures. The texture band was then stacked with the spectral data and reduced via PCA, with centering and scaling applied beforehand to prevent variables with larger numerical ranges from dominating the components:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>raster_and_texture <span class="ot">&lt;-</span> <span class="fu">c</span>(m1_clip, textures1)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(<span class="fu">as.data.frame</span>(raster_and_texture, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">center=</span><span class="cn">TRUE</span>, <span class="at">scale=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Land cover classification from satellite imagery underpins a wide range of urban research and policy applications. One of the most direct uses relevant to Ahmedabad is urban expansion monitoring. <span class="citation" data-cites="maclachlan2017">MacLachlan et al. (<a href="references.html#ref-maclachlan2017" role="doc-biblioref">2017</a>)</span> used Landsat-derived classifications to quantify urban growth in Perth’s metropolitan region between 1990 and 2015, demonstrating how multi-temporal classification can track sprawl patterns at the city scale. A comparable analysis for Ahmedabad — one of India’s fastest-growing cities — would be highly policy-relevant given its rapid peri-urban expansion since the 2000s.</p>
+<p>The lecture also highlighted how land cover classifications are used as inputs to secondary analyses rather than as end products in themselves. <span class="citation" data-cites="fuldalu2021">Fuldalu and Alta (<a href="references.html#ref-fuldalu2021" role="doc-biblioref">2021</a>)</span> combined classified land use data with Sentinel-derived air pollutant concentrations (PM₂.₅, NO₂, SO₂) to examine how urban form shapes air quality in Tehran, using the LULC layer as an independent variable in regression. This kind of downstream application — where classification feeds into environmental or health modelling — is arguably more valuable than the classified map alone. In the Ahmedabad context, combining a land cover classification with LST data (as covered in Week 8) would allow direct testing of the relationship between impervious surface extent and the urban heat island intensity documented by <span class="citation" data-cites="guha2018">Guha et al. (<a href="references.html#ref-guha2018" role="doc-biblioref">2018</a>)</span>. The RF classifier used this week produces exactly the kind of detailed urban/non-urban distinction needed for that analysis.</p>
 <hr>
 </section>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>The most useful shift this week was in how I think about what “using satellite data” actually means. Before, I would have treated loading a Landsat image as a neutral act — the data is the data. Now I think there is a real difference between a researcher who can explain what collection, level, and processing model their data went through and one who cannot. That difference probably doesn’t matter for a single-date, single-sensor classification, but it matters a lot for anything involving long time series or cross-sensor comparison — which is most of the research questions this module is pointing towards.</p>
-<p>On texture: the variance output from GLCM is essentially a spatial derivative — it responds to edges and transitions rather than mean values. For urban analysis, this means building outlines, road margins, and land cover boundaries all become detectable even when the spectral values on either side are similar. I found this genuinely useful to think through, and it suggests that for fine-grained urban classification, texture in SWIR or NIR is probably not optional.</p>
-<p>One question I haven’t resolved: the practical used a 7×7 window on 30m Landsat, which covers a 210m ground footprint per texture pixel. At that scale, individual buildings and street trees are subsumed within a single kernel. For 10m Sentinel-2 the same window would cover 70m, which is much closer to the scale of the features I would actually want to detect. I am not clear whether there is a principled method for choosing window size relative to resolution and target feature scale, or whether it is largely empirical — and this seems like something that would meaningfully affect results in dense urban environments.</p>
-<hr>
+<p>The most practically important thing I learnt this week was how sensitive classification accuracy is to the quality and spatial distribution of training data. My first attempt — with only 2 polygons each for grass and bare earth — produced 0% consumer accuracy for both classes, despite an apparently reasonable overall accuracy of 89.5%. The model had simply learnt to ignore those classes entirely. Adding more spatially distributed polygons brought both classes above 88%. This is a well-known problem in supervised classification: overall accuracy is an optimistic metric when class sizes are imbalanced, and it can mask complete failure on minority classes. In real-world applications — say, monitoring urban green space for a city like Ahmedabad — missing the “grass” class entirely would make the output useless for policy, regardless of what the headline accuracy figure says. It reinforced for me that accuracy assessment needs to be reported at the per-class level, not just as a single number.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-lu2012" class="csl-entry" role="listitem">
-Lu, D., M. Batistella, G. Li, E. Moran, S. Hetrick, C. C. Freitas, L. V. Dutra, and S. J. S. Sant’Anna. 2012. <span>“Land Use/Cover Classification in the <span>Brazilian</span> <span>Amazon</span> Using Satellite Images.”</span> <em>Pesquisa Agropecuária Brasileira</em> 47 (9): 1345–59. <a href="https://doi.org/10.1590/S0100-204X2012000900025">https://doi.org/10.1590/S0100-204X2012000900025</a>.
+<div id="ref-fuldalu2021" class="csl-entry" role="listitem">
+Fuldalu, A., and A. Alta. 2021. <span>“A Comprehensive Study of the Impact of Land Use/Land Cover Changes on Air Quality and Urban Heat Island in a Semi-Arid Region Using <span>Sentinel</span> Satellite Data.”</span> <em>Agriculture &amp; Food Security</em> 10: 1–15. <a href="https://doi.org/10.1016/j.agsy.2021.103068">https://doi.org/10.1016/j.agsy.2021.103068</a>.
+</div>
+<div id="ref-guha2018" class="csl-entry" role="listitem">
+Guha, Subhanil, Himanshu Govil, Anindita Dey, and Neetu Gill. 2018. <span>“Analytical Study of Land Surface Temperature with <span>NDVI</span> and <span>NDBI</span> Using <span>Landsat</span> 8 <span>OLI</span> and <span>TIRS</span> Data in <span>Florence</span> and <span>Naples</span> City, <span>Italy</span>.”</span> <em>European Journal of Remote Sensing</em> 51 (1): 667–78. <a href="https://doi.org/10.1080/22797254.2018.1474494">https://doi.org/10.1080/22797254.2018.1474494</a>.
+</div>
+<div id="ref-maclachlan2017" class="csl-entry" role="listitem">
+MacLachlan, Andrew, Gareth Roberts, Eloise Biggs, and Bryan Boruff. 2017. <span>“Urbanisation-Induced Land Cover Temperature Dynamics for Sustainable Future Urban Heat Island Mitigation in <span>Perth</span>, <span>Western Australia</span>.”</span> <em>Land</em> 6 (1): 9. <a href="https://doi.org/10.3390/land6010009">https://doi.org/10.3390/land6010009</a>.
 </div>
 </div>
 </section>
@@ -756,13 +663,13 @@ Lu, D., M. Batistella, G. Li, E. Moran, S. Hetrick, C. C. Freitas, L. V. Dutra, 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Week2.html" class="pagination-link" aria-label="Week 2: Sentinel-2">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 2: Sentinel-2</span></span>
+      <a href="./week5.html" class="pagination-link" aria-label="Week 5: Google Earth Engine I">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 5: Google Earth Engine I</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week4_policy.html" class="pagination-link" aria-label="Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan">
-        <span class="nav-page-text"><span class="chapter-title">Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
