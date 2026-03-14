@@ -35,6 +35,6 @@ This framing is supported by a growing literature on the relationship between ur
 
 This week felt genuinely productive in a way that went beyond the technical. Actually running the LST workflow on Ahmedabad — rather than just reading about it — gave me a much more concrete sense of what our presentation's outputs will look like, and more importantly, what their limitations are. The MODIS layer was clearly too coarse for ward-level analysis (1km pixels spanning multiple wards), which reinforces our presentation's methodological choice to use Landsat as the primary LST product and MODIS only for long-term trend analysis.
 
-![MODIS LST Visualization in 1km pixel (Well this is certainly not the best way to present heat change in large scale...)](images/clipboard-3632687557.png){#fig-MODIS} 
+![MODIS LST Visualization in 1km pixel (Well this is certainly not the best way to present heat change in large scale...)](images/clipboard-3632687557.png){#fig-MODIS}
 
 The heat index map also raised a question I hadn't considered before: the ward boundaries used in this exercise are the AMC administrative wards, but population density within each ward varies enormously — a ward with Index 5 LST but very low population is quite different from one with Index 5 and high population density. That interaction between physical heat hazard and demographic exposure is exactly what our project is supposed to capture, and seeing the limitations of a pure LST-based approach in practice has made me more confident that our multi-layer HVI methodology is the right design choice.
