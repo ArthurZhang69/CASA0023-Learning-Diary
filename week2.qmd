@@ -78,4 +78,3 @@ One thing I had not fully appreciated before this was the significance of the **
 For my own future work in urban analytics, I can see two clear uses. First, **green infrastructure monitoring**: using NDVI time-series in Google Earth Engine to track urban tree canopy seasonality at neighbourhood scale — something that becomes meaningful for health and equity research. Second, **environmental justice analysis**: combining Sentinel-2-derived land surface temperature estimates with deprivation indices to understand who bears disproportionate heat burden. Both applications become substantially more tractable when the underlying imagery is open and globally consistent. That consistency is what makes findings reproducible and comparable across cities — a baseline requirement for rigorous urban science.
 
 ------------------------------------------------------------------------
-
