@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Shiyao Zhang">
-<meta name="dcterms.date" content="2026-01-27">
 
-<title>Week 3: Remote Sensing Data and Corrections – CASA0023 Learning Diary</title>
+<title>Week 9: SAR Change Detection — Tianjin Port Explosion – CASA0023 Learning Diary</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,8 +85,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./week4_policy.html" rel="next">
-<link href="./Week2.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./week8.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -129,35 +127,6 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -170,7 +139,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week3_corrections.html"><span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week9.html"><span class="chapter-title">Week 9: SAR Change Detection — Tianjin Port Explosion</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -212,7 +181,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week3_corrections.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></a>
+  <a href="./week3_corrections.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -242,7 +211,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 9: SAR Change Detection — Tianjin Port Explosion</span></a>
+  <a href="./week9.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 9: SAR Change Detection — Tianjin Port Explosion</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -262,8 +231,15 @@ window.Quarto = {
    
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a>
+  <ul class="collapse">
+  <li><a href="#change-detection-results" id="toc-change-detection-results" class="nav-link" data-scroll-target="#change-detection-results">Change Detection Results</a></li>
+  <li><a href="#building-level-damage-assessment" id="toc-building-level-damage-assessment" class="nav-link" data-scroll-target="#building-level-damage-assessment">Building-Level Damage Assessment</a></li>
+  <li><a href="#placebo-test-validation" id="toc-placebo-test-validation" class="nav-link" data-scroll-target="#placebo-test-validation">Placebo Test Validation</a></li>
+  </ul></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -272,26 +248,14 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></h1>
+<h1 class="title"><span class="chapter-title">Week 9: SAR Change Detection — Tianjin Port Explosion</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Shiyao Zhang </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 27, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -303,67 +267,130 @@ window.Quarto = {
 
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>The lecture opened with a useful framing: nearly all Earth observation data now comes as Analysis Ready Data (ARD), meaning the corrections covered this week have largely been automated. The reason to understand them anyway is that loading a Landsat image in Google Earth Engine still requires choosing between Level-1 DN, Level-2 surface reflectance, and Level-3 science products — and that choice has real consequences for what the values in your raster actually mean. The lecturer’s point that some researchers make this choice without understanding it was a useful reminder that familiarity with a tool is not the same as understanding the data it produces.</p>
-<p>The corrections follow a fixed order: geometric, then atmospheric, then orthorectification. Geometric correction aligns an image to a known coordinate reference system by identifying Ground Control Points at stable features — roads, boundaries, buildings — fitting a regression between their positions in the distorted image and a reference dataset, and warping the image accordingly. The reason backward mapping (predicting image coordinates from reference coordinates, rather than the reverse) is preferred over forward mapping is worth noting: forward mapping can produce predicted positions that fall between grid cells, creating output pixels with no assignable value. Backward mapping guarantees a value for every output pixel. After warping, resampling — nearest neighbour, bilinear, or cubic — snaps the transformed grid back to integer positions.</p>
-<p>Atmospheric correction addresses the contamination introduced by path radiance (EMR scattered into the sensor before touching the surface) and the adjacency effect (radiance bleeding from neighbouring pixels). Dark Object Subtraction (DOS) is the simplest relative approach: identify the darkest pixel in each band, assume it represents a surface with near-zero true reflectance, and subtract its value from all other pixels. The underlying logic — that any signal from a truly black surface must be atmospheric — is reasonable but approximate, which is why the method is considered a lower bound rather than a rigorous correction. Pseudo-Invariant Features (PIFs) offer a more principled relative method, using regression across stable surfaces to normalise multiple images to a single reference date band by band.</p>
-<p>What connects all of this is the progression from <strong>Digital Number</strong> to <strong>spectral radiance</strong> to <strong>surface reflectance</strong>. DN is a dimensionless, sensor-specific integer with no physical meaning beyond efficient storage. Radiance, obtained via <span class="math inline">\(L\lambda = Bias + Gain \times DN\)</span> using lab-calibrated coefficients, gives the quantity in meaningful units. Surface reflectance then removes the effects of both illumination conditions and the atmosphere, leaving a value that is a property of the surface itself — and therefore comparable across acquisitions. TOA reflectance occupies an intermediate position: illumination effects removed, but atmosphere still present. It appears in some papers on the grounds that the scenes were clear enough that residual atmospheric effects were negligible, which is a judgement call that should at minimum be stated explicitly.</p>
-<hr>
+<p>Synthetic Aperture Radar (SAR) is an active microwave sensor that transmits its own energy and records the backscatter return from the Earth’s surface. Unlike passive optical sensors, SAR operates independently of solar illumination and can penetrate cloud cover, making it especially valuable for disaster response and urban monitoring. The Sentinel-1 constellation, operated by ESA, provides freely available C-band SAR data at 10 m spatial resolution in Interferometric Wide (IW) swath mode, with a revisit time of 6–12 days.</p>
+<p>SAR backscatter intensity is determined by surface roughness, dielectric properties, and geometry. Urban areas with orthogonal building structures produce strong <strong>double-bounce</strong> returns due to the corner reflector effect between walls and the ground. Explosions and structural collapse fundamentally alter these geometric properties, suppressing double-bounce returns and increasing diffuse scattering — a phenomenon that can be detected statistically through pre- and post-event time series comparison.</p>
+<p>This week’s practical applied the <strong>Ballinger open-source SAR change detection framework</strong> to the 2015 Tianjin Port explosion. On 12 August 2015, a series of explosions at the Ruihai International Logistics warehouse in Tianjin’s Binhai New Area resulted in 173 fatalities, injured over 800 people, and caused widespread structural damage across a 2 km radius. The event provides an ideal test case for SAR-based damage detection given its sudden, large-scale nature and its occurrence at a well-defined location (Ground Zero: 39.0397°N, 117.7365°E).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3329276718.png" class="img-fluid figure-img"></p>
+<figcaption>Google Earth historical imagery (22 August 2015), approximately 10 days post-explosion. The blast crater and debris field at the warehouse site are clearly visible, with radial damage patterns extending into adjacent residential and commercial zones.</figcaption>
+</figure>
+</div>
+<p>The statistical framework used was a <strong>Welch’s t-test</strong> applied pixel-by-pixel to compare mean backscatter values before and after the event, accounting for variance across the entire image time series. Higher t-statistics indicate greater change significance. Speckle reduction was applied using a 3×3 focal mean filter (<code>reduceNeighborhood</code>) prior to analysis, following best practice for urban SAR interpretation.</p>
+<div id="fig-change" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-change-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/clipboard-3994578452.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-change-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.1: SAR T-test change significance map (2015). Purple indicates no significant change; cyan–yellow indicates statistically significant backscatter change. The explosion centre shows a broad zone of high-significance change consistent with structural collapse and debris deposition.
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="applications" class="level2">
-<h2 class="anchored" data-anchor-id="applications">Applications</h2>
-<p>The practical used Landsat 8 and 9 imagery over Cape Town, which requires at least two tiles to cover the metropolitan area. The tiles were loaded and mosaicked using <code>terra::mosaic()</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>listlandsat_8 <span class="ot">&lt;-</span> <span class="fu">dir_info</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"prac_3"</span>, <span class="st">"Landsat"</span>, <span class="st">"Lsat8"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">str_detect</span>(path, <span class="st">"[B123456790].TIF"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(path) <span class="sc">%&gt;%</span> <span class="fu">pull</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">rast</span>()</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>listlandsat_9 <span class="ot">&lt;-</span> <span class="fu">dir_info</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"prac_3"</span>, <span class="st">"Landsat"</span>, <span class="st">"Lsat9"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">str_detect</span>(path, <span class="st">"[1B23456790].TIF"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(path) <span class="sc">%&gt;%</span> <span class="fu">pull</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">rast</span>()</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">mosaic</span>(listlandsat_8, listlandsat_9, <span class="at">fun=</span><span class="st">"mean"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Taking the mean in the overlap zone is a practical compromise, but it papers over a real issue: even as ARD products, tiles acquired on different dates carry different atmospheric states, and their surface reflectance values may not be perfectly consistent over the same surface features. The mean averages the inconsistency rather than resolving it. The better approach — building a seasonal median composite in GEE — will be covered later in the module, and the contrast in processing time will apparently be stark.</p>
-<p>NDVI was then computed and thresholded to isolate vegetated areas:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>m1_NDVI <span class="ot">&lt;-</span> (m1_clip<span class="sc">$</span>..._SR_B5 <span class="sc">-</span> m1_clip<span class="sc">$</span>..._SR_B4) <span class="sc">/</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           (m1_clip<span class="sc">$</span>..._SR_B5 <span class="sc">+</span> m1_clip<span class="sc">$</span>..._SR_B4)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>veg <span class="ot">&lt;-</span> m1_NDVI <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">classify</span>(., <span class="fu">cbind</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">0.2</span>, <span class="cn">NA</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The 0.2 threshold is widely used but context-dependent. For Cape Town’s fynbos — a low-growing shrubland that is the city’s dominant natural vegetation type — values between 0.1 and 0.2 are common, particularly in drier months. A blanket 0.2 cut-off would exclude a significant portion of ecologically meaningful vegetation, which matters if the downstream application is green space access or heat stress mapping.</p>
-<p>The texture analysis used <code>GLCMTextures</code> on Band 4 with a 7×7 window, computing GLCM homogeneity. One step that is easy to overlook is rescaling the data before running the texture function — Landsat Level-2 products store reflectance as scaled integers, and the texture metrics would be meaningless if computed on the raw integer values:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GLCMTextures)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>scale <span class="ot">&lt;-</span> (m1_clip <span class="sc">*</span> <span class="fl">0.0000275</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>textures1 <span class="ot">&lt;-</span> <span class="fu">glcm_textures</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  scale<span class="sc">$</span>..._SR_B4,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">w =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">7</span>),</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_levels =</span> <span class="dv">4</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">quant_method =</span> <span class="st">"range"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">shift =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)),</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="st">"glcm_homogeneity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Homogeneity is high where neighbouring pixels are similar (water, uniform rooftops, formal housing) and low where they vary (construction, informal settlements, mixed vegetation). This is the kind of information that spectral band values alone cannot capture — two areas with identical mean NIR reflectance may look completely different in texture if one is a uniform park canopy and the other is a fragmented mix of trees and rooftops. <span class="citation" data-cites="lu2012">Lu et al. (<a href="references.html#ref-lu2012" role="doc-biblioref">2012</a>)</span> demonstrated this in Brazilian Amazon land cover classification, where adding texture features substantially improved discrimination between forest types with near-identical spectral signatures. The texture band was then stacked with the spectral data and reduced via PCA, with centering and scaling applied beforehand to prevent variables with larger numerical ranges from dominating the components:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>raster_and_texture <span class="ot">&lt;-</span> <span class="fu">c</span>(m1_clip, textures1)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(<span class="fu">as.data.frame</span>(raster_and_texture, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">center=</span><span class="cn">TRUE</span>, <span class="at">scale=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
+<section id="application" class="level2">
+<h2 class="anchored" data-anchor-id="application">Application</h2>
+<section id="change-detection-results" class="level3">
+<h3 class="anchored" data-anchor-id="change-detection-results">Change Detection Results</h3>
+<p>Sentinel-1 DESCENDING orbit imagery was used, filtered to the dominant relative orbit number (mode) to ensure geometric consistency. The pre-event period spanned six months prior to 12 August 2015, and the post-event window covered three months following the explosion — reflecting the practical limitation that Sentinel-1 had only been operational since April 2014, yielding just <strong>two available pre-event images</strong> over the site. This sparse pre-event stack is a recognised limitation of the approach: with fewer observations, the t-test has reduced statistical power and the variance estimate is less stable.</p>
+<p>The composite change map, produced by averaging ASCENDING and DESCENDING orbit results, confirmed a broad zone of significant SAR backscatter change centred on the warehouse district and extending into the surrounding residential area — consistent with the known blast radius and pressure wave damage reported in the official post-disaster survey.</p>
+</section>
+<section id="building-level-damage-assessment" class="level3">
+<h3 class="anchored" data-anchor-id="building-level-damage-assessment">Building-Level Damage Assessment</h3>
+<p>OSM building footprints were extracted via Overpass Turbo for the wider Tianjin Binhai area and uploaded to GEE as a user asset (<code>projects/remote-sensing-489809/assets/Tianjin</code>). The <code>reduceRegions()</code> function was used to compute mean t-test scores within each building polygon, identifying structures with statistically significant change (mean &gt; 0).</p>
+<p>Within the 3 km AOI, <strong>372 OSM buildings</strong> showed statistically significant post-explosion backscatter change. This figure should be interpreted as a lower-bound estimate: OSM coverage of industrial zones in China is incomplete, with large warehouse complexes, chemical storage facilities, and cargo handling infrastructure typically absent from the volunteer-contributed dataset. The actual number of affected structures is substantially higher, consistent with official reports citing damage to over 17,000 residential units and hundreds of warehouses.</p>
+<div id="fig-buildings" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-buildings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/clipboard-940520329.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-buildings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.2: Building change intensity overlaid on the SAR T-test map. Coloured polygons represent OSM building footprints; colour encodes mean t-test score from low change (blue, 0.0) to high change (red, ≥2.0). The highest-intensity damage clusters are concentrated in the warehouse district immediately surrounding Ground Zero.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="placebo-test-validation" class="level3">
+<h3 class="anchored" data-anchor-id="placebo-test-validation">Placebo Test Validation</h3>
+<p>A key methodological concern in port environments is that SAR backscatter naturally varies due to vessel movements, crane operations, and cargo handling — all of which could be misidentified as explosion-related change. To address this, a <strong>placebo test</strong> was conducted using 2018 as a control year: the identical algorithm was applied with a 12 August 2018 cutoff, using the same pre/post intervals. The 2018 result shows substantially less widespread high-significance change compared to 2015, providing evidence that the 2015 signal is attributable to the explosion rather than background port dynamics.</p>
+<div id="fig-placebo" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-placebo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/clipboard-1068903264.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-placebo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.3: Placebo test using 2018 as a control year (same date cutoff: 12 August). The substantially reduced change signal compared to 2015 confirms that the detection algorithm is responding to the explosion event rather than routine port activity.
+</figcaption>
+</figure>
+</div>
+<p>Note that 2016 was deliberately avoided as a placebo year due to ongoing demolition and reconstruction activity, which would have produced its own elevated SAR change signal and confounded the test.</p>
+</section>
 </section>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>The most useful shift this week was in how I think about what “using satellite data” actually means. Before, I would have treated loading a Landsat image as a neutral act — the data is the data. Now I think there is a real difference between a researcher who can explain what collection, level, and processing model their data went through and one who cannot. That difference probably doesn’t matter for a single-date, single-sensor classification, but it matters a lot for anything involving long time series or cross-sensor comparison — which is most of the research questions this module is pointing towards.</p>
-<p>On texture: the variance output from GLCM is essentially a spatial derivative — it responds to edges and transitions rather than mean values. For urban analysis, this means building outlines, road margins, and land cover boundaries all become detectable even when the spectral values on either side are similar. I found this genuinely useful to think through, and it suggests that for fine-grained urban classification, texture in SWIR or NIR is probably not optional.</p>
-<p>One question I haven’t resolved: the practical used a 7×7 window on 30m Landsat, which covers a 210m ground footprint per texture pixel. At that scale, individual buildings and street trees are subsumed within a single kernel. For 10m Sentinel-2 the same window would cover 70m, which is much closer to the scale of the features I would actually want to detect. I am not clear whether there is a principled method for choosing window size relative to resolution and target feature scale, or whether it is largely empirical — and this seems like something that would meaningfully affect results in dense urban environments.</p>
-<hr>
+<p>This practical highlighted both the strengths and limitations of SAR-based damage assessment in complex urban-industrial environments. The t-test approach <span class="citation" data-cites="schulte2018">(<a href="references.html#ref-schulte2018" role="doc-biblioref">Schulte to Bühne and Pettorelli 2018</a>)</span> is computationally efficient and interpretable, but its performance depends critically on the size of the pre-event image stack. The Tianjin case was challenging precisely because Sentinel-1 was relatively new in 2015, leaving only two pre-event acquisitions — a situation unlikely to recur for events occurring after 2017 when the archive had matured.</p>
+<p>The failure of conventional building footprint datasets (Microsoft Building Footprints, Google Open Buildings, and OSM) to adequately cover Chinese industrial zones raises a broader point about <strong>data justice in disaster remote sensing</strong>: the areas most difficult to map with volunteered geographic data — informal settlements, industrial zones, and areas in countries with mapping data restrictions — are often the same areas where rapid damage assessment is most needed. Pixel-level area statistics offer a pragmatic alternative when vector building data is unavailable.</p>
+<p>Perhaps the most methodologically interesting finding was the mismatch between visual inspection and statistical significance. The t-test is mean-based: in heterogeneous urban environments, some pixels increase in backscatter (new debris piles, exposed foundations) while others decrease (collapsed roofs reducing double-bounce), and these can cancel out in the mean. Standard deviation-based change metrics or coherence-based InSAR approaches may be more robust for detecting structural change in dense urban fabrics.</p>
+<p>Looking ahead to the group project and other analytical contexts, the combination of SAR change detection with building footprints — even an incomplete dataset — offers a scalable, near-real-time workflow for rapid damage assessment that requires no cloud-free optical imagery and functions at night. The Copernicus Emergency Management Service (CEMS) now operationalises similar approaches for humanitarian response <span class="citation" data-cites="plank2014">(<a href="references.html#ref-plank2014" role="doc-biblioref">Plank 2014</a>)</span>, though the 10 m spatial resolution of Sentinel-1 remains a limiting factor for individual building-scale assessment compared to very high resolution optical sensors.</p>
+<p>A natural extension of this 2D analysis would be to incorporate 3D building geometry. Ballinger <span class="citation" data-cites="ballinger2020">(<a href="references.html#ref-ballinger2020" role="doc-biblioref">2020</a>)</span> demonstrated this compellingly for the 2020 Beirut explosion, using OSM building height data and the <code>BlenderOSM</code> add-on to construct a full 3D urban model of the affected area. By combining this with Blender’s <strong>dynamic wave simulation</strong> — treating the pressure wave as a fluid interacting with building geometries — it becomes possible to model how blast energy is reflected, channelled, and attenuated by the urban fabric in ways that 2D bird’s-eye damage maps fundamentally cannot capture. A building in the shadow of a large warehouse, for instance, may show minimal SAR change despite being structurally compromised on its blast-facing façade. The Tianjin port environment, with its mix of large warehouse blocks and lower residential buildings, would be a particularly instructive case for this kind of directional blast modelling. Future work combining SAR-derived change detection with OSM 3D building extrusions and Blender fluid simulation could provide a more physically meaningful account of damage propagation — and would represent an interesting bridge between remote sensing, computational physics, and open urban data.</p>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<p>The full GEE implementation is available in the <code>Week9 Special Episode</code> script under <code>users/thedawn0609/GEE</code>.</p>
+<p>Key functions:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Speckle filtering</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">s1_filter</span>(image) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> image<span class="op">.</span><span class="fu">focal_mean</span>(<span class="dv">3</span><span class="op">,</span> <span class="st">'square'</span><span class="op">,</span> <span class="st">'pixels'</span>)<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Pixel-wise t-test (adapted from Bellingcat RS4OSINT framework)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ttest</span>(collection<span class="op">,</span> shock_date<span class="op">,</span> pre_months<span class="op">,</span> post_months) {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> shock <span class="op">=</span> ee<span class="op">.</span><span class="fu">Date</span>(shock_date)<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> pre <span class="op">=</span> collection<span class="op">.</span><span class="fu">filterDate</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    shock<span class="op">.</span><span class="fu">advance</span>(<span class="op">-</span>pre_months<span class="op">,</span> <span class="st">'month'</span>)<span class="op">,</span> shock)<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> post <span class="op">=</span> collection<span class="op">.</span><span class="fu">filterDate</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    shock<span class="op">,</span> shock<span class="op">.</span><span class="fu">advance</span>(post_months<span class="op">,</span> <span class="st">'month'</span>))<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> pre_mean <span class="op">=</span> pre<span class="op">.</span><span class="fu">mean</span>()<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> post_mean <span class="op">=</span> post<span class="op">.</span><span class="fu">mean</span>()<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> pre_var <span class="op">=</span> pre<span class="op">.</span><span class="fu">reduce</span>(ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">variance</span>())<span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> post_var <span class="op">=</span> post<span class="op">.</span><span class="fu">reduce</span>(ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">variance</span>())<span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> n_pre <span class="op">=</span> pre<span class="op">.</span><span class="fu">size</span>()<span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> n_post <span class="op">=</span> post<span class="op">.</span><span class="fu">size</span>()<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> se <span class="op">=</span> (pre_var<span class="op">.</span><span class="fu">divide</span>(n_pre)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">add</span>(post_var<span class="op">.</span><span class="fu">divide</span>(n_post)))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sqrt</span>()<span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> t <span class="op">=</span> post_mean<span class="op">.</span><span class="fu">subtract</span>(pre_mean)<span class="op">.</span><span class="fu">abs</span>()<span class="op">.</span><span class="fu">divide</span>(se)<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> t<span class="op">;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">// Building damage assessment using OSM footprints</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> buildings <span class="op">=</span> ee</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">FeatureCollection</span>(<span class="st">"projects/remote-sensing-489809/assets/Tianjin"</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(aoi)<span class="op">;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> damaged_buildings <span class="op">=</span> threshold<span class="op">.</span><span class="fu">reduceRegions</span>({</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span><span class="op">:</span> buildings<span class="op">,</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="dt">reducer</span><span class="op">:</span> ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">mean</span>()<span class="op">,</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="dt">scale</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Affected buildings:"</span><span class="op">,</span> </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  damaged_buildings<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">gt</span>(<span class="st">"mean"</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">.</span><span class="fu">size</span>())<span class="op">;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">// Result: 372</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-lu2012" class="csl-entry" role="listitem">
-Lu, D., M. Batistella, G. Li, E. Moran, S. Hetrick, C. C. Freitas, L. V. Dutra, and S. J. S. Sant’Anna. 2012. <span>“Land Use/Cover Classification in the <span>Brazilian</span> <span>Amazon</span> Using Satellite Images.”</span> <em>Pesquisa Agropecuária Brasileira</em> 47 (9): 1345–59. <a href="https://doi.org/10.1590/S0100-204X2012000900025">https://doi.org/10.1590/S0100-204X2012000900025</a>.
+<div id="ref-ballinger2020" class="csl-entry" role="listitem">
+Ballinger, Ollie. 2020. <span>“Building a <span>3D</span> Model of the <span>Beirut</span> Explosion.”</span> Online article. <a href="https://oballinger.github.io/beirut-3D-model/">https://oballinger.github.io/beirut-3D-model/</a>.
+</div>
+<div id="ref-plank2014" class="csl-entry" role="listitem">
+Plank, Simon. 2014. <span>“Rapid Damage Assessment by Means of Multi-Temporal <span>SAR</span> — a Comprehensive Review and Outlook to <span>Sentinel-1</span>.”</span> <em>Remote Sensing</em> 6 (6): 4870–4906. <a href="https://doi.org/10.3390/rs6064870">https://doi.org/10.3390/rs6064870</a>.
+</div>
+<div id="ref-schulte2018" class="csl-entry" role="listitem">
+Schulte to Bühne, Henrike, and Nathalie Pettorelli. 2018. <span>“Better Together: Integrating and Fusing Multispectral and Radar Satellite Imagery to Inform Biodiversity Monitoring, Ecological Research and Conservation Science.”</span> <em>Methods in Ecology and Evolution</em> 9 (5): 849–65. <a href="https://doi.org/10.1111/2041-210X.12942">https://doi.org/10.1111/2041-210X.12942</a>.
 </div>
 </div>
 </section>
@@ -771,13 +798,13 @@ Lu, D., M. Batistella, G. Li, E. Moran, S. Hetrick, C. C. Freitas, L. V. Dutra, 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Week2.html" class="pagination-link" aria-label="Week 2: Sentinel-2">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 2: Sentinel-2</span></span>
+      <a href="./week8.html" class="pagination-link" aria-label="Week 8: Temperature and Urban Heat Islands">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 8: Temperature and Urban Heat Islands</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week4_policy.html" class="pagination-link" aria-label="Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan">
-        <span class="nav-page-text"><span class="chapter-title">Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
