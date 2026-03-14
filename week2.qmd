@@ -1,8 +1,6 @@
 ---
-title: "Week 2: Sentinel-2"
+title: "Week 2: Sentinel-2 Introduction & Xaringan Presentation"
 subtitle: "Multispectral Imaging for Earth Observation"
-author: "Arthur Zhang"
-date: "2026-01-20"
 prefer-html: true
 format:
   html:

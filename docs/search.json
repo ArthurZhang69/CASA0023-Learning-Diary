@@ -72,41 +72,41 @@
   {
     "objectID": "week2.html",
     "href": "week2.html",
-    "title": "Week 2: Sentinel-2",
+    "title": "Week 2: Sentinel-2 Introduction & Xaringan Presentation",
     "section": "",
     "text": "Summary\nSentinel-2 is a twin-satellite constellation (2A and 2B) operated by the European Space Agency (ESA) as part of the Copernicus Earth Observation Programme (Drusch et al. 2012). Carrying the MultiSpectral Instrument (MSI), each satellite captures imagery across 13 spectral bands ranging from 443 nm (coastal aerosol) to 2190 nm (shortwave infrared), with spatial resolutions of 10 m, 20 m, and 60 m depending on the band. Together, the two satellites achieve a 5-day global revisit time at the equator from a sun-synchronous orbit at 786 km altitude.\nWhat distinguishes Sentinel-2 from many predecessors is its combination of moderate-to-high spatial resolution, broad spectral coverage, wide swath (290 km), and — crucially — a completely free and open data policy. This combination has made it the de facto standard source for global land surface monitoring since its first images were released in 2015.\nThree features stand out as genuinely novel: the inclusion of three red-edge bands (B5, B6, B7 at 705–783 nm) that straddle the chlorophyll absorption feature; a SWIR band pair (B11, B12) sensitive to moisture and mineral composition; and the operational-grade atmospheric correction pipeline that produces Level 2A surface reflectance products without requiring users to process raw data themselves (European Space Agency 2021).\nDerived indices — NDVI, NDWI, NDBI, NBR, LAI — are routinely computed from the bands and underpin operational services from agricultural monitoring to disaster response. The data is accessible via the Copernicus Data Space Ecosystem, Google Earth Engine, and AWS Open Data.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 2: Sentinel-2</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 2: Sentinel-2 Introduction & Xaringan Presentation</span>"
     ]
   },
   {
     "objectID": "week2.html#xaringan-presentation",
     "href": "week2.html#xaringan-presentation",
-    "title": "Week 2: Sentinel-2",
+    "title": "Week 2: Sentinel-2 Introduction & Xaringan Presentation",
     "section": "Xaringan Presentation",
     "text": "Xaringan Presentation\nThe following presentation provides a structured overview of the Sentinel-2 sensor, examples of studies that have used its data, and a reflection on what this implies for urban and spatial analysis.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 2: Sentinel-2</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 2: Sentinel-2 Introduction & Xaringan Presentation</span>"
     ]
   },
   {
     "objectID": "week2.html#application",
     "href": "week2.html#application",
-    "title": "Week 2: Sentinel-2",
+    "title": "Week 2: Sentinel-2 Introduction & Xaringan Presentation",
     "section": "Application",
     "text": "Application\nStudies leveraging Sentinel-2 span an extraordinary range of disciplines, reflecting the sensor’s broad spectral and spatial capabilities.\nUrban informal settlement mapping has been substantially advanced by Sentinel-2. Wurm et al. (2019) demonstrated that 10 m MSI imagery, combined with texture features derived via GLCM and a Support Vector Machine classifier, could delineate informal settlement typologies across three African cities with overall accuracies exceeding 85%. Critically, the red-edge bands (B5–B7) were shown to discriminate corrugated metal roofing from formal structures — a capability absent from Landsat’s 30 m bands. This has direct policy implications: with Sentinel-2, city governments can monitor informal settlement dynamics in near-real time at essentially zero data acquisition cost.\nCrop type mapping at national scale was demonstrated by Inglada et al. (2017), who used dense Sentinel-2 time-series (monthly NDVI composites across a full growing season) and Random Forest classification to map nine crop types across France with over 90% accuracy. The 5-day revisit time proved essential: the temporal density of observations captured phenological trajectories that distinguish, for example, winter wheat from rapeseed at key growth stages. This work forms a methodological foundation for the EU Common Agricultural Policy (CAP) subsidy verification system and ESA’s operational World Cereal global crop map.\nDisaster response flood mapping represents perhaps the most vivid demonstration of Sentinel-2’s operational value. Following Cyclone Idai’s landfall in Mozambique in March 2019, Twele et al. (2020) produced flood extent maps within 48 hours using NDWI change detection from Sentinel-2 SWIR bands. Combined with cloud-penetrating Sentinel-1 SAR imagery, this enabled building-level damage assessment that directly guided IFRC and UNOCHA field operations. The Copernicus Emergency Management Service (CEMS) — which uses Sentinel-2 as its primary optical source — has been activated over 300 times since 2012 for events including floods, wildfires, and industrial accidents (Copernicus Emergency Management Service 2024).",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 2: Sentinel-2</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 2: Sentinel-2 Introduction & Xaringan Presentation</span>"
     ]
   },
   {
     "objectID": "week2.html#reflection",
     "href": "week2.html#reflection",
-    "title": "Week 2: Sentinel-2",
+    "title": "Week 2: Sentinel-2 Introduction & Xaringan Presentation",
     "section": "Reflection",
     "text": "Reflection\nWorking through the Sentinel-2 literature has reframed my understanding of what “open data” means in practice. The sensor’s combination of free access, 5-day revisit, 10 m resolution, and 13 spectral bands creates conditions that are qualitatively different from anything that existed a decade ago. The number of published Sentinel-2 studies has grown exponentially since 2017 — not because the scientific questions are new, but because the data barrier has been removed.\nOne thing I had not fully appreciated before this was the significance of the red-edge spectral region. These three bands at 705–783 nm sit precisely where chlorophyll absorption transitions to the NIR plateau — a region that turns out to encode a huge amount of information about vegetation stress, crop type, and canopy structure. The difference between including and excluding red-edge bands in a classifier can easily be 10–15 percentage points of accuracy (Wurm et al. 2019; Inglada et al. 2017). I had previously treated “multispectral” as a binary category; I now see that which bands are included matters enormously.\nFor my own future work in urban analytics, I can see two clear uses. First, green infrastructure monitoring: using NDVI time-series in Google Earth Engine to track urban tree canopy seasonality at neighbourhood scale — something that becomes meaningful for health and equity research. Second, environmental justice analysis: combining Sentinel-2-derived land surface temperature estimates with deprivation indices to understand who bears disproportionate heat burden. Both applications become substantially more tractable when the underlying imagery is open and globally consistent. That consistency is what makes findings reproducible and comparable across cities — a baseline requirement for rigorous urban science.\n\n\n\n\n\nCopernicus Emergency Management Service. 2024. “CEMS Rapid Mapping Activations.” European Commission. https://emergency.copernicus.eu.\n\n\nDrusch, M., U. Del Bello, S. Carlier, O. Colin, V. Fernandez, F. Gascon, B. Hoersch, et al. 2012. “Sentinel-2: ESA’s Optical High-Resolution Mission for GMES Operational Services.” Remote Sensing of Environment 120: 25–36. https://doi.org/10.1016/j.rse.2011.11.026.\n\n\nEuropean Space Agency. 2021. Sentinel-2 User Handbook. ESA. https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi.\n\n\nInglada, J., A. Vincent, M. Arias, B. Tardy, D. Morin, and I. Rodes. 2017. “Operational High Resolution Land Cover Map Production at the Country Scale Using Satellite Image Time Series.” Remote Sensing 9 (1): 95. https://doi.org/10.3390/rs9010095.\n\n\nTwele, A., W. Cao, S. Plank, and S. Martinis. 2020. “Sentinel-1 and Sentinel-2 Based Near Real-Time Flood Extent Mapping: A Case Study from the 2019 Cyclone Idai.” International Journal of Remote Sensing 42: 1–24. https://doi.org/10.1080/01431161.2020.1784503.\n\n\nWurm, M., T. Stark, X. X. Zhu, M. Weigand, and H. Taubenböck. 2019. “Semantic Segmentation of Slums in Satellite Images Using Transfer Learning on Fully Convolutional Neural Networks.” ISPRS Journal of Photogrammetry and Remote Sensing 150: 59–69. https://doi.org/10.1016/j.isprsjprs.2019.02.006.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 2: Sentinel-2</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 2: Sentinel-2 Introduction & Xaringan Presentation</span>"
     ]
   },
   {

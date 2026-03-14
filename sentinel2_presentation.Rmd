@@ -6,14 +6,17 @@ institute: "CASA, UCL"
 date: "2026.2"
 output:
   xaringan::moon_reader:
-    css: [default, metropolis, metropolis-fonts]
+    css: 
+      - default
+      - metropolis
+      - metropolis-fonts
+    self_contained: true   
     lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
-      slideNumberFormat: "%current% / %total%"
 ---
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
