@@ -97,5 +97,3 @@ print("Affected buildings:",
   damaged_buildings.filter(ee.Filter.gt("mean", 0)).size());
 // Result: 372
 ```
-
-## References

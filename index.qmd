@@ -32,6 +32,26 @@ This diary is a weekly record of what I found interesting, confusing, or worth p
 </div>
 ```
 
+## About Me
+
+I'm Arthur, a postgraduate student at UCL CASA reading the MSc in Urban Spatial Science. I came directly from an undergraduate degree in Geography at UCL, where my work gravitated towards spatial visualisation — building maps and interactive tools to make geographic data more legible to different audiences. Moving into CASA felt like a natural continuation: the same curiosity about how cities work spatially, but with a more computational and analytical toolkit.
+
+# Some of my previous work:
+
+::: {layout-ncol="4"}
+![Heatmap of US EV Charging Station](images/clipboard-2814830487.jpeg)
+
+![Global Correlation between EV & Carbon Emission](images/clipboard-1826932754.jpeg)
+
+![UK Logistics facilities distribution interactive interface](images/clipboard-2828379828.png)
+
+![Energy Inequalities & Changes in nightlight in Puerto Rico after Hurricane Fiona](images/clipboard-2867828700.png)
+:::
+
+Remote sensing wasn't a major part of my undergraduate training, which is part of what drew me to this module. The idea that a satellite overpass can tell you something meaningful about a city's thermal stress, its land cover change, or the aftermath of an industrial explosion — and that this data is largely free and openly accessible — still strikes me as genuinely remarkable. My interest in disaster analysis in particular has grown through this course: there's something compelling about the way Earth observation can cut through information blackouts and provide independent, verifiable evidence at moments when ground-truth data is hardest to obtain.
+
+More broadly, what I want from this module is transferable range. I'm less interested in specialising narrowly than in building a set of skills — spatial analysis, EO data processing, statistical modelling, reproducible workflows — that can travel across different problem domains. Whether that ends up being in urban planning, humanitarian response, environmental consultancy, or research, I'd rather arrive with adaptable methods than a single fixed expertise. This diary is, in part, an attempt to track whether that's actually happening.
+
 ## Contents
 
 ```{=html}
@@ -46,14 +66,15 @@ This diary is a weekly record of what I found interesting, confusing, or worth p
 .week-card {
   display: block;
   text-decoration: none !important;
-  background: var(--card-bg, #ffffff);
-  border: 1px solid var(--card-border, #e2e8f0);
+  background: #1e1b2e !important;
+  border: 1px solid #3d3558 !important;
   border-radius: 12px;
   padding: 1.4rem 1.6rem;
   cursor: pointer;
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
   position: relative;
   overflow: hidden;
+  color: #e2d9f3 !important;
 }
 
 .week-card::before {
@@ -61,16 +82,9 @@ This diary is a weekly record of what I found interesting, confusing, or worth p
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: var(--card-accent, #562457);
+  background: #c084fc;
   opacity: 0;
   transition: opacity 0.18s ease;
-}
-
-.week-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
-  border-color: var(--card-accent, #562457);
-  text-decoration: none !important;
 }
 
 .week-card:hover::before {
@@ -82,14 +96,14 @@ This diary is a weekly record of what I found interesting, confusing, or worth p
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--card-accent, #562457);
+  color: #c084fc !important;
   margin-bottom: 0.45rem;
 }
 
 .card-title {
   font-size: 0.97rem;
   font-weight: 600;
-  color: var(--card-text, #1a202c);
+  color: #e2d9f3 !important;
   line-height: 1.4;
   margin-bottom: 0.75rem;
 }
@@ -100,8 +114,8 @@ This diary is a weekly record of what I found interesting, confusing, or worth p
   font-weight: 600;
   padding: 0.2rem 0.6rem;
   border-radius: 20px;
-  background: var(--tag-bg, #f0eaf4);
-  color: var(--card-accent, #562457);
+  background: #2d1f3d !important;
+  color: #c084fc !important;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -111,7 +125,7 @@ This diary is a weekly record of what I found interesting, confusing, or worth p
   bottom: 1.2rem;
   right: 1.4rem;
   font-size: 0.85rem;
-  color: var(--card-accent, #562457);
+  color: #c084fc !important;
   opacity: 0;
   transition: opacity 0.18s ease, transform 0.18s ease;
 }
@@ -121,15 +135,11 @@ This diary is a weekly record of what I found interesting, confusing, or worth p
   transform: translateX(3px);
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .week-card {
-    --card-bg: #1e1e2e;
-    --card-border: #2d2d3f;
-    --card-text: #e2e8f0;
-    --card-accent: #c084fc;
-    --tag-bg: #2d1f3d;
-  }
+.week-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  border-color: #c084fc !important;
+  text-decoration: none !important;
 }
 </style>
 
@@ -198,11 +208,43 @@ This diary is a weekly record of what I found interesting, confusing, or worth p
     <span class="card-arrow">→</span>
   </a>
 
+  <a class="week-card ref-card" href="references.html">
+    <div class="card-week">Bibliography</div>
+    <div class="card-title">Full Reference List</div>
+    <span class="card-tag">References</span>
+    <span class="card-arrow">→</span>
+  </a>
+
 </div>
+
+<style>
+.ref-card {
+  background: #12111f !important;
+  border-style: dashed !important;
+  border-color: #3d3558 !important;
+}
+.ref-card .card-week {
+  color: #94a3b8 !important;
+}
+.ref-card .card-tag {
+  background: #1a1a2e !important;
+  color: #94a3b8 !important;
+}
+.ref-card .card-title {
+  color: #94a3b8 !important;
+}
+.ref-card .card-arrow {
+  color: #94a3b8 !important;
+}
+.ref-card:hover {
+  border-color: #94a3b8 !important;
+}
+.ref-card::before {
+  background: #94a3b8 !important;
+}
+</style>
 ```
 
 ## About this diary
 
 The module runs across Term 2 and covers the full remote sensing pipeline — from sensor physics and data corrections through to classification, temperature analysis, and SAR. The diary entries are written shortly after each lecture and practical session, so they reflect what stood out at the time rather than a polished retrospective.
-
-Where I cite papers, I've tried to actually read at least the abstract and methods section rather than just name-dropping. Where I'm uncertain about something, I've said so rather than papering over it.

@@ -1,7 +1,5 @@
 ---
 title: "Week 3: Remote Sensing Data and Corrections"
-author: "Shiyao Zhang"
-date: "2026-01-27"
 format:
   html:
     toc: true
@@ -94,4 +92,3 @@ On texture: the variance output from GLCM is essentially a spatial derivative �
 One question I haven't resolved: the practical used a 7×7 window on 30m Landsat, which covers a 210m ground footprint per texture pixel. At that scale, individual buildings and street trees are subsumed within a single kernel. For 10m Sentinel-2 the same window would cover 70m, which is much closer to the scale of the features I would actually want to detect. I am not clear whether there is a principled method for choosing window size relative to resolution and target feature scale, or whether it is largely empirical — and this seems like something that would meaningfully affect results in dense urban environments.
 
 ------------------------------------------------------------------------
-

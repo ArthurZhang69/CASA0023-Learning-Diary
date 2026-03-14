@@ -1,7 +1,5 @@
 ---
 title: "Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan"
-author: "Shiyao Zhang"
-date: "2026-02-10"
 format:
   html:
     toc: true
@@ -46,4 +44,3 @@ I found myself genuinely uncertain about the direction of causality in the LST-d
 There is also a question I did not find a clear answer to: how would you actually get this EO analysis used? The lecturer's honest account of trying to engage Fremantle's planning department — being met with interest but no action, because they had already paid for an existing plan — suggests that the challenge is less about producing the evidence and more about timing. Getting satellite-derived heat maps into the room before a city publishes its action plan, not afterwards, is where the leverage is.
 
 ------------------------------------------------------------------------
-
