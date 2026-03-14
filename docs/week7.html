@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Arthur Zhang">
-<meta name="dcterms.date" content="2026-02-19">
 
-<title>CASA0023 Learning Diary</title>
+<title>Week 7: Classification II — Sub-pixel, OBIA and Accuracy – CASA0023 Learning Diary</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -32,7 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Week1.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./week6.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -85,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Preface</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week7.html"><span class="chapter-title">Week 7: Classification II — Sub-pixel, OBIA and Accuracy</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -112,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Preface</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -147,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 7: Classification II — Sub-pixel, OBIA and Accuracy</span></a>
+  <a href="./week7.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 7: Classification II — Sub-pixel, OBIA and Accuracy</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -166,8 +185,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#contents" id="toc-contents" class="nav-link active" data-scroll-target="#contents">Contents</a></li>
-  <li><a href="#about-this-diary" id="toc-about-this-diary" class="nav-link" data-scroll-target="#about-this-diary">About this diary</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
   </ul>
 </nav>
     </div>
@@ -176,26 +196,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CASA0023 Learning Diary</h1>
+<h1 class="title"><span class="chapter-title">Week 7: Classification II — Sub-pixel, OBIA and Accuracy</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Arthur Zhang </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 19, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -205,60 +213,75 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="hero-banner">
-  <div class="hero-eyebrow">UCL CASA · 2025–26</div>
-  <h1>CASA0023<br>Learning Diary</h1>
-  <p class="hero-subtitle">Remotely Sensing Cities and Environments</p>
-  <div class="hero-meta">
-    <div class="meta-item">
-      <span class="meta-label">Author</span>
-      <span class="meta-value">Arthur Zhang</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Module</span>
-      <span class="meta-value">CASA0023 — Term 2</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Format</span>
-      <span class="meta-value">Quarto Book</span>
-    </div>
-  </div>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>This week extended the classification methods from Week 6 into two more sophisticated approaches: <strong>sub-pixel spectral unmixing</strong> and <strong>Object-Based Image Analysis (OBIA)</strong> using SNIC superpixels. Both address a fundamental limitation of standard pixel-based classification — that every pixel in medium-resolution imagery (30m Landsat) is likely to contain a mixture of land cover types rather than a single pure class.</p>
+<p><strong>Spectral unmixing</strong> works by defining spectrally pure <em>endmembers</em> for each land cover class and computing the fractional contribution of each endmember to every pixel. In GEE this is implemented via <code>.unmix()</code>, with constrained outputs ensuring fractions are non-negative and sum to 1. In the practical I extracted mean spectral values from four point samples (urban, grass, bare earth, water) over the Landsat 8 image of Ahmedabad, and used these as endmembers.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-276808664.png" class="img-fluid figure-img"></p>
+<figcaption>Point samples, I found that using points was quite different from drawing polygon and usually does not requires to pin multiple points as for polygons.</figcaption>
+</figure>
 </div>
-<p>This diary is a weekly record of what I found interesting, confusing, or worth pushing back on in CASA0023. Each entry follows the same structure — summary, application, reflection — but the goal isn’t to produce a textbook summary. It’s to track how my thinking about remote sensing and urban analytics actually develops across the term.</p>
-<div class="intro-note">
-  Each week's entry covers: a <strong>summary</strong> of the core concepts, an <strong>application</strong> examining how EO data links to a real policy or research context, and a <strong>reflection</strong> on what I'm still uncertain about.
+<p>The result reveals a smooth, continuous surface where each pixel holds a mixture of land cover proportions — in contrast to the hard boundaries produced by Random Forest last week. The Sabarmati River is particularly striking as a clean black corridor, reflecting near-zero contributions from all non-water endmembers.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4153378931.png" class="img-fluid figure-img"></p>
+<figcaption>Sub-pixel Classification Visualization:Red represents urban area; Blue represents bare earth(ground) and Green represents grass and vegetation, Black represents water.</figcaption>
+</figure>
 </div>
-<section id="contents" class="level2">
-<h2 class="anchored" data-anchor-id="contents">Contents</h2>
-<div class="week-grid">
-  <div class="week-card">
-    <div class="card-week">Week 1</div>
-    <div class="card-title">Introduction to Earth Observation and the EO Dashboard</div>
-    <span class="card-tag">Foundations</span>
-  </div>
-  <div class="week-card">
-    <div class="card-week">Week 2</div>
-    <div class="card-title">Sentinel-2: Spectral Capabilities and Urban Applications</div>
-    <span class="card-tag">Sensors</span>
-  </div>
-  <div class="week-card">
-    <div class="card-week">Week 3</div>
-    <div class="card-title">Remote Sensing Data and Corrections</div>
-    <span class="card-tag">Processing</span>
-  </div>
-  <div class="week-card">
-    <div class="card-week">Week 4</div>
-    <div class="card-title">Policy and EO — Ahmedabad Heat Action Plan</div>
-    <span class="card-tag">Policy</span>
-  </div>
+<p><strong>SNIC (Simple Non-Iterative Clustering)</strong> superpixels take a different approach: rather than classifying pixels individually, pixels are first grouped into spatially coherent <em>objects</em> based on spectral and spatial proximity. A hexagonal seed grid is placed at regular intervals and pixels are assigned to the nearest seed based on a combination of colour distance and spatial distance, controlled by the <code>compactness</code> parameter. The resulting objects follow land cover boundaries far more naturally than a regular grid would. Per-object NDVI and standard deviation were then computed as additional features that could feed into a subsequent classifier — adding shape and texture context that pure spectral classification misses.</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-213771446.png" class="img-fluid figure-img"></p>
+<figcaption>NDVI per object</figcaption>
+</figure>
 </div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1417547169.png" class="img-fluid figure-img"></p>
+<figcaption>SNIC</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-325395979.png" class="img-fluid figure-img"></p>
+<figcaption>Standard Deviation</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>The lecture also covered accuracy assessment in depth. The standard <strong>confusion matrix</strong> yields three key metrics: <strong>producer’s accuracy</strong> (TP/TP+FN — how well the classification meets the creator’s expectation), <strong>user’s accuracy</strong> (TP/TP+FP — how reliable the map is for the end user), and <strong>overall accuracy</strong>. Beyond these, the lecture introduced the <strong>F1 score</strong> — the harmonic mean of precision and recall — which avoids the trap of optimising for one at the expense of the other. The <strong>ROC curve</strong> and <strong>AUC</strong> (Area Under Curve) go further still, showing classifier performance across all possible decision thresholds. A perfect classifier has AUC = 1; random guessing gives 0.5. These metrics matter because overall accuracy alone can be misleading when class sizes are imbalanced — a classifier that always predicts “urban” in a 90% urban scene will look 90% accurate while being completely useless.</p>
+<p>A critical warning from <span class="citation" data-cites="karasiak2022">Karasiak et al. (<a href="references.html#ref-karasiak2022" role="doc-biblioref">2022</a>)</span> is that <strong>spatial autocorrelation between training and test pixels</strong> — when both are drawn from the same polygon — can massively inflate apparent accuracy. Nearby pixels share similar spectral values (Tobler’s first law), so a model trained on part of a polygon will trivially perform well on the rest of it. The solution is <strong>spatial cross-validation</strong>: partitioning training and test sets using geographic distance (e.g.&nbsp;a buffer based on Moran’s I) to ensure spatial independence. The pixel-level train-test split used in Week 6 partially addresses this but does not fully resolve the problem when training polygons are spatially clustered.</p>
+<hr>
 </section>
-<section id="about-this-diary" class="level2">
-<h2 class="anchored" data-anchor-id="about-this-diary">About this diary</h2>
-<p>The module runs across Term 2 and covers the full remote sensing pipeline — from sensor physics and data corrections through to classification, temperature analysis, and SAR. The diary entries are written shortly after each lecture and practical session, so they reflect what stood out at the time rather than a polished retrospective.</p>
-<p>Where I cite papers, I’ve tried to actually read at least the abstract and methods section rather than just name-dropping. Where I’m uncertain about something, I’ve said so rather than papering over it.</p>
+<section id="applications" class="level2">
+<h2 class="anchored" data-anchor-id="applications">Applications</h2>
+<p>Sub-pixel and object-based methods have found particularly strong uptake in urban informal settlement mapping, where the heterogeneous mix of materials and the fine-grained spatial structure of slums makes pixel-based approaches unreliable. <span class="citation" data-cites="matarira2023">Matarira et al. (<a href="references.html#ref-matarira2023" role="doc-biblioref">2023</a>)</span> combined Sentinel-1 SAR, Sentinel-2 optical and PlanetScope high-resolution data in an OBIA framework in GEE to map informal settlements in Durban, South Africa, achieving substantially better delineation of settlement boundaries than pixel-based methods. The ability of OBIA to incorporate shape, texture, and context — not just spectral values — is critical in this application: informal roofing materials often have similar spectral signatures to formal urban structures, but their spatial arrangement and object geometry differ markedly.</p>
+<p>The accuracy assessment issues raised in the lecture have direct implications for how classification results are used in policy. <span class="citation" data-cites="karasiak2022">Karasiak et al. (<a href="references.html#ref-karasiak2022" role="doc-biblioref">2022</a>)</span> showed that spatial dependence between training and test data is a major source of overoptimistic accuracy — a problem particularly relevant for studies like urban heat island mapping in Ahmedabad, where training polygons are likely to be clustered in easily accessible or visually distinctive areas. If the reported accuracy of a green cover classification is inflated by spatial autocorrelation, and that classification is fed into the city’s Heat Action Plan to identify high-risk wards, the consequences of misclassification fall disproportionately on the most vulnerable communities. This connects accuracy assessment from a technical exercise to an ethical one. An alternative to custom classification is to use pre-classified products like <strong>Dynamic World</strong> (near real-time 10m Sentinel-2 based classification by Google), which uses a Fully Convolutional Neural Network trained on expert-labelled tiles — though as the lecture noted, its “blobby” appearance at boundaries reflects the 50×50m minimum mapping unit used in training.</p>
+<hr>
+</section>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>What I found most thought-provoking this week was the accuracy assessment discussion — specifically the point that spatial autocorrelation between training and test data can make a model look far more accurate than it actually is. Looking back at last week’s 88.7% overall accuracy, I have to acknowledge that because my training polygons were relatively small and clustered in recognisable areas of the city, the validation pixels drawn from those same polygons were almost certainly spatially correlated with the training pixels. A spatially cross-validated accuracy would likely be lower. This doesn’t invalidate the exercise, but it does mean I should treat the 88.7% figure as an upper bound rather than a reliable estimate. It’s a good reminder that accuracy metrics in remote sensing are not objective measurements — they reflect choices about how validation data is collected and structured, and those choices can be just as consequential as the classification algorithm itself.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-karasiak2022" class="csl-entry" role="listitem">
+Karasiak, Nicolas, Jean-François Dejoux, Claude Monteil, and David Sheeren. 2022. <span>“Spatial Dependence Between Training and Test Sets: Another Pitfall of Classification Accuracy Assessment in Remote Sensing.”</span> <em>Machine Learning</em> 111: 2715–40. <a href="https://doi.org/10.1007/s10994-021-05972-1">https://doi.org/10.1007/s10994-021-05972-1</a>.
+</div>
+<div id="ref-matarira2023" class="csl-entry" role="listitem">
+Matarira, Dadirai, Onisimo Mutanga, Maheshvari Naidu, and Marco Vizzari. 2023. <span>“Object-Based Informal Settlement Mapping in <span>Google Earth Engine</span> Using the Integration of <span>Sentinel-1</span>, <span>Sentinel-2</span>, and <span>PlanetScope</span> Satellite Data.”</span> <em>Land</em> 12 (1): 99. <a href="https://doi.org/10.3390/land12010099">https://doi.org/10.3390/land12010099</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -664,10 +687,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./week6.html" class="pagination-link" aria-label="Week 6: Classification I">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 6: Classification I</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Week1.html" class="pagination-link" aria-label="Week 1: Introduction to Earth Observation and the EO Dashboard">
-        <span class="nav-page-text"><span class="chapter-title">Week 1: Introduction to Earth Observation and the EO Dashboard</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
