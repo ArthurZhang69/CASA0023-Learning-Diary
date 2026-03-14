@@ -208,7 +208,6 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Week 2: Sentinel-2 Introduction &amp; Xaringan Presentation</span></h1>
-<p class="subtitle lead">Multispectral Imaging for Earth Observation</p>
 </div>
 
 
@@ -245,12 +244,15 @@ div.csl-indent {
 (function() {
   var iframe = document.getElementById("xaringan-iframe");
   iframe.addEventListener("mouseenter", function() {
+    var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.paddingRight = scrollbarWidth + "px";
     document.documentElement.style.overflowY = "hidden";
     document.body.style.overflowY = "hidden";
   });
   iframe.addEventListener("mouseleave", function() {
     document.documentElement.style.overflowY = "";
     document.body.style.overflowY = "";
+    document.body.style.paddingRight = "";
   });
 })();
 </script>
