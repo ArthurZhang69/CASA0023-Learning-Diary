@@ -28,12 +28,29 @@ Derived indices — NDVI, NDWI, NDBI, NBR, LAI — are routinely computed from t
 
 The following presentation provides a structured overview of the Sentinel-2 sensor, examples of studies that have used its data, and a reflection on what this implies for urban and spatial analysis.
 
-```{r}
-#| echo: false
-xaringanExtra::embed_xaringan(
-  url = "https://ArthurZhang69.github.io/CASA0023-Learning-Diary/sentinel2_presentation.html",
-  ratio = "16:9"
-)
+```{=html}
+<div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
+  <iframe
+    id="xaringan-iframe"
+    src="https://ArthurZhang69.github.io/CASA0023-Learning-Diary/sentinel2_presentation.html"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<script>
+(function() {
+  var iframe = document.getElementById("xaringan-iframe");
+  iframe.addEventListener("mouseenter", function() {
+    document.documentElement.style.overflowY = "hidden";
+    document.body.style.overflowY = "hidden";
+  });
+  iframe.addEventListener("mouseleave", function() {
+    document.documentElement.style.overflowY = "";
+    document.body.style.overflowY = "";
+  });
+})();
+</script>
 ```
 
 ------------------------------------------------------------------------
