@@ -32,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Week1.html" rel="next">
+<link href="./week1.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -117,22 +117,22 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 1: Introduction to Earth Observation and the EO Dashboard</span></a>
+  <a href="./week1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 1: Introduction to Earth Observation and the EO Dashboard</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 2: Sentinel-2</span></a>
+  <a href="./week2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 2: Sentinel-2</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week3_corrections.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></a>
+  <a href="./week3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3: Remote Sensing Data and Corrections</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week4_policy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan</span></a>
+  <a href="./week4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 4: Policy and Earth Observation — Ahmedabad Heat Action Plan</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -240,27 +240,169 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="contents" class="level2">
 <h2 class="anchored" data-anchor-id="contents">Contents</h2>
+<style>
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+.week-card {
+  display: block;
+  text-decoration: none !important;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--card-border, #e2e8f0);
+  border-radius: 12px;
+  padding: 1.4rem 1.6rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.week-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--card-accent, #562457);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.week-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  border-color: var(--card-accent, #562457);
+  text-decoration: none !important;
+}
+
+.week-card:hover::before {
+  opacity: 1;
+}
+
+.card-week {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--card-accent, #562457);
+  margin-bottom: 0.45rem;
+}
+
+.card-title {
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--card-text, #1a202c);
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.card-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  background: var(--tag-bg, #f0eaf4);
+  color: var(--card-accent, #562457);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card-arrow {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.4rem;
+  font-size: 0.85rem;
+  color: var(--card-accent, #562457);
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.week-card:hover .card-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .week-card {
+    --card-bg: #1e1e2e;
+    --card-border: #2d2d3f;
+    --card-text: #e2e8f0;
+    --card-accent: #c084fc;
+    --tag-bg: #2d1f3d;
+  }
+}
+</style>
+
 <div class="week-grid">
-  <div class="week-card">
+
+  <a class="week-card" href="week1.html">
     <div class="card-week">Week 1</div>
     <div class="card-title">Introduction to Earth Observation and the EO Dashboard</div>
     <span class="card-tag">Foundations</span>
-  </div>
-  <div class="week-card">
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="week-card" href="week2.html">
     <div class="card-week">Week 2</div>
     <div class="card-title">Sentinel-2: Spectral Capabilities and Urban Applications</div>
     <span class="card-tag">Sensors</span>
-  </div>
-  <div class="week-card">
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="week-card" href="week3.html">
     <div class="card-week">Week 3</div>
     <div class="card-title">Remote Sensing Data and Corrections</div>
     <span class="card-tag">Processing</span>
-  </div>
-  <div class="week-card">
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="week-card" href="week4.html">
     <div class="card-week">Week 4</div>
     <div class="card-title">Policy and EO — Ahmedabad Heat Action Plan</div>
     <span class="card-tag">Policy</span>
-  </div>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="week-card" href="week5.html">
+    <div class="card-week">Week 5</div>
+    <div class="card-title">GEE I — Landsat, NDVI, Texture and PCA over Ahmedabad</div>
+    <span class="card-tag">GEE</span>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="week-card" href="week6.html">
+    <div class="card-week">Week 6</div>
+    <div class="card-title">Classification I — Random Forest Land Cover Mapping</div>
+    <span class="card-tag">Classification</span>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="week-card" href="week7.html">
+    <div class="card-week">Week 7</div>
+    <div class="card-title">Classification II — Sub-pixel Unmixing and Object-based Analysis</div>
+    <span class="card-tag">Classification</span>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="week-card" href="week8.html">
+    <div class="card-week">Week 8</div>
+    <div class="card-title">Urban Heat — LST, MODIS Time Series and Ward Heat Index</div>
+    <span class="card-tag">Temperature</span>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a class="week-card" href="week9.html">
+    <div class="card-week">Week 9</div>
+    <div class="card-title">SAR Change Detection — Tianjin Port Explosion</div>
+    <span class="card-tag">SAR</span>
+    <span class="card-arrow">→</span>
+  </a>
+
 </div>
 </section>
 <section id="about-this-diary" class="level2">
@@ -676,7 +818,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Week1.html" class="pagination-link" aria-label="Week 1: Introduction to Earth Observation and the EO Dashboard">
+      <a href="./week1.html" class="pagination-link" aria-label="Week 1: Introduction to Earth Observation and the EO Dashboard">
         <span class="nav-page-text"><span class="chapter-title">Week 1: Introduction to Earth Observation and the EO Dashboard</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

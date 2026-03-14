@@ -8,10 +8,10 @@ book:
   date: "2026/2/19"
   chapters:
     - index.qmd
-    - Week1.qmd
-    - Week2.qmd
-    - week3_corrections.qmd
-    - week4_policy.qmd
+    - week1.qmd
+    - week2.qmd
+    - week3.qmd
+    - week4.qmd
     - week5.qmd
     - week6.qmd
     - week7.qmd
