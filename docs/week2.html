@@ -208,7 +208,6 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Week 2: Sentinel-2 Introduction &amp; Xaringan Presentation</span></h1>
-<p class="subtitle lead">Multispectral Imaging for Earth Observation</p>
 </div>
 
 
@@ -237,13 +236,79 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="xaringan-presentation">Xaringan Presentation</h2>
 <p>The following presentation provides a structured overview of the Sentinel-2 sensor, examples of studies that have used its data, and a reflection on what this implies for urban and spatial analysis.</p>
 <style>
-  html { scrollbar-gutter: stable; }
+.slide-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  background: #000;
+}
+.slide-iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+.slide-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 0 4px 0;
+}
+.slide-btn {
+  background: #1e1b2e;
+  color: #e2d9f3;
+  border: 1px solid #3d3558;
+  border-radius: 8px;
+  padding: 7px 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  font-family: inherit;
+}
+.slide-btn:hover {
+  background: #2d1f3d;
+  border-color: #c084fc;
+  color: #c084fc;
+}
+.slide-btn-full {
+  margin-left: auto;
+  padding: 7px 14px;
+  font-size: 0.8rem;
+}
 </style>
 
-<div id="xaringan-container" style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
-  <iframe id="xaringan-iframe" src="https://ArthurZhang69.github.io/CASA0023-Learning-Diary/sentinel2_presentation.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen="">
+<div class="slide-wrapper">
+  <iframe id="xaringan-iframe" class="slide-iframe" src="https://ArthurZhang69.github.io/CASA0023-Learning-Diary/sentinel2_presentation.html" allowfullscreen="">
   </iframe>
 </div>
+
+<div class="slide-controls">
+  <button class="slide-btn" onclick="slideNav('prev')">← Prev</button>
+  <button class="slide-btn" onclick="slideNav('next')">Next →</button>
+  <button class="slide-btn slide-btn-full" onclick="goFullscreen()">⛶ Fullscreen</button>
+</div>
+
+<script>
+function slideNav(dir) {
+  var iframe = document.getElementById('xaringan-iframe');
+  var key = dir === 'next' ? 'ArrowRight' : 'ArrowLeft';
+  iframe.contentWindow.dispatchEvent(
+    new KeyboardEvent('keydown', { key: key, bubbles: true })
+  );
+}
+
+function goFullscreen() {
+  var iframe = document.getElementById('xaringan-iframe');
+  if (iframe.requestFullscreen) {
+    iframe.requestFullscreen();
+  } else if (iframe.webkitRequestFullscreen) {
+    iframe.webkitRequestFullscreen();
+  }
+}
+</script>
 <hr>
 </section>
 <section id="application" class="level2">
