@@ -38,11 +38,13 @@ I'm Arthur, a postgraduate student at UCL CASA reading the MSc in Urban Spatial 
 
 # Some of my previous work:
 
-::: {layout-ncol="4"}
+::: {layout-ncol="2"}
 ![Heatmap of US EV Charging Station](images/clipboard-2814830487.jpeg)
 
 ![Global Correlation between EV & Carbon Emission](images/clipboard-1826932754.jpeg)
+:::
 
+::: {layout-ncol="2"}
 ![UK Logistics facilities distribution interactive interface](images/clipboard-2828379828.png)
 
 ![Energy Inequalities & Changes in nightlight in Puerto Rico after Hurricane Fiona](images/clipboard-2867828700.png)

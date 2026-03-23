@@ -54,6 +54,12 @@ veg <- m1_NDVI %>%
   terra::classify(., cbind(-Inf, 0.2, NA))
 ```
 
+::: {layout-ncol="2"}
+![NDVI Result from Practical](images/clipboard-3521478858.png)
+
+![Reclassify the result to show only NDVI\>=0.2](images/clipboard-1218761608.png)
+:::
+
 The 0.2 threshold is widely used but context-dependent. For Cape Town's fynbos — a low-growing shrubland that is the city's dominant natural vegetation type — values between 0.1 and 0.2 are common, particularly in drier months. A blanket 0.2 cut-off would exclude a significant portion of ecologically meaningful vegetation, which matters if the downstream application is green space access or heat stress mapping.
 
 The texture analysis used `GLCMTextures` on Band 4 with a 7×7 window, computing GLCM homogeneity. One step that is easy to overlook is rescaling the data before running the texture function — Landsat Level-2 products store reflectance as scaled integers, and the texture metrics would be meaningless if computed on the raw integer values:
@@ -72,6 +78,8 @@ textures1 <- glcm_textures(
   metrics = "glcm_homogeneity")
 ```
 
+![GLCM Texture Result](images/clipboard-2669643912.png)
+
 Homogeneity is high where neighbouring pixels are similar (water, uniform rooftops, formal housing) and low where they vary (construction, informal settlements, mixed vegetation). This is the kind of information that spectral band values alone cannot capture — two areas with identical mean NIR reflectance may look completely different in texture if one is a uniform park canopy and the other is a fragmented mix of trees and rooftops. @lu2012 demonstrated this in Brazilian Amazon land cover classification, where adding texture features substantially improved discrimination between forest types with near-identical spectral signatures. The texture band was then stacked with the spectral data and reduced via PCA, with centering and scaling applied beforehand to prevent variables with larger numerical ranges from dominating the components:
 
 ``` r
@@ -80,6 +88,8 @@ raster_and_texture <- c(m1_clip, textures1)
 pca <- prcomp(as.data.frame(raster_and_texture, na.rm=TRUE),
               center=TRUE, scale=TRUE)
 ```
+
+![PCA Result](images/clipboard-1799581398.png)
 
 ------------------------------------------------------------------------
 
