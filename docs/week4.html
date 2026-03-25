@@ -225,38 +225,90 @@ div.csl-indent {
 
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>Ahmedabad, Gujarat’s commercial capital with a population of roughly 8 million, experienced one of India’s deadliest heat events in May 2010 — an estimated 1,344 excess deaths over a two-week period as temperatures pushed past 46°C <span class="citation" data-cites="nrdc2016">(<a href="references.html#ref-nrdc2016" role="doc-biblioref">Natural Resources Defense Council and Indian Institute of Public Health, Gandhinagar 2016</a>)</span>. The city responded with the <strong>Ahmedabad Heat Action Plan (HAP)</strong>, first published in 2013 and significantly revised in 2016, making it South Asia’s first formal municipal heat-health framework. The plan operates through four pillars: public awareness and community outreach, training healthcare workers to recognise heat illness, establishing a heat alert system using India Meteorological Department forecasts, and coordinating cooling centres and night shelters. These are genuine public health interventions and the plan has been cited as a global model for its speed and breadth.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-74125268.png" class="img-fluid figure-img"></p>
+<figcaption>Heat map and demographic information of Ahmedabad, Source: Indianexpress</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-540615489.png" class="img-fluid figure-img"></p>
+<figcaption>Heatwave in India, Source:NASA Science</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Ahmedabad, Gujarat’s commercial capital with a population of roughly 8 million, experienced one of India’s deadliest heat events in May 2010 — an estimated 1,344 excess deaths over a two-week period as temperatures pushed past 46°C <span class="citation" data-cites="azhar2014 nrdc2016">(<a href="references.html#ref-azhar2014" role="doc-biblioref">Azhar et al. 2014</a>; <a href="references.html#ref-nrdc2016" role="doc-biblioref">Natural Resources Defense Council and Indian Institute of Public Health, Gandhinagar 2016</a>)</span>. The city responded with the <strong>Ahmedabad Heat Action Plan (HAP)</strong>, first published in 2013 and significantly revised in 2016, making it South Asia’s first formal municipal heat-health framework <span class="citation" data-cites="knowlton2014">(<a href="references.html#ref-knowlton2014" role="doc-biblioref">Knowlton et al. 2014</a>)</span>. The plan operates through four pillars: public awareness and community outreach, training healthcare workers to recognise heat illness, establishing a heat alert system using India Meteorological Department forecasts, and coordinating cooling centres and night shelters. These are genuine public health interventions and the plan has been cited as a global model for its speed and breadth.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-724902482.png" class="img-fluid figure-img"></p>
+<figcaption>Ahmedabad Heat Action Plan Component</figcaption>
+</figure>
+</div>
 <p>The problem, and the reason it is interesting as a case study for this module, is that the 2016 plan contains almost no spatial analysis. It identifies heat as a citywide hazard but does not identify <em>where within the city</em> the burden is concentrated, which neighbourhoods have the least access to green space or shade, or which populations are most exposed. The plan’s interventions are broadcast-oriented — phone alerts, hospital training, public information — rather than spatially targeted. There is a brief mention of long-term data collection as a future objective, but no Earth observation dataset is named or used.</p>
 <p>This is exactly the pattern the lecture described: policy frameworks exist at every level (the New Urban Agenda commits member states to reducing urban heat effects; SDG 11 targets safe, inclusive, green public spaces; the Sendai Framework covers disaster risk reduction), and municipal plans like Ahmedabad’s are nominally aligned with all of them. But the chain of alignment runs from global rhetoric to local action without a reproducible, spatially-explicit evidence base linking the two. The COP26 <em>Beat the Heat</em> handbook <span class="citation" data-cites="unep2021">(<a href="references.html#ref-unep2021" role="doc-biblioref">United Nations Environment Programme 2021</a>)</span> was the first major international document to explicitly call for Earth observation integration into heat planning — which is a striking admission that until 2021, even the guidance documents were not making this connection.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2117943285.png" class="img-fluid figure-img"></p>
+<figcaption>COP26 Beat the Heat Handbook</figcaption>
+</figure>
+</div>
 <hr>
 </section>
 <section id="application" class="level2">
 <h2 class="anchored" data-anchor-id="application">Application</h2>
-<p>The gap in the Ahmedabad HAP is identifiable and addressable with readily available Earth observation data. The specific policy goal — reducing heat-related mortality — requires knowing where the thermal burden is highest, which groups are most exposed, and whether interventions are having measurable effect over time. Three EO datasets are directly relevant.</p>
-<p><strong>Landsat 8/9 Land Surface Temperature (LST)</strong> at 30 m resolution is the most established approach. The USGS Collection 2 Level-2 ST product provides atmospherically corrected surface temperature values directly, removing the resampling decisions that weakened the Fremantle Urban Forest Plan discussed in the lecture. Rather than using a single summer image — which risks capturing an atypical day — a seasonal composite over Ahmedabad’s April–June pre-monsoon window across multiple years (2015–2024) would produce a robust, time-comparable heat baseline. Areas of persistent high LST across years identify structural hotspots driven by impervious surfaces and vegetation deficit, not just weather variability.</p>
-<p><strong>Sentinel-2 NDVI</strong> provides the complementary vegetation layer at 10 m resolution. Green cover and LST are strongly negatively correlated in dense urban environments — the lecture cited estimates of up to 10°C temperature difference between vegetated and unvegetated adjacent neighbourhoods. Mapping NDVI deficits against ward-level boundaries in Ahmedabad would directly identify where tree-planting or green infrastructure investment would have the most thermal effect. This is operationally straightforward in Google Earth Engine and reproducible, in contrast to the one-off consultant-produced analyses that cities typically commission.</p>
-<p><strong>The equity question</strong> is where this becomes policy-relevant rather than just technically interesting. <span class="citation" data-cites="li2022">Li et al. (<a href="references.html#ref-li2022" role="doc-biblioref">2022</a>)</span>, examining 11 Texas cities, found a consistent spatial pattern: lower-income, historically disinvested neighbourhoods showed significantly higher LST values even after controlling for building density, because they had less canopy cover, more asphalt, and older building stock. There is no reason to assume Ahmedabad is different. Overlaying LST and NDVI composites with ward-level socioeconomic indicators — available from Indian census data — would allow the HAP to shift from a citywide alert system to a spatially-targeted intervention programme: prioritising cooling centres in high-LST, low-income wards; targeting tree-planting in NDVI-deficient areas with high population density; directing outreach workers to the highest-vulnerability blocks first.</p>
-<p>One important caveat that the lecture raised: land surface temperature is what satellites measure, but ambient air temperature at head height is what humans actually experience. The connection between the two is real but not direct — reflective pavements can dramatically reduce LST while barely changing the air temperature a pedestrian feels. Any EO-based analysis feeding into the HAP should acknowledge this limitation and ideally be cross-validated against ground-level sensor networks or humidity-adjusted heat index data from weather stations, rather than presenting LST maps as straightforward evidence of human thermal comfort.</p>
+<p>The gap in the Ahmedabad HAP is identifiable and addressable with freely available Earth observation data. Reducing heat-related mortality requires knowing where the thermal burden is highest, which groups are most exposed, and whether interventions are working. Two EO layers are directly relevant.</p>
+<p><strong>Landsat 8/9 LST</strong> at 30 m resolution is the most established approach. Rather than a single summer image — which risks capturing an atypical day — a seasonal composite over Ahmedabad’s April–June pre-monsoon window across multiple years would produce a robust heat baseline <span class="citation" data-cites="maclachlan2017">(<a href="references.html#ref-maclachlan2017" role="doc-biblioref">MacLachlan et al. 2017</a>)</span>. Areas of persistently high LST identify structural hotspots driven by impervious surfaces and vegetation deficit, not weather variability.</p>
+<p><strong>Sentinel-2 NDVI</strong> provides the complementary vegetation layer at 10 m. Green cover and LST are strongly negatively correlated in dense urban environments <span class="citation" data-cites="guha2018">(<a href="references.html#ref-guha2018" role="doc-biblioref">Guha et al. 2018</a>)</span>. Mapping NDVI deficits against ward boundaries would directly identify where green infrastructure investment would have the most thermal effect — and unlike consultant-produced analyses, the result is reproducible and updatable.</p>
+<p>The equity dimension is where this becomes policy-relevant. <span class="citation" data-cites="li2022">Li et al. (<a href="references.html#ref-li2022" role="doc-biblioref">2022</a>)</span>, examining 11 Texas cities, found that lower-income neighbourhoods showed consistently higher LST even after controlling for building density, because they had less canopy and more asphalt. Overlaying LST and NDVI with ward-level census indicators would allow the HAP to shift from a citywide alert system to spatially-targeted intervention: cooling centres in high-LST, low-income wards; tree-planting in NDVI-deficient areas; outreach workers directed to the highest-vulnerability blocks first.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4109220919.png" class="img-fluid figure-img"></p>
+<figcaption>LST Change in different cities and time, Source:(Li et al., 2022)</figcaption>
+</figure>
+</div>
+<p>However, LST is what satellites measure, not the air temperature a pedestrian experiences <span class="citation" data-cites="voogt2003">(<a href="references.html#ref-voogt2003" role="doc-biblioref">Voogt and Oke 2003</a>)</span>. Reflective pavements can reduce LST while barely changing felt heat. Any EO analysis feeding into the HAP should be cross-validated against ground-level sensors rather than presented as a direct proxy for human thermal comfort.</p>
 <hr>
 </section>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>What this exercise made clear to me is that the policy gap is not primarily a data gap. Landsat LST data for Ahmedabad is freely available, has been so since the 1970s, and requires no specialist hardware to access via GEE. The Ahmedabad HAP has been in operation for over a decade. The fact that these have not been connected is an institutional and capacity problem, not a technical one — which matches exactly what the lecturer described about Cape Town, where different government departments had data they were legally prevented from sharing with each other under normal timescales.</p>
-<p>The lecture’s framing of the <strong>inequality–equity–justice</strong> spectrum is useful here. The current HAP operates at the level of <em>equality</em>: everyone in the city gets the same phone alert. An EO-informed approach would enable <em>equity</em>: directing more resources to the wards that are structurally hotter and socially more vulnerable. Genuine <em>justice</em> would mean addressing the underlying reasons those areas have less canopy cover and more asphalt — which is a land-use and investment history question that EO data can map but cannot solve.</p>
-<p>I found myself genuinely uncertain about the direction of causality in the LST-deprivation correlation. Do poorer areas have higher LST because disinvestment means less tree planting? Or do higher LST areas become cheaper because they are less desirable to live in? Probably both mechanisms operate simultaneously, and the policy implication differs: one calls for targeted greening investment, the other calls for broader housing and land-use reform. An LST map alone cannot distinguish between them.</p>
-<p>There is also a question I did not find a clear answer to: how would you actually get this EO analysis used? The lecturer’s honest account of trying to engage Fremantle’s planning department — being met with interest but no action, because they had already paid for an existing plan — suggests that the challenge is less about producing the evidence and more about timing. Getting satellite-derived heat maps into the room before a city publishes its action plan, not afterwards, is where the leverage is.</p>
+<p>The thing that stuck with me is not about the data. Landsat LST for Ahmedabad has been freely available for decades; the HAP has existed since 2013. Whatever is preventing those two things from connecting is not a technical problem, and a better satellite product would not fix it. The Cape Town example from the lecture — departments legally unable to share data with each other under normal timescales — suggested the bottleneck sits somewhere in institutional structure, not in what sensors can resolve.</p>
+<p>The <strong>inequality–equity–justice</strong> framing is useful up to a point. Shifting from equality to equity — directing resources toward the hottest, most socially vulnerable wards — seems tractable if the political will exists and the spatial evidence is in front of the right people at the right moment. The justice step is a different order of problem. An LST map can illustrate why certain areas carry a disproportionate heat burden, but the underlying causes — land use history, decades of differential investment in canopy and infrastructure — are not addressable through remote sensing.</p>
+<p>The causality question in the LST-deprivation relationship is one I did not find a satisfying answer to. <span class="citation" data-cites="li2022">Li et al. (<a href="references.html#ref-li2022" role="doc-biblioref">2022</a>)</span> documents the association across eleven Texas cities, but the cross-sectional design cannot separate two plausible mechanisms: disinvestment producing hotter neighbourhoods through less canopy and more asphalt, versus high-LST areas becoming cheaper over time as residents with options leave. The policy implication differs — one points toward targeted greening, the other toward housing and land-use reform — and it is not clear that EO evidence alone can adjudicate between them.</p>
 <hr>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-azhar2014" class="csl-entry" role="listitem">
+Azhar, Gulrez Shah, Dileep Mavalankar, Amruta Nori-Sarma, Ajit Rajiva, Priya Dutta, Anjali Jaiswal, Perry Sheffield, Kim Knowlton, and Jeremy J. Hess. 2014. <span>“Heat-Related Mortality in <span>India</span>: Excess All-Cause Mortality Associated with the 2010 <span>Ahmedabad</span> Heat Wave.”</span> <em>PLOS ONE</em> 9 (3): e91831. <a href="https://doi.org/10.1371/journal.pone.0091831">https://doi.org/10.1371/journal.pone.0091831</a>.
+</div>
+<div id="ref-guha2018" class="csl-entry" role="listitem">
+Guha, Subhanil, Himanshu Govil, Anindita Dey, and Neetu Gill. 2018. <span>“Analytical Study of Land Surface Temperature with <span>NDVI</span> and <span>NDBI</span> Using <span>Landsat</span> 8 <span>OLI</span> and <span>TIRS</span> Data in <span>Florence</span> and <span>Naples</span> City, <span>Italy</span>.”</span> <em>European Journal of Remote Sensing</em> 51 (1): 667–78. <a href="https://doi.org/10.1080/22797254.2018.1474494">https://doi.org/10.1080/22797254.2018.1474494</a>.
+</div>
+<div id="ref-knowlton2014" class="csl-entry" role="listitem">
+Knowlton, Kim, Suhas P. Kulkarni, Gulrez Shah Azhar, Dileep Mavalankar, Anjali Jaiswal, Molly Connolly, Amruta Nori-Sarma, et al. 2014. <span>“Development and Implementation of <span>South Asia</span>’s First Heat-Health Action Plan in <span>Ahmedabad</span> (<span>Gujarat</span>, <span>India</span>).”</span> <em>International Journal of Environmental Research and Public Health</em> 11 (4): 3473–92. <a href="https://doi.org/10.3390/ijerph110403473">https://doi.org/10.3390/ijerph110403473</a>.
+</div>
 <div id="ref-li2022" class="csl-entry" role="listitem">
 Li, Dongying, Galen D. Newman, Bev Wilson, Yue Zhang, and Robert D. Brown. 2022. <span>“Modeling the Relationships Between Historical Redlining, Urban Heat, and Heat-Related Emergency Department Visits: <span>An</span> Examination of 11 <span>Texas</span> Cities.”</span> <em>Environment and Planning B: Urban Analytics and City Science</em> 49 (3): 933–52. <a href="https://doi.org/10.1177/23998083211039854">https://doi.org/10.1177/23998083211039854</a>.
+</div>
+<div id="ref-maclachlan2017" class="csl-entry" role="listitem">
+MacLachlan, Andrew, Gareth Roberts, Eloise Biggs, and Bryan Boruff. 2017. <span>“Urbanisation-Induced Land Cover Temperature Dynamics for Sustainable Future Urban Heat Island Mitigation in <span>Perth</span>, <span>Western Australia</span>.”</span> <em>Land</em> 6 (1): 9. <a href="https://doi.org/10.3390/land6010009">https://doi.org/10.3390/land6010009</a>.
 </div>
 <div id="ref-nrdc2016" class="csl-entry" role="listitem">
 Natural Resources Defense Council, and Indian Institute of Public Health, Gandhinagar. 2016. <span>“Ahmedabad Heat Action Plan 2016: Guide to Extreme Heat Planning in <span>Ahmedabad</span>, <span>India</span>.”</span> NRDC. <a href="https://www.nrdc.org/sites/default/files/ahmedabad-heat-action-plan-2016.pdf">https://www.nrdc.org/sites/default/files/ahmedabad-heat-action-plan-2016.pdf</a>.
 </div>
 <div id="ref-unep2021" class="csl-entry" role="listitem">
 United Nations Environment Programme. 2021. <span>“Beating the Heat: <span>A</span> Sustainable Cooling Handbook for Cities.”</span> UNEP. <a href="https://www.unep.org/resources/report/beating-heat-sustainable-cooling-handbook-cities">https://www.unep.org/resources/report/beating-heat-sustainable-cooling-handbook-cities</a>.
+</div>
+<div id="ref-voogt2003" class="csl-entry" role="listitem">
+Voogt, J. A., and T. R. Oke. 2003. <span>“Thermal Remote Sensing of Urban Climates.”</span> <em>Remote Sensing of Environment</em> 86 (3): 370–84. <a href="https://doi.org/10.1016/S0034-4257(03)00079-8">https://doi.org/10.1016/S0034-4257(03)00079-8</a>.
 </div>
 </div>
 </section>
