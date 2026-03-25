@@ -24,7 +24,7 @@ The composite change map, produced by averaging ASCENDING and DESCENDING orbit r
 
 ### Building-Level Damage Assessment
 
-OSM building footprints were extracted via Overpass Turbo for the wider Tianjin Binhai area and uploaded to GEE as a user asset (`projects/remote-sensing-489809/assets/Tianjin`). The `reduceRegions()` function was used to compute mean t-test scores within each building polygon, identifying structures with statistically significant change (mean \> 0).
+OSM building footprints were extracted via Overpass Turbo for the wider Tianjin Binhai area and uploaded to GEE as my user asset (`projects/remote-sensing-489809/assets/Tianjin`). The `reduceRegions()` function was used to compute mean t-test scores within each building polygon, identifying structures with statistically significant change (mean \> 0).
 
 Within the 3 km AOI, **372 OSM buildings** showed statistically significant post-explosion backscatter change. This figure should be interpreted as a lower-bound estimate: OSM coverage of industrial zones in China is incomplete, with large warehouse complexes, chemical storage facilities, and cargo handling infrastructure typically absent from the volunteer-contributed dataset. The actual number of affected structures is substantially higher, consistent with official reports citing damage to over 17,000 residential units and hundreds of warehouses.
 
@@ -40,7 +40,7 @@ Note that 2016 was deliberately avoided as a placebo year due to ongoing demolit
 
 ## Reflection
 
-This practical highlighted both the strengths and limitations of SAR-based damage assessment in complex urban-industrial environments. The t-test approach [@schulte2018] is computationally efficient and interpretable, but its performance depends critically on the size of the pre-event image stack. The Tianjin case was challenging precisely because Sentinel-1 was relatively new in 2015, leaving only two pre-event acquisitions — a situation unlikely to recur for events occurring after 2017 when the archive had matured.
+This practical highlighted both the strengths and limitations of SAR-based damage assessment in complex urban-industrial environments. The t-test approach [@plank2014] is computationally efficient and interpretable, but its performance depends critically on the size of the pre-event image stack. The Tianjin case was challenging precisely because Sentinel-1 was relatively new in 2015, leaving only two pre-event acquisitions — a situation unlikely to recur for events occurring after 2017 when the archive had matured.
 
 The failure of conventional building footprint datasets (Microsoft Building Footprints, Google Open Buildings, and OSM) to adequately cover Chinese industrial zones raises a broader point about **data justice in disaster remote sensing**: the areas most difficult to map with volunteered geographic data — informal settlements, industrial zones, and areas in countries with mapping data restrictions — are often the same areas where rapid damage assessment is most needed. Pixel-level area statistics offer a pragmatic alternative when vector building data is unavailable.
 
