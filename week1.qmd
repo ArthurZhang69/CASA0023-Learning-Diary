@@ -18,7 +18,7 @@ Prior to computation, all bands were resampled to a common spatial resolution to
 
 ![Additional spectral signature outputs from the Week 1 practical.](images/clipboard-2536540042.png)
 
-![QGIS layout showing band comparisons across the study area.](images/clipboard-403720106.png)
+![R layout showing band comparisons across the study area.](images/clipboard-403720106.png)
 
 ------------------------------------------------------------------------
 
