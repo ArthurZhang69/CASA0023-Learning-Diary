@@ -13,6 +13,14 @@ This week extended the classification methods from Week 6 into two more sophisti
 
 **SNIC superpixels** take a different approach: pixels are first grouped into spatially coherent *objects* based on spectral and spatial proximity, controlled by the `compactness` parameter. The resulting objects follow land cover boundaries far more naturally than a regular grid. Per-object NDVI and standard deviation were then computed as additional features — adding shape and texture context that pure spectral classification misses.
 
+::: {layout-ncol="3"}
+![NDVI per object](images/clipboard-213771446.png)
+
+![SNIC](images/clipboard-1417547169.png)
+
+![Standard Deviation](images/clipboard-325395979.png)
+:::
+
 The lecture also covered accuracy assessment. The standard **confusion matrix** yields producer's accuracy (TP/TP+FN), user's accuracy (TP/TP+FP), and overall accuracy. The **F1 score** — harmonic mean of precision and recall — avoids optimising one at the expense of the other. The **ROC curve** and **AUC** show classifier performance across all decision thresholds; random guessing gives AUC = 0.5.
 
 A critical warning from @karasiak2022 is that **spatial autocorrelation between training and test pixels** — when both are drawn from the same polygon — can massively inflate apparent accuracy. The solution is **spatial cross-validation**: partitioning sets using geographic distance to ensure spatial independence. The pixel-level split used in Week 6 partially addresses this but does not fully resolve the problem when training polygons are spatially clustered.

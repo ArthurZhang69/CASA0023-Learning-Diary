@@ -235,6 +235,34 @@ div.csl-indent {
 </figure>
 </div>
 <p><strong>SNIC superpixels</strong> take a different approach: pixels are first grouped into spatially coherent <em>objects</em> based on spectral and spatial proximity, controlled by the <code>compactness</code> parameter. The resulting objects follow land cover boundaries far more naturally than a regular grid. Per-object NDVI and standard deviation were then computed as additional features — adding shape and texture context that pure spectral classification misses.</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-213771446.png" class="img-fluid figure-img"></p>
+<figcaption>NDVI per object</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1417547169.png" class="img-fluid figure-img"></p>
+<figcaption>SNIC</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-325395979.png" class="img-fluid figure-img"></p>
+<figcaption>Standard Deviation</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <p>The lecture also covered accuracy assessment. The standard <strong>confusion matrix</strong> yields producer’s accuracy (TP/TP+FN), user’s accuracy (TP/TP+FP), and overall accuracy. The <strong>F1 score</strong> — harmonic mean of precision and recall — avoids optimising one at the expense of the other. The <strong>ROC curve</strong> and <strong>AUC</strong> show classifier performance across all decision thresholds; random guessing gives AUC = 0.5.</p>
 <p>A critical warning from <span class="citation" data-cites="karasiak2022">Karasiak et al. (<a href="references.html#ref-karasiak2022" role="doc-biblioref">2022</a>)</span> is that <strong>spatial autocorrelation between training and test pixels</strong> — when both are drawn from the same polygon — can massively inflate apparent accuracy. The solution is <strong>spatial cross-validation</strong>: partitioning sets using geographic distance to ensure spatial independence. The pixel-level split used in Week 6 partially addresses this but does not fully resolve the problem when training polygons are spatially clustered.</p>
 <hr>

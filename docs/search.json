@@ -274,7 +274,7 @@
     "href": "week7.html#summary",
     "title": "Week 7: Classification II — Sub-pixel, OBIA and Accuracy",
     "section": "",
-    "text": "Sub-pixel Classification Visualization:Red represents urban area; Blue represents bare earth(ground) and Green represents grass and vegetation, Black represents water.",
+    "text": "Sub-pixel Classification Visualization:Red represents urban area; Blue represents bare earth(ground) and Green represents grass and vegetation, Black represents water.\n\n\n\n\n\n\n\n\n\nNDVI per object\n\n\n\n\n\n\n\nSNIC\n\n\n\n\n\n\n\nStandard Deviation",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Week 7: Classification II — Sub-pixel, OBIA and Accuracy</span>"
     ]
