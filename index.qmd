@@ -5,21 +5,26 @@ title: "Preface"
 ```{=html}
 <div class="hero-banner">
   <div class="hero-eyebrow">UCL CASA · 2025–26</div>
-  <h1>CASA0023<br>Learning Diary</h1>
-  <p class="hero-subtitle">Remotely Sensing Cities and Environments</p>
-  <div class="hero-meta">
-    <div class="meta-item">
-      <span class="meta-label">Author</span>
-      <span class="meta-value">Arthur Zhang</span>
+  <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem;">
+    <div>
+      <h1>CASA0023<br>Learning Diary</h1>
+      <p class="hero-subtitle">Remotely Sensing Cities and Environments</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <span class="meta-label">Author</span>
+          <span class="meta-value">Arthur Zhang</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Module</span>
+          <span class="meta-value">CASA0023 — Term 2</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Format</span>
+          <span class="meta-value">Quarto Book</span>
+        </div>
+      </div>
     </div>
-    <div class="meta-item">
-      <span class="meta-label">Module</span>
-      <span class="meta-value">CASA0023 — Term 2</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Format</span>
-      <span class="meta-value">Quarto Book</span>
-    </div>
+    <img src="images/logo.svg" style="width: 240px; height: 240px; flex-shrink: 0; opacity: 1;margin-left: -12px; margin-top: -22px">
   </div>
 </div>
 ```
