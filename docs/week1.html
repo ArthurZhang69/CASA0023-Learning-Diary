@@ -255,15 +255,15 @@ window.Quarto = {
 
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>This week introduced the conceptual foundations of Earth Observation (EO) and the overall aims of the module. A central focus was the EO Dashboard, which aggregates satellite-derived indicators from missions such as Sentinel and Landsat to visualise environmental change across space and time. What struck me most was how complex spectral data are translated into accessible, policy-facing narratives. Instead of interacting directly with raw raster datasets, users engage with processed indicators such as NO₂ concentration, land surface temperature, and vegetation indices.</p>
+<p>The first lecture set up something that turned out to be a useful frame for the rest of the module: Earth observation data rarely reaches you raw. The EO Dashboard is a good illustration — what looks like a simple interface for exploring NO₂ levels or vegetation cover is actually the end of a long pipeline involving atmospheric correction, radiometric calibration, index computation, and spatial aggregation. The practical made this concrete: loading Sentinel-2 imagery of Beijing required decisions about which bands to use, what resolution to resample to, and how to interpret the outputs — none of which are neutral choices.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/clipboard-286994931.png" class="img-fluid figure-img"></p>
 <figcaption>Scatter plot and false-colour composite from the Week 1 practical — Sentinel-2 imagery of Beijing.</figcaption>
 </figure>
 </div>
-<p>A key technical takeaway was the importance of spatial and temporal resolution trade-offs. Sentinel-2 provides 10 m spatial resolution with frequent revisit times, making it suitable for intra-urban analysis. Landsat, while coarser at 30 m resolution, offers a long historical archive (since the 1980s), which supports longitudinal environmental monitoring <span class="citation" data-cites="wulder2019">(<a href="references.html#ref-wulder2019" role="doc-biblioref">Wulder et al. 2019</a>)</span>. These trade-offs highlight that dataset choice fundamentally shapes analytical outcomes.</p>
-<p>Prior to computation, all bands were resampled to a common spatial resolution to ensure pixel-level alignment. This step is essential, as bands with different spatial resolutions (10 m vs 20 m) cannot be directly combined without introducing spatial inconsistency. The Brightness image highlighted highly reflective urban surfaces and industrial areas, while water bodies appeared dark. Greenness strongly enhanced vegetated areas, and Wetness clearly separated water and moist surfaces from built-up areas.</p>
+<p>The resolution trade-off between Sentinel-2 and Landsat is genuinely consequential. At 10 m, Sentinel-2 can resolve individual buildings and street-level features that disappear into background noise at Landsat’s 30 m. But Landsat’s archive going back to the early 1970s means it can answer questions about long-run change that Sentinel-2 simply cannot yet <span class="citation" data-cites="wulder2019">(<a href="references.html#ref-wulder2019" role="doc-biblioref">Wulder et al. 2019</a>)</span>. Neither is universally better — the right choice depends entirely on whether your research question is about spatial detail or temporal depth.</p>
+<p>The Tasselled Cap transformation was the most technically interesting part of the practical. Compressing the spectral information from multiple bands into three interpretable components — Brightness, Greenness, Wetness — is not just a dimensionality reduction trick. Each component has a physical meaning tied to surface properties, which is why it persists as a useful tool despite the availability of more sophisticated methods.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/clipboard-3385457097.png" class="img-fluid figure-img"></p>
@@ -276,43 +276,25 @@ window.Quarto = {
 <figcaption>Band spectral plots and histogram distributions from the Beijing scene.</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-2536540042.png" class="img-fluid figure-img"></p>
-<figcaption>Additional spectral signature outputs from the Week 1 practical.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-403720106.png" class="img-fluid figure-img"></p>
-<figcaption>R layout showing band comparisons across the study area.</figcaption>
-</figure>
-</div>
 <hr>
 </section>
 <section id="application" class="level2">
 <h2 class="anchored" data-anchor-id="application">Application</h2>
-<p>EO dashboards demonstrate how satellite data are increasingly embedded in environmental governance. For example, Sentinel-5P data were widely used to assess NO₂ reductions during COVID-19 lockdowns, revealing measurable atmospheric change linked to mobility restrictions <span class="citation" data-cites="bauwens2020 venter2020">(<a href="references.html#ref-bauwens2020" role="doc-biblioref">Bauwens et al. 2020</a>; <a href="references.html#ref-venter2020" role="doc-biblioref">Venter et al. 2020</a>)</span>. Similarly, land surface temperature derived from thermal sensors has informed urban heat island research and climate adaptation planning <span class="citation" data-cites="voogt2003 li2019">(<a href="references.html#ref-voogt2003" role="doc-biblioref">Voogt and Oke 2003</a>; <a href="references.html#ref-li2019" role="doc-biblioref">Li, Bou-Zeid, and Oppenheimer 2014</a>)</span>.</p>
-<p>These applications illustrate how EO data can support Sustainable Development Goals (SDGs), particularly those relating to climate action, sustainable cities, and environmental health. However, dashboards necessarily abstract complex processing steps such as atmospheric correction, radiometric calibration, and cloud masking <span class="citation" data-cites="jones2010">(<a href="references.html#ref-jones2010" role="doc-biblioref">Jones and Vaughan 2010</a>)</span>. While this abstraction enhances accessibility, it may obscure methodological uncertainty.</p>
-<p>The distinction between Sentinel and Landsat also reflects broader research design considerations. High-resolution data enable neighbourhood-scale environmental analysis, while long-term archives support trend detection and policy evaluation. Many contemporary studies integrate both datasets to leverage spatial detail and temporal depth, illustrating the multi-source nature of modern EO research.</p>
+<p>The clearest recent demonstration of what EO dashboards can do in practice came during COVID-19 lockdowns, when Sentinel-5P NO₂ data provided near-real-time evidence of atmospheric change that ground station networks could not have captured at comparable spatial coverage <span class="citation" data-cites="bauwens2020 venter2020">(<a href="references.html#ref-bauwens2020" role="doc-biblioref">Bauwens et al. 2020</a>; <a href="references.html#ref-venter2020" role="doc-biblioref">Venter et al. 2020</a>)</span>. The policy value was not in the technical sophistication but in the speed and global consistency — a city-by-city comparison of lockdown effects would have been impossible without satellite data.</p>
+<p>The same logic applies to urban heat. Thermal sensors have made it possible to map land surface temperature at the city scale and link it to urban form, vegetation cover, and ultimately health outcomes <span class="citation" data-cites="voogt2003">(<a href="references.html#ref-voogt2003" role="doc-biblioref">Voogt and Oke 2003</a>)</span>. This is the kind of evidence that feeds directly into climate adaptation planning, and it depends on the processing pipeline being reproducible and transparent — which is where the abstraction in dashboards becomes a double-edged thing. Accessibility is a genuine gain, but it comes at the cost of methodological visibility.</p>
+<p>The Sentinel-Landsat distinction matters here too. Studies that need to track change over decades tend to anchor on Landsat because of its archive depth, while studies focused on current conditions or high spatial resolution tend to use Sentinel-2. The most robust work often integrates both <span class="citation" data-cites="wulder2019">(<a href="references.html#ref-wulder2019" role="doc-biblioref">Wulder et al. 2019</a>)</span>.</p>
 <hr>
 </section>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>This week positioned EO not simply as satellite imagery, but as an infrastructural system linking science, technology, and governance. The EO Dashboard presents environmental change as measurable and visual, yet the selection of indicators and spatial scales shapes how problems are framed. What is monitored becomes what is prioritised.</p>
-<p>From a spatial analysis perspective, I am particularly interested in how EO indicators might be integrated with socio-economic data to examine environmental inequality. For instance, combining NDVI-derived vegetation measures with deprivation indices could reveal patterns of uneven access to green space. However, integrating raster EO data with census geographies introduces methodological challenges such as scale mismatch and the modifiable areal unit problem (MAUP).</p>
-<p>Overall, Week 1 has highlighted that EO is not just technical measurement but a form of spatial evidence production. Moving forward, I aim to better understand how spectral data are transformed into policy-relevant indicators, and how that transformation can be critically evaluated.</p>
+<p>What I kept coming back to during this week was the dashboard framing itself. There is something worth thinking about in the fact that complex satellite data is presented as a clean, navigable interface where environmental problems appear as colour-coded indicators. That design involves choices about what to measure, how to aggregate it, and what threshold counts as significant. Those choices are not technical — they are political. What is monitored becomes what is visible, and what is visible shapes what gets addressed.</p>
+<p>I am also uncertain about something more methodological: the EO Dashboard treats spatial resolution as a property of the data, but it is also a property of the question. Measuring urban heat at 30 m resolution misses the block-level variation that actually matters for residents. I did not have a good sense from this week of where the discipline draws the line between “good enough resolution” and “not fit for purpose” — and I suspect that line is often drawn by data availability rather than by what the question actually requires.</p>
+<p>The MAUP point from the lecture stayed with me. Aggregating pixel-level data into administrative units is so routine in EO research that it barely gets mentioned, but the choice of unit can change the apparent relationship between variables substantially. That is not a problem unique to remote sensing, but the combination of high-resolution raster data and coarse administrative boundaries makes it particularly acute.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-bauwens2020" class="csl-entry" role="listitem">
 Bauwens, M., S. Compernolle, T. Stavrakou, J.-F. Müller, J. van Gent, H. Eskes, P. F. Levelt, et al. 2020. <span>“Impact of Coronavirus Outbreak on <span>NO</span><span class="math inline">\(_2\)</span> Pollution Assessed Using <span>TROPOMI</span> and <span>OMI</span> Observations.”</span> <em>Geophysical Research Letters</em> 47 (11). <a href="https://doi.org/10.1029/2020GL087978">https://doi.org/10.1029/2020GL087978</a>.
-</div>
-<div id="ref-jones2010" class="csl-entry" role="listitem">
-Jones, H. G., and R. A. Vaughan. 2010. <em>Remote Sensing of Vegetation: Principles, Techniques, and Applications</em>. Oxford University Press.
-</div>
-<div id="ref-li2019" class="csl-entry" role="listitem">
-Li, D., E. Bou-Zeid, and M. Oppenheimer. 2014. <span>“The Effectiveness of Cool and Green Roofs as Urban Heat Island Mitigation Strategies.”</span> <em>Environmental Research Letters</em> 9 (5): 055002. <a href="https://doi.org/10.1088/1748-9326/9/5/055002">https://doi.org/10.1088/1748-9326/9/5/055002</a>.
 </div>
 <div id="ref-venter2020" class="csl-entry" role="listitem">
 Venter, Z. S., K. Aunan, S. Chowdhury, and J. Lelieveld. 2020. <span>“<span>COVID-19</span> Lockdowns Cause Global Air Pollution Declines.”</span> <em>Proceedings of the National Academy of Sciences</em> 117 (32): 18984–90. <a href="https://doi.org/10.1073/pnas.2006853117">https://doi.org/10.1073/pnas.2006853117</a>.

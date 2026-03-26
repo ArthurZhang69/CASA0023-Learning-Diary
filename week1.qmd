@@ -4,38 +4,34 @@ title: "Week 1: Introduction to Earth Observation and the EO Dashboard"
 
 ## Summary
 
-This week introduced the conceptual foundations of Earth Observation (EO) and the overall aims of the module. A central focus was the EO Dashboard, which aggregates satellite-derived indicators from missions such as Sentinel and Landsat to visualise environmental change across space and time. What struck me most was how complex spectral data are translated into accessible, policy-facing narratives. Instead of interacting directly with raw raster datasets, users engage with processed indicators such as NO₂ concentration, land surface temperature, and vegetation indices.
+The first lecture set up something that turned out to be a useful frame for the rest of the module: Earth observation data rarely reaches you raw. The EO Dashboard is a good illustration — what looks like a simple interface for exploring NO₂ levels or vegetation cover is actually the end of a long pipeline involving atmospheric correction, radiometric calibration, index computation, and spatial aggregation. The practical made this concrete: loading Sentinel-2 imagery of Beijing required decisions about which bands to use, what resolution to resample to, and how to interpret the outputs — none of which are neutral choices.
 
 ![Scatter plot and false-colour composite from the Week 1 practical — Sentinel-2 imagery of Beijing.](images/clipboard-286994931.png)
 
-A key technical takeaway was the importance of spatial and temporal resolution trade-offs. Sentinel-2 provides 10 m spatial resolution with frequent revisit times, making it suitable for intra-urban analysis. Landsat, while coarser at 30 m resolution, offers a long historical archive (since the 1980s), which supports longitudinal environmental monitoring [@wulder2019]. These trade-offs highlight that dataset choice fundamentally shapes analytical outcomes.
+The resolution trade-off between Sentinel-2 and Landsat is genuinely consequential. At 10 m, Sentinel-2 can resolve individual buildings and street-level features that disappear into background noise at Landsat's 30 m. But Landsat's archive going back to the early 1970s means it can answer questions about long-run change that Sentinel-2 simply cannot yet [@wulder2019]. Neither is universally better — the right choice depends entirely on whether your research question is about spatial detail or temporal depth.
 
-Prior to computation, all bands were resampled to a common spatial resolution to ensure pixel-level alignment. This step is essential, as bands with different spatial resolutions (10 m vs 20 m) cannot be directly combined without introducing spatial inconsistency. The Brightness image highlighted highly reflective urban surfaces and industrial areas, while water bodies appeared dark. Greenness strongly enhanced vegetated areas, and Wetness clearly separated water and moist surfaces from built-up areas.
+The Tasselled Cap transformation was the most technically interesting part of the practical. Compressing the spectral information from multiple bands into three interpretable components — Brightness, Greenness, Wetness — is not just a dimensionality reduction trick. Each component has a physical meaning tied to surface properties, which is why it persists as a useful tool despite the availability of more sophisticated methods.
 
 ![Tasselled Cap transformation components — Brightness, Greenness, and Wetness.](images/clipboard-3385457097.png)
 
 ![Band spectral plots and histogram distributions from the Beijing scene.](images/clipboard-1105311166.png)
 
-![Additional spectral signature outputs from the Week 1 practical.](images/clipboard-2536540042.png)
-
-![R layout showing band comparisons across the study area.](images/clipboard-403720106.png)
-
 ------------------------------------------------------------------------
 
 ## Application
 
-EO dashboards demonstrate how satellite data are increasingly embedded in environmental governance. For example, Sentinel-5P data were widely used to assess NO₂ reductions during COVID-19 lockdowns, revealing measurable atmospheric change linked to mobility restrictions [@bauwens2020; @venter2020]. Similarly, land surface temperature derived from thermal sensors has informed urban heat island research and climate adaptation planning [@voogt2003; @li2019].
+The clearest recent demonstration of what EO dashboards can do in practice came during COVID-19 lockdowns, when Sentinel-5P NO₂ data provided near-real-time evidence of atmospheric change that ground station networks could not have captured at comparable spatial coverage [@bauwens2020; @venter2020]. The policy value was not in the technical sophistication but in the speed and global consistency — a city-by-city comparison of lockdown effects would have been impossible without satellite data.
 
-These applications illustrate how EO data can support Sustainable Development Goals (SDGs), particularly those relating to climate action, sustainable cities, and environmental health. However, dashboards necessarily abstract complex processing steps such as atmospheric correction, radiometric calibration, and cloud masking [@jones2010]. While this abstraction enhances accessibility, it may obscure methodological uncertainty.
+The same logic applies to urban heat. Thermal sensors have made it possible to map land surface temperature at the city scale and link it to urban form, vegetation cover, and ultimately health outcomes [@voogt2003]. This is the kind of evidence that feeds directly into climate adaptation planning, and it depends on the processing pipeline being reproducible and transparent — which is where the abstraction in dashboards becomes a double-edged thing. Accessibility is a genuine gain, but it comes at the cost of methodological visibility.
 
-The distinction between Sentinel and Landsat also reflects broader research design considerations. High-resolution data enable neighbourhood-scale environmental analysis, while long-term archives support trend detection and policy evaluation. Many contemporary studies integrate both datasets to leverage spatial detail and temporal depth, illustrating the multi-source nature of modern EO research.
+The Sentinel-Landsat distinction matters here too. Studies that need to track change over decades tend to anchor on Landsat because of its archive depth, while studies focused on current conditions or high spatial resolution tend to use Sentinel-2. The most robust work often integrates both [@wulder2019].
 
 ------------------------------------------------------------------------
 
 ## Reflection
 
-This week positioned EO not simply as satellite imagery, but as an infrastructural system linking science, technology, and governance. The EO Dashboard presents environmental change as measurable and visual, yet the selection of indicators and spatial scales shapes how problems are framed. What is monitored becomes what is prioritised.
+What I kept coming back to during this week was the dashboard framing itself. There is something worth thinking about in the fact that complex satellite data is presented as a clean, navigable interface where environmental problems appear as colour-coded indicators. That design involves choices about what to measure, how to aggregate it, and what threshold counts as significant. Those choices are not technical — they are political. What is monitored becomes what is visible, and what is visible shapes what gets addressed.
 
-From a spatial analysis perspective, I am particularly interested in how EO indicators might be integrated with socio-economic data to examine environmental inequality. For instance, combining NDVI-derived vegetation measures with deprivation indices could reveal patterns of uneven access to green space. However, integrating raster EO data with census geographies introduces methodological challenges such as scale mismatch and the modifiable areal unit problem (MAUP).
+I am also uncertain about something more methodological: the EO Dashboard treats spatial resolution as a property of the data, but it is also a property of the question. Measuring urban heat at 30 m resolution misses the block-level variation that actually matters for residents. I did not have a good sense from this week of where the discipline draws the line between "good enough resolution" and "not fit for purpose" — and I suspect that line is often drawn by data availability rather than by what the question actually requires.
 
-Overall, Week 1 has highlighted that EO is not just technical measurement but a form of spatial evidence production. Moving forward, I aim to better understand how spectral data are transformed into policy-relevant indicators, and how that transformation can be critically evaluated.
+The MAUP point from the lecture stayed with me. Aggregating pixel-level data into administrative units is so routine in EO research that it barely gets mentioned, but the choice of unit can change the apparent relationship between variables substantially. That is not a problem unique to remote sensing, but the combination of high-resolution raster data and coarse administrative boundaries makes it particularly acute.
