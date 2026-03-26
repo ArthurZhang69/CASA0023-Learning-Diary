@@ -7,27 +7,15 @@ bibliography: references.bib
 
 This week extended the classification methods from Week 6 into two more sophisticated approaches: **sub-pixel spectral unmixing** and **Object-Based Image Analysis (OBIA)** using SNIC superpixels. Both address a fundamental limitation of standard pixel-based classification — that every pixel in medium-resolution imagery (30m Landsat) is likely to contain a mixture of land cover types rather than a single pure class [@jones2010].
 
-**Spectral unmixing** works by defining spectrally pure *endmembers* for each land cover class and computing the fractional contribution of each endmember to every pixel. In GEE this is implemented via `.unmix()`, with constrained outputs ensuring fractions are non-negative and sum to 1. In the practical I extracted mean spectral values from four point samples (urban, grass, bare earth, water) over the Landsat 8 image of Ahmedabad, and used these as endmembers.
-
-![Point samples, I found that using points was quite different from drawing polygon and usually does not requires to pin multiple points as for polygons.](images/clipboard-276808664.png)
-
-The result reveals a smooth, continuous surface where each pixel holds a mixture of land cover proportions — in contrast to the hard boundaries produced by Random Forest last week. The Sabarmati River is particularly striking as a clean black corridor, reflecting near-zero contributions from all non-water endmembers.
+**Spectral unmixing** defines spectrally pure *endmembers* for each land cover class and computes the fractional contribution of each to every pixel. In GEE this is implemented via `.unmix()`, with constrained outputs ensuring fractions sum to 1. The result is a smooth, continuous surface — in contrast to the hard boundaries produced by Random Forest last week. The Sabarmati River appears as a clean black corridor, reflecting near-zero contributions from all non-water endmembers.
 
 ![Sub-pixel Classification Visualization:Red represents urban area; Blue represents bare earth(ground) and Green represents grass and vegetation, Black represents water.](images/clipboard-4153378931.png)
 
-**SNIC (Simple Non-Iterative Clustering)** superpixels take a different approach: rather than classifying pixels individually, pixels are first grouped into spatially coherent *objects* based on spectral and spatial proximity. A hexagonal seed grid is placed at regular intervals and pixels are assigned to the nearest seed based on a combination of colour distance and spatial distance, controlled by the `compactness` parameter. The resulting objects follow land cover boundaries far more naturally than a regular grid would. Per-object NDVI and standard deviation were then computed as additional features that could feed into a subsequent classifier — adding shape and texture context that pure spectral classification misses.
+**SNIC superpixels** take a different approach: pixels are first grouped into spatially coherent *objects* based on spectral and spatial proximity, controlled by the `compactness` parameter. The resulting objects follow land cover boundaries far more naturally than a regular grid. Per-object NDVI and standard deviation were then computed as additional features — adding shape and texture context that pure spectral classification misses.
 
-::: {layout-ncol="3"}
-![NDVI per object](images/clipboard-213771446.png)
+The lecture also covered accuracy assessment. The standard **confusion matrix** yields producer's accuracy (TP/TP+FN), user's accuracy (TP/TP+FP), and overall accuracy. The **F1 score** — harmonic mean of precision and recall — avoids optimising one at the expense of the other. The **ROC curve** and **AUC** show classifier performance across all decision thresholds; random guessing gives AUC = 0.5.
 
-![SNIC](images/clipboard-1417547169.png)
-
-![Standard Deviation](images/clipboard-325395979.png)
-:::
-
-The lecture also covered accuracy assessment in depth. The standard **confusion matrix** yields three key metrics: **producer's accuracy** (TP/TP+FN — how well the classification meets the creator's expectation), **user's accuracy** (TP/TP+FP — how reliable the map is for the end user), and **overall accuracy**. Beyond these, the lecture introduced the **F1 score** — the harmonic mean of precision and recall — which avoids the trap of optimising for one at the expense of the other. The **ROC curve** and **AUC** (Area Under Curve) go further still, showing classifier performance across all possible decision thresholds. A perfect classifier has AUC = 1; random guessing gives 0.5. These metrics matter because overall accuracy alone can be misleading when class sizes are imbalanced — a classifier that always predicts "urban" in a 90% urban scene will look 90% accurate while being completely useless.
-
-A critical warning from @karasiak2022 is that **spatial autocorrelation between training and test pixels** — when both are drawn from the same polygon — can massively inflate apparent accuracy. Nearby pixels share similar spectral values (Tobler's first law), so a model trained on part of a polygon will trivially perform well on the rest of it. The solution is **spatial cross-validation**: partitioning training and test sets using geographic distance (e.g. a buffer based on Moran's I) to ensure spatial independence. The pixel-level train-test split used in Week 6 partially addresses this but does not fully resolve the problem when training polygons are spatially clustered.
+A critical warning from @karasiak2022 is that **spatial autocorrelation between training and test pixels** — when both are drawn from the same polygon — can massively inflate apparent accuracy. The solution is **spatial cross-validation**: partitioning sets using geographic distance to ensure spatial independence. The pixel-level split used in Week 6 partially addresses this but does not fully resolve the problem when training polygons are spatially clustered.
 
 ------------------------------------------------------------------------
 

@@ -227,51 +227,16 @@ div.csl-indent {
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>This week extended the classification methods from Week 6 into two more sophisticated approaches: <strong>sub-pixel spectral unmixing</strong> and <strong>Object-Based Image Analysis (OBIA)</strong> using SNIC superpixels. Both address a fundamental limitation of standard pixel-based classification — that every pixel in medium-resolution imagery (30m Landsat) is likely to contain a mixture of land cover types rather than a single pure class <span class="citation" data-cites="jones2010">(<a href="references.html#ref-jones2010" role="doc-biblioref">Jones and Vaughan 2010</a>)</span>.</p>
-<p><strong>Spectral unmixing</strong> works by defining spectrally pure <em>endmembers</em> for each land cover class and computing the fractional contribution of each endmember to every pixel. In GEE this is implemented via <code>.unmix()</code>, with constrained outputs ensuring fractions are non-negative and sum to 1. In the practical I extracted mean spectral values from four point samples (urban, grass, bare earth, water) over the Landsat 8 image of Ahmedabad, and used these as endmembers.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-276808664.png" class="img-fluid figure-img"></p>
-<figcaption>Point samples, I found that using points was quite different from drawing polygon and usually does not requires to pin multiple points as for polygons.</figcaption>
-</figure>
-</div>
-<p>The result reveals a smooth, continuous surface where each pixel holds a mixture of land cover proportions — in contrast to the hard boundaries produced by Random Forest last week. The Sabarmati River is particularly striking as a clean black corridor, reflecting near-zero contributions from all non-water endmembers.</p>
+<p><strong>Spectral unmixing</strong> defines spectrally pure <em>endmembers</em> for each land cover class and computes the fractional contribution of each to every pixel. In GEE this is implemented via <code>.unmix()</code>, with constrained outputs ensuring fractions sum to 1. The result is a smooth, continuous surface — in contrast to the hard boundaries produced by Random Forest last week. The Sabarmati River appears as a clean black corridor, reflecting near-zero contributions from all non-water endmembers.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/clipboard-4153378931.png" class="img-fluid figure-img"></p>
 <figcaption>Sub-pixel Classification Visualization:Red represents urban area; Blue represents bare earth(ground) and Green represents grass and vegetation, Black represents water.</figcaption>
 </figure>
 </div>
-<p><strong>SNIC (Simple Non-Iterative Clustering)</strong> superpixels take a different approach: rather than classifying pixels individually, pixels are first grouped into spatially coherent <em>objects</em> based on spectral and spatial proximity. A hexagonal seed grid is placed at regular intervals and pixels are assigned to the nearest seed based on a combination of colour distance and spatial distance, controlled by the <code>compactness</code> parameter. The resulting objects follow land cover boundaries far more naturally than a regular grid would. Per-object NDVI and standard deviation were then computed as additional features that could feed into a subsequent classifier — adding shape and texture context that pure spectral classification misses.</p>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-213771446.png" class="img-fluid figure-img"></p>
-<figcaption>NDVI per object</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-1417547169.png" class="img-fluid figure-img"></p>
-<figcaption>SNIC</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-325395979.png" class="img-fluid figure-img"></p>
-<figcaption>Standard Deviation</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>The lecture also covered accuracy assessment in depth. The standard <strong>confusion matrix</strong> yields three key metrics: <strong>producer’s accuracy</strong> (TP/TP+FN — how well the classification meets the creator’s expectation), <strong>user’s accuracy</strong> (TP/TP+FP — how reliable the map is for the end user), and <strong>overall accuracy</strong>. Beyond these, the lecture introduced the <strong>F1 score</strong> — the harmonic mean of precision and recall — which avoids the trap of optimising for one at the expense of the other. The <strong>ROC curve</strong> and <strong>AUC</strong> (Area Under Curve) go further still, showing classifier performance across all possible decision thresholds. A perfect classifier has AUC = 1; random guessing gives 0.5. These metrics matter because overall accuracy alone can be misleading when class sizes are imbalanced — a classifier that always predicts “urban” in a 90% urban scene will look 90% accurate while being completely useless.</p>
-<p>A critical warning from <span class="citation" data-cites="karasiak2022">Karasiak et al. (<a href="references.html#ref-karasiak2022" role="doc-biblioref">2022</a>)</span> is that <strong>spatial autocorrelation between training and test pixels</strong> — when both are drawn from the same polygon — can massively inflate apparent accuracy. Nearby pixels share similar spectral values (Tobler’s first law), so a model trained on part of a polygon will trivially perform well on the rest of it. The solution is <strong>spatial cross-validation</strong>: partitioning training and test sets using geographic distance (e.g.&nbsp;a buffer based on Moran’s I) to ensure spatial independence. The pixel-level train-test split used in Week 6 partially addresses this but does not fully resolve the problem when training polygons are spatially clustered.</p>
+<p><strong>SNIC superpixels</strong> take a different approach: pixels are first grouped into spatially coherent <em>objects</em> based on spectral and spatial proximity, controlled by the <code>compactness</code> parameter. The resulting objects follow land cover boundaries far more naturally than a regular grid. Per-object NDVI and standard deviation were then computed as additional features — adding shape and texture context that pure spectral classification misses.</p>
+<p>The lecture also covered accuracy assessment. The standard <strong>confusion matrix</strong> yields producer’s accuracy (TP/TP+FN), user’s accuracy (TP/TP+FP), and overall accuracy. The <strong>F1 score</strong> — harmonic mean of precision and recall — avoids optimising one at the expense of the other. The <strong>ROC curve</strong> and <strong>AUC</strong> show classifier performance across all decision thresholds; random guessing gives AUC = 0.5.</p>
+<p>A critical warning from <span class="citation" data-cites="karasiak2022">Karasiak et al. (<a href="references.html#ref-karasiak2022" role="doc-biblioref">2022</a>)</span> is that <strong>spatial autocorrelation between training and test pixels</strong> — when both are drawn from the same polygon — can massively inflate apparent accuracy. The solution is <strong>spatial cross-validation</strong>: partitioning sets using geographic distance to ensure spatial independence. The pixel-level split used in Week 6 partially addresses this but does not fully resolve the problem when training polygons are spatially clustered.</p>
 <hr>
 </section>
 <section id="applications" class="level2">
